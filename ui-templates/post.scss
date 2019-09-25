@@ -1,0 +1,20 @@
+$white: #f9fafa;
+$blue: #215366;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+
+.post {
+  background-color: $secondary-gray;
+
+  font-family: "Quicksand", sans-serif;
+
+  label {
+    color: $white;
+  }
+
+  button {
+    background-color: $secondary-gray;
+    color: $white;
+  }
+}

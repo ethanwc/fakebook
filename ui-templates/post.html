@@ -10,8 +10,11 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="post.css" />
 
-    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+    <title>Post</title>
   </head>
   <body>
     <div class="container"></div>
@@ -30,5 +33,17 @@
       integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
       crossorigin="anonymous"
     ></script>
+
+    <div class="container">
+      <div class="post w-75 rounded mx-auto m-2">
+        <form action="#">
+          <div class="form-group">
+            <label for="postinput" class="ml-3 mt-2">New Post</label>
+            <textarea class="form-control" id="postinput" rows="4" placeholder="Enter a message to share."></textarea>
+          </div>
+        </form>
+        <button class="btn post-button float-right">Share</button>
+      </div>
+    </div>
   </body>
 </html>
