@@ -1,0 +1,23 @@
+.container {
+  background-color: #9cb3b8;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container i {
+  font-size: 3em;
+  color: #215366;
+}
+
+.container i:hover {
+  color: #f9fafa;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 2em;
+}
+/*# sourceMappingURL=profile.css.map */

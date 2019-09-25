@@ -1,0 +1,27 @@
+$white: #f9fafa;
+$blue: #215366;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+
+.container {
+  background-color: $mainblue;
+  font-family: "Quicksand", sans-serif;
+  i {
+    font-size: 3em;
+    color: $blue;
+
+    &:hover {
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
+
+.name {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 2em;
+}
