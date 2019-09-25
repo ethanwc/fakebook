@@ -1,13 +1,6 @@
-.container {
-  margin: 60px auto;
-  border-radius: 7px;
-  padding: 10px 10px;
-  background-color: #c2cdd9;
-}
-
 .status-bar {
   border-radius: 7px;
-  background-color: #efece3;
+  background-color: #6cafb4;
   padding: 5px 10px;
   margin: 5px 5px;
 }
@@ -15,14 +8,14 @@
 .status-bar i {
   margin-top: 10px;
   font-size: 30px;
-  color: #335a85;
+  color: #215366;
   margin-left: 6px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .status-bar i:hover {
-  color: #06215a;
+  color: #f9fafa;
   cursor: pointer;
 }
 
@@ -38,74 +31,74 @@
   border-radius: 15px;
 }
 
-.contact {
+.contact, .helper {
   border-radius: 7px;
-  background-color: #efece3;
+  background-color: #6cafb4;
   padding: 5px 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   margin: 5px 10px;
 }
 
-font .contact:hover {
-  background-color: #c58557;
+font .contact:hover, font .helper:hover {
+  background-color: #f9fafa;
   cursor: pointer;
 }
 
-.contact i {
+.contact i, .helper i {
   margin-top: 10px;
   font-size: 30px;
-  color: #335a85;
+  color: #215366;
   margin-left: 6px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.contact h5 {
+.contact h5, .helper h5 {
   margin-top: 10px;
-  color: #335a85;
+  color: #215366;
 }
 
 .contact-break {
   margin: 5px 20px;
-  border: 1px solid #c2cdd9;
+  border: 1px solid #f9fafa;
   border-radius: 5px;
 }
 
 .sidebar {
-  background-color: #335a85;
+  background-color: #215366;
 }
 
 .chatbar {
-  background-color: #335a85;
+  background-color: #215366;
   padding: 10px 10px;
 }
 
 input {
   border: none;
   border-radius: 80px;
-  width: 80%;
-  padding-left: 10px;
+  width: 100%;
+  padding-left: 15px;
   margin-top: 10px;
 }
 
 input::-webkit-input-placeholder {
-  color: #335a85;
+  color: #215366;
   font-weight: 300;
 }
 
 input:-ms-input-placeholder {
-  color: #335a85;
+  color: #215366;
   font-weight: 300;
 }
 
 input::-ms-input-placeholder {
-  color: #335a85;
+  color: #215366;
   font-weight: 300;
 }
 
 input::placeholder {
-  color: #335a85;
+  color: #215366;
   font-weight: 300;
 }
 
@@ -114,19 +107,40 @@ input:focus {
 }
 
 .sent {
-  background-color: #efece3;
+  background-color: #6cafb4;
 }
 
 .sent p {
-  color: #335a85;
+  color: #215366;
 }
 
 .recieved {
-  background-color: #335a85;
+  background-color: #7d848c;
+}
+
+.recieved p {
+  color: #f9fafa;
 }
 
 .time {
   font-weight: 100;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "sans-serif";
+}
+
+.mesage-box {
+  background-color: #215366;
+}
+
+.messages {
+  background-color: #215366;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 800px;
+}
+
+.search-bar {
+  background-color: #f9fafa;
 }
 /*# sourceMappingURL=chat.css.map */

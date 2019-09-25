@@ -1,21 +1,18 @@
-$darkblue: #06215a;
-$blue: #335a85;
-$lightblue: #c2cdd9;
-$white: #efece3;
-$brown: #c58557;
-
-
-.container {
-  margin: 60px auto;
-  border-radius: 7px;
-  padding: 10px 10px;
-  height: 400px;
-  background-color: $lightblue;
-}
+$white: #f9fafa;
+$blue: #215366;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+// .container {
+//   margin: 60px auto;
+//   border-radius: 7px;
+//   padding: 10px 10px;
+//   background-color: $lightblue;
+// }
 
 .status-bar {
   border-radius: 7px;
-  background-color: $white;
+  background-color: $secondary-blue;
   padding: 5px 10px;
 
   margin: 5px 5px;
@@ -27,7 +24,7 @@ $brown: #c58557;
     transition: 0.3s;
 
     &:hover {
-      color: $darkblue;
+      color: $white;
       cursor: pointer;
     }
   }
@@ -39,25 +36,20 @@ $brown: #c58557;
   border-radius: 25px;
 }
 
-.messages {
-  height: 400px;
-  overflow-y: scroll;
-}
-
 .message-image {
   width: 30px;
   height: 30px;
   border-radius: 15px;
 }
 
-.contact {
+.contact, .helper {
   border-radius: 7px;
-  background-color: $white;
+  background-color: $secondary-blue;
   padding: 5px 10px;
   transition: 0.3s;
   margin: 5px 10px;
   font &:hover {
-    background-color: $brown;
+    background-color: $white;
     cursor: pointer;
   }
   i {
@@ -76,7 +68,7 @@ $brown: #c58557;
 
 .contact-break {
   margin: 5px 20px;
-  border: 1px solid $lightblue;
+  border: 1px solid $white;
   border-radius: 5px;
 }
 .sidebar {
@@ -91,8 +83,8 @@ $brown: #c58557;
 input {
   border: none;
   border-radius: 80px;
-  width: 80%;
-  padding-left: 10px;
+  width: 100%;
+  padding-left: 15px;
   margin-top: 10px;
 
   &::placeholder {
@@ -106,17 +98,37 @@ input {
 }
 
 .sent {
-  background-color: $white;
+  background-color: $secondary-blue;
   p {
     color: $blue;
   }
 }
 
 .recieved {
-  background-color: $blue;
+  background-color: $secondary-gray;
+  p {
+    color: $white;
+  }
 }
 
 .time {
   font-weight: 100;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif'
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "sans-serif";
+}
+
+.mesage-box {
+  background-color: $blue;
+}
+
+.messages {
+  background-color: $blue;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 800px;
+}
+
+.search-bar {
+  background-color: $white;
 }
