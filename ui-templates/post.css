@@ -1,5 +1,10 @@
+.container {
+  background-color: #9cb3b8;
+}
+
 .post {
   background-color: #7d848c;
+  font-size: 2.5em;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -7,8 +12,32 @@
   color: #f9fafa;
 }
 
+.post i {
+  font-size: 2em;
+}
+
+.post i:hover {
+  color: #f9fafa;
+  cursor: pointer;
+}
+
 .post button {
   background-color: #7d848c;
   color: #f9fafa;
+}
+
+.comment {
+  background-color: #6cafb4;
+  font-size: 2em;
+}
+
+.comment i {
+  font-size: 2em;
+  color: #215366;
+}
+
+.comment i:hover {
+  color: #f9fafa;
+  cursor: pointer;
 }
 /*# sourceMappingURL=post.css.map */
