@@ -1,0 +1,110 @@
+.container {
+  margin: 60px auto;
+  border-radius: 7px;
+  padding: 10px 10px;
+  background-color: #c2cdd9;
+}
+
+.status-bar {
+  border-radius: 7px;
+  background-color: #efece3;
+  padding: 5px 10px;
+  margin: 5px 5px;
+}
+
+.status-bar i {
+  margin-top: 10px;
+  font-size: 30px;
+  color: #335a85;
+  margin-left: 6px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.status-bar i:hover {
+  color: #06215a;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.contact {
+  border-radius: 7px;
+  background-color: #efece3;
+  padding: 5px 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin: 5px 10px;
+}
+
+font .contact:hover {
+  background-color: #c58557;
+  cursor: pointer;
+}
+
+.contact i {
+  margin-top: 10px;
+  font-size: 30px;
+  color: #335a85;
+  margin-left: 6px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.contact h5 {
+  margin-top: 10px;
+  color: #06215a;
+}
+
+.contact-break {
+  margin: 5px 20px;
+  border: 1px solid #c2cdd9;
+  border-radius: 5px;
+}
+
+.sidebar {
+  background-color: #335a85;
+}
+
+.chatbar {
+  background-color: #efece3;
+  border-radius: 7px;
+  padding: 10px 10px;
+}
+
+input {
+  border: none;
+  border-radius: 80px;
+  width: 80%;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+input::-webkit-input-placeholder {
+  color: #335a85;
+  font-weight: 300;
+}
+
+input:-ms-input-placeholder {
+  color: #335a85;
+  font-weight: 300;
+}
+
+input::-ms-input-placeholder {
+  color: #335a85;
+  font-weight: 300;
+}
+
+input::placeholder {
+  color: #335a85;
+  font-weight: 300;
+}
+
+input:focus {
+  outline: none;
+}
+/*# sourceMappingURL=chat.css.map */

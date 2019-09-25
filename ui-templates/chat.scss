@@ -1,0 +1,94 @@
+$darkblue: #06215a;
+$blue: #335a85;
+$lightblue: #c2cdd9;
+$white: #efece3;
+$brown: #c58557;
+
+.container {
+  margin: 60px auto;
+  border-radius: 7px;
+  padding: 10px 10px;
+  background-color: $lightblue;
+}
+
+.status-bar {
+  border-radius: 7px;
+  background-color: $white;
+  padding: 5px 10px;
+
+  margin: 5px 5px;
+  i {
+    margin-top: 10px;
+    font-size: 30px;
+    color: $blue;
+    margin-left: 6px;
+    transition: 0.3s;
+
+    &:hover {
+      color: $darkblue;
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.contact {
+  border-radius: 7px;
+  background-color: $white;
+  padding: 5px 10px;
+  transition: 0.3s;
+  margin: 5px 10px;
+  font &:hover {
+    background-color: $brown;
+    cursor: pointer;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 30px;
+    color: $blue;
+    margin-left: 6px;
+    transition: 0.3s;
+  }
+
+  h5 {
+    margin-top: 10px;
+    color: $darkblue;
+  }
+}
+
+.contact-break {
+  margin: 5px 20px;
+  border: 1px solid $lightblue;
+  border-radius: 5px;
+}
+.sidebar {
+  background-color: $blue;
+}
+
+.chatbar {
+  background-color: $white;
+  border-radius: 7px;
+  padding: 10px 10px;
+}
+
+input {
+  border: none;
+  border-radius: 80px;
+  width: 80%;
+  padding-left: 10px;
+  margin-top: 10px;
+
+  &::placeholder {
+    color: $blue;
+    font-weight: 300;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
