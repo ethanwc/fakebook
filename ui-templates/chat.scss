@@ -4,10 +4,12 @@ $lightblue: #c2cdd9;
 $white: #efece3;
 $brown: #c58557;
 
+
 .container {
   margin: 60px auto;
   border-radius: 7px;
   padding: 10px 10px;
+  height: 400px;
   background-color: $lightblue;
 }
 
@@ -37,6 +39,17 @@ $brown: #c58557;
   border-radius: 25px;
 }
 
+.messages {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.message-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
 .contact {
   border-radius: 7px;
   background-color: $white;
@@ -57,7 +70,7 @@ $brown: #c58557;
 
   h5 {
     margin-top: 10px;
-    color: $darkblue;
+    color: $blue;
   }
 }
 
@@ -71,8 +84,7 @@ $brown: #c58557;
 }
 
 .chatbar {
-  background-color: $white;
-  border-radius: 7px;
+  background-color: $blue;
   padding: 10px 10px;
 }
 
@@ -91,4 +103,20 @@ input {
   &:focus {
     outline: none;
   }
+}
+
+.sent {
+  background-color: $white;
+  p {
+    color: $blue;
+  }
+}
+
+.recieved {
+  background-color: $blue;
+}
+
+.time {
+  font-weight: 100;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif'
 }
