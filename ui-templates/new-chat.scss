@@ -7,7 +7,7 @@ $black: #000000;
 
 .chat-box-bar {
   background-color: $white;
-  border-bottom: 2px solid $secondary-gray;
+  border-bottom: 1px solid $secondary-gray;
 }
 
 .chat-box {
@@ -36,7 +36,7 @@ $black: #000000;
 }
 
 .sent {
-  background-color: $white;
+  background-color: $secondary-gray;
 }
 
 .received {
