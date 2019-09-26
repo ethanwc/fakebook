@@ -21,6 +21,15 @@
   opacity: 0.21;
 }
 
+.contact {
+  background-color: #9cb3b8;
+}
+
+.contact :hover {
+  background-color: #215366;
+  cursor: pointer;
+}
+
 .message {
   color: #000000;
   opacity: 0.8;

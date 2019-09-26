@@ -11,7 +11,7 @@ $black: #000000;
 }
 
 .contact-box-bar {
-    border-bottom: 1px solid $secondary-gray;
+  border-bottom: 1px solid $secondary-gray;
 }
 
 .chat-box {
@@ -26,6 +26,14 @@ $black: #000000;
 .text-unimp {
   color: $black;
   opacity: 0.21;
+}
+
+.contact {
+  background-color: $mainblue;
+  :hover {
+    background-color: $blue;
+    cursor: pointer;
+  }
 }
 
 .message {
