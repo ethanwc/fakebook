@@ -5,9 +5,21 @@ $mainblue: #9cb3b8;
 $secondary-blue: #6cafb4;
 $black: #000000;
 
+html,
+body {
+  height: 100%;
+}
+.scrollable-element {
+  scrollbar-width: none;
+}
+
+.min-100 {
+  min-height: 100%;
+}
 .chat-box-bar {
   background-color: $white;
   border-bottom: 1px solid $secondary-gray;
+  border-left: 1px solid $secondary-gray;
 }
 
 .contact-box-bar {
@@ -16,6 +28,7 @@ $black: #000000;
 
 .chat-box {
   background-color: $white;
+  border-left: 1px solid $secondary-gray;
 }
 
 .text-imp {
