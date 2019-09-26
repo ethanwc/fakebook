@@ -1,0 +1,28 @@
+$white: #fffafa;
+$blue: #215366;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+$black: #000000;
+
+.chat-box-bar {
+  background-color: $white;
+  border-bottom: 2px solid $secondary-gray;
+}
+
+.chat-box {
+  background-color: $white;
+}
+
+.text-imp {
+  color: $black;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: $black;
+  opacity: 0.21;
+}
+
+
+

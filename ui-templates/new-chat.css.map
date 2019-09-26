@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,AAAA,aAAa,CAAC;EACZ,gBAAgB,EARV,OAAO;EASb,aAAa,EAAE,GAAG,CAAC,KAAK,CAPT,OAAO;CAQvB;;AAED,AAAA,SAAS,CAAC;EACR,gBAAgB,EAbV,OAAO;CAcd;;AAED,AAAA,SAAS,CAAC;EACR,KAAK,EAZC,OAAO;EAab,OAAO,EAAE,CAAC;CACX;;AAED,AAAA,WAAW,CAAC;EACV,KAAK,EAjBC,OAAO;EAkBb,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "new-chat.scss"
+    ],
+    "names": [],
+    "file": "new-chat.css"
+}

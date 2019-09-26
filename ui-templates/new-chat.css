@@ -1,0 +1,19 @@
+.chat-box-bar {
+  background-color: #fffafa;
+  border-bottom: 2px solid #7d848c;
+}
+
+.chat-box {
+  background-color: #fffafa;
+}
+
+.text-imp {
+  color: #000000;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: #000000;
+  opacity: 0.21;
+}
+/*# sourceMappingURL=new-chat.css.map */
