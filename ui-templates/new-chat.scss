@@ -10,6 +10,10 @@ $black: #000000;
   border-bottom: 1px solid $secondary-gray;
 }
 
+.contact-box-bar {
+    border-bottom: 1px solid $secondary-gray;
+}
+
 .chat-box {
   background-color: $white;
 }
@@ -36,9 +40,12 @@ $black: #000000;
 }
 
 .sent {
-  background-color: $secondary-gray;
+  border: 1px solid $secondary-gray;
+  border-radius: 20px;
 }
 
 .received {
-  background-color: $secondary-blue;
+  background-color: $mainblue;
+  border: 1px solid $secondary-gray;
+  border-radius: 20px;
 }

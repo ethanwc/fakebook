@@ -3,6 +3,10 @@
   border-bottom: 1px solid #7d848c;
 }
 
+.contact-box-bar {
+  border-bottom: 1px solid #7d848c;
+}
+
 .chat-box {
   background-color: #fffafa;
 }
@@ -29,10 +33,13 @@
 }
 
 .sent {
-  background-color: #7d848c;
+  border: 1px solid #7d848c;
+  border-radius: 20px;
 }
 
 .received {
-  background-color: #6cafb4;
+  background-color: #9cb3b8;
+  border: 1px solid #7d848c;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=new-chat.css.map */
