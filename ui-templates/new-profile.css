@@ -7,6 +7,22 @@ body {
   background-color: #fffafa;
 }
 
+.comment {
+  font-size: 1.5rem;
+}
+
+.new-post {
+  background-color: #fffafa;
+}
+
+.new-post p {
+  font-size: 1.5rem;
+}
+
+.post-input {
+  font-size: 1.5rem;
+}
+
 .post {
   background-color: #fffafa;
 }

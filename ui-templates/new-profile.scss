@@ -14,6 +14,22 @@ body {
   background-color: $white;
 }
 
+.comment {
+  font-size: 1.5rem;
+}
+
+.new-post {
+  background-color: $white;
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.post-input {
+  font-size: 1.5rem;
+}
+
 .post {
   background-color: $white;
   i {
