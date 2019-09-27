@@ -26,6 +26,10 @@ body {
   border-left: 1px solid #7d848c;
 }
 
+.chat-input {
+  font-size: 1.5rem;
+}
+
 .text-imp {
   color: #000000;
   opacity: 1;
@@ -33,16 +37,26 @@ body {
 
 .text-unimp {
   color: #000000;
-  opacity: 0.21;
+  opacity: 0.3;
 }
 
-.contact {
-  background-color: #9cb3b8;
+i {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+i:hover {
+  color: #1f7292;
+  cursor: pointer;
 }
 
 .contact :hover {
-  background-color: #215366;
+  background-color: #1f7292;
   cursor: pointer;
+}
+
+.contact p {
+  font-size: 1.5rem;
 }
 
 .message {
@@ -50,10 +64,14 @@ body {
   opacity: 0.8;
 }
 
+.message p {
+  font-size: 1.5rem;
+}
+
 .img-thumbnail-small {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
 }
 
 .sent {
@@ -62,8 +80,12 @@ body {
 }
 
 .received {
-  background-color: #9cb3b8;
+  background-color: #1f7292;
   border: 1px solid #7d848c;
   border-radius: 20px;
+}
+
+.received p {
+  color: #fffafa;
 }
 /*# sourceMappingURL=new-chat.css.map */
