@@ -61,16 +61,21 @@ i {
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
 .message {
   color: $black;
-  opacity: 0.8;
+  opacity: 1;
 
   p {
     font-size: 1.5rem;
+  }
+}
+.message-name {
+  p {
+    opacity: 0.3;
   }
 }
 
