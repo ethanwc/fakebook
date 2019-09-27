@@ -1,0 +1,66 @@
+$white: #fffafa;
+$blue: #1f7292;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+$black: #000000;
+
+html,
+body {
+  height: 100%;
+}
+
+.contact {
+  background-color: $white;
+}
+
+.post {
+  background-color: $white;
+  i {
+    font-size: 3rem;
+  }
+}
+
+.scrollable-element {
+  scrollbar-width: none;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+
+.text-imp {
+  color: $black;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: $black;
+  opacity: 0.3;
+}
+
+i {
+  transition: 0.3s;
+  &:hover {
+    color: $blue;
+    cursor: pointer;
+  }
+}
+
+.contact {
+  p {
+    font-size: 2rem;
+  }
+}
+
+.img-thumbnail-large {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.img-thumbnail-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
