@@ -1,23 +1,35 @@
-.container {
-  background-color: #9cb3b8;
-  font-family: "Quicksand", sans-serif;
+html,
+body {
+  height: 100%;
 }
 
-.container i {
-  font-size: 3em;
-  color: #215366;
+.posts {
+  background-color: #fffafa;
 }
 
-.container i:hover {
-  color: #f9fafa;
-  cursor: pointer;
+.scrollable-element {
+  scrollbar-width: none;
 }
 
-.name {
-  font-size: 2.5em;
+.min-100 {
+  min-height: 100%;
 }
 
-p {
-  font-size: 2em;
+.info h5 {
+  font-size: 2rem;
+}
+
+.info p {
+  font-size: 1.5rem;
+}
+
+.text-imp {
+  color: #000000;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: #000000;
+  opacity: 0.7;
 }
 /*# sourceMappingURL=profile.css.map */

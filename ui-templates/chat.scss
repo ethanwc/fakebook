@@ -1,134 +1,100 @@
-$white: #f9fafa;
-$blue: #215366;
+$white: #fffafa;
+$blue: #1f7292;
 $secondary-gray: #7d848c;
 $mainblue: #9cb3b8;
 $secondary-blue: #6cafb4;
-// .container {
-//   margin: 60px auto;
-//   border-radius: 7px;
-//   padding: 10px 10px;
-//   background-color: $lightblue;
-// }
+$black: #000000;
 
-.status-bar {
-  border-radius: 7px;
-  background-color: $secondary-blue;
-  padding: 5px 10px;
+html,
+body {
+  height: 100%;
+}
 
-  margin: 5px 5px;
-  i {
-    margin-top: 10px;
-    font-size: 30px;
+.scrollable-element {
+  scrollbar-width: none;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+.chat-box-bar {
+  background-color: $white;
+  border-bottom: 1px solid $secondary-gray;
+  border-left: 1px solid $secondary-gray;
+}
+
+.contact-box-bar {
+  border-bottom: 1px solid $secondary-gray;
+}
+
+.chat-box {
+  background-color: $white;
+  border-left: 1px solid $secondary-gray;
+}
+
+.chat-input {
+  font-size: 1.5rem;
+}
+
+.text-imp {
+  color: $black;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: $black;
+  opacity: 0.3;
+}
+
+i {
+  transition: 0.3s;
+  &:hover {
     color: $blue;
-    margin-left: 6px;
-    transition: 0.3s;
-
-    &:hover {
-      color: $white;
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }
 
-.profile-image {
+.contact {
+  :hover {
+    background-color: $blue;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.message {
+  color: $black;
+  opacity: 1;
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+.message-name {
+  p {
+    opacity: 0.3;
+  }
+}
+
+.img-thumbnail-small {
   width: 50px;
   height: 50px;
   border-radius: 25px;
 }
 
-.message-image {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-}
-
-.contact, .helper {
-  border-radius: 7px;
-  background-color: $secondary-blue;
-  padding: 5px 10px;
-  transition: 0.3s;
-  margin: 5px 10px;
-  font &:hover {
-    background-color: $white;
-    cursor: pointer;
-  }
-  i {
-    margin-top: 10px;
-    font-size: 30px;
-    color: $blue;
-    margin-left: 6px;
-    transition: 0.3s;
-  }
-
-  h5 {
-    margin-top: 10px;
-    color: $blue;
-  }
-}
-
-.contact-break {
-  margin: 5px 20px;
-  border: 1px solid $white;
-  border-radius: 5px;
-}
-.sidebar {
-  background-color: $blue;
-}
-
-.chatbar {
-  background-color: $blue;
-  padding: 10px 10px;
-}
-
-input {
-  border: none;
-  border-radius: 80px;
-  width: 100%;
-  padding-left: 15px;
-  margin-top: 10px;
-
-  &::placeholder {
-    color: $blue;
-    font-weight: 300;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
 .sent {
-  background-color: $secondary-blue;
-  p {
-    color: $blue;
-  }
+  border: 1px solid $secondary-gray;
+  border-radius: 20px;
 }
 
-.recieved {
-  background-color: $secondary-gray;
+.received {
+  background-color: $blue;
+  border: 1px solid $secondary-gray;
+  border-radius: 20px;
   p {
     color: $white;
   }
-}
-
-.time {
-  font-weight: 100;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "sans-serif";
-}
-
-.mesage-box {
-  background-color: $blue;
-}
-
-.messages {
-  background-color: $blue;
-}
-
-.scroll {
-  overflow-y: scroll;
-  height: 800px;
-}
-
-.search-bar {
-  background-color: $white;
 }
