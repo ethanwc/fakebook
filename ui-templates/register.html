@@ -10,7 +10,7 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="login.css" />
+    <link rel="stylesheet" type="text/css" href="register.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -21,8 +21,8 @@
     <div class="container">
       <div class="row no-gutter">
         <div class="col-4 offset-8">
-          <div class="card card-signin my-5  border-0 rounded">
-            <div class="card-body card-background ">
+          <div class="card card-signin my-5 border-0 rounded">
+            <div class="card-body card-background">
               <div
                 class="d-flex align-items-center justify-content-center ml-3 mr-3"
               >
@@ -34,7 +34,7 @@
                 />
               </div>
 
-              <h5 class="card-title text-center mb-4">Sign In</h5>
+              <h5 class="card-title text-center mb-4">Sign Up</h5>
               <form class="form-signin">
                 <div class="form-label-group input-style">
                   <input
@@ -56,7 +56,15 @@
                     required
                   />
                 </div>
-
+                <div class="form-label-group mt-4">
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    class="form-control"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
                 <div class="custom-control custom-checkbox">
                   <input
                     type="checkbox"
@@ -68,10 +76,10 @@
                   class="btn btn-md btn-primary btn-block text-uppercase"
                   type="submit"
                 >
-                  Sign in
+                  Sign Up
                 </button>
                 <div class="d-flex align-items-center justify-content-end">
-                  <a href="register.html" class="mt-2">New User?</a>
+                  <a href="login.html" class="mt-2">Already Registered?</a>
                 </div>
               </form>
             </div>

@@ -1,0 +1,37 @@
+$white: #fffafa;
+$blue: #1f7292;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+$black: #000000;
+
+body,
+html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://i.pinimg.com/originals/fa/55/2b/fa552ba3281dd9028228d5aa200d331f.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-background {
+  background-color: $blue;
+
+  button {
+    background-color: $white;
+    color: $blue;
+  }
+}
+
+h5,
+a {
+  color: $white;
+}
