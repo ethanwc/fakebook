@@ -76,6 +76,13 @@ i:hover {
 }
 
 .share-btn {
-  background-color: #7d848c;
+  color: #fffafa;
+  background-color: #1f7292;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
 }
 /*# sourceMappingURL=posts.css.map */

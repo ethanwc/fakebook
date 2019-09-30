@@ -32,4 +32,14 @@ body {
   color: #000000;
   opacity: 0.7;
 }
+
+i {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+i:hover {
+  color: #1f7292;
+  cursor: pointer;
+}
 /*# sourceMappingURL=profile.css.map */

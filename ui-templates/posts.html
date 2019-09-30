@@ -19,32 +19,21 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Logo Here</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="#">
+        <img src="updog_logo.png" alt="" class="logo" />
+      </a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="chat.html">Chat</a>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="profile.html"
               >Profile <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Chat</a>
-          </li>
+
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -63,9 +52,6 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Offline</a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
       </div>
@@ -94,16 +80,15 @@
                     ></textarea>
                   </div>
 
-                  <div class="d-flex align-items-start m-2 ml-3 mr-3">
-                    <div class="m-2">
-                      <p>Status</p>
-                    </div>
-                    <div class="m-2">
-                      <p>Photos</p>
-                    </div>
-                    <div class="m-2"><p>People</p></div>
-                    <div class="m-2"><p>Mood</p></div>
-                    <button class="btn ml-auto share-btn">Share</button>
+                  <div
+                    class="d-flex align-items-center justify-content-between ml-3 mr-3 mt-3"
+                  >
+                    <h4 class="mr-3">Status</h4>
+                    <h4 class="mr-3">Photos</h4>
+                    <h4 class="mr-3">People</h4>
+                    <h4 class="mr-3">Mood</h4>
+
+                    <button class="btn ml-auto share-btn mb-3">Share</button>
                   </div>
                 </div>
               </div>
