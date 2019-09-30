@@ -5,8 +5,21 @@ $mainblue: #9cb3b8;
 $secondary-blue: #6cafb4;
 $black: #000000;
 
-.body {
-  background-color: $blue;
+
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://img1.akspic.com/image/13125-golden_retriever-old_german_shepherd_dog-kunming_wolfdog-dachshund-dog_breed-1920x1080.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card-background {
@@ -16,4 +29,9 @@ $black: #000000;
     background-color: $white;
     color: $blue;
   }
+}
+
+h5,
+a {
+  color: $white;
 }

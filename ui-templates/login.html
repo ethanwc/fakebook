@@ -17,10 +17,10 @@
     />
     <title>Profile</title>
   </head>
-  <body>
+  <body class="bg">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-4 mx-auto">
+      <div class="row no-gutter">
+        <div class="col-4 offset-8">
           <div class="card card-signin my-5">
             <div class="card-body card-background">
               <div
@@ -36,7 +36,7 @@
 
               <h5 class="card-title text-center">Sign In</h5>
               <form class="form-signin">
-                <div class="form-label-group">
+                <div class="form-label-group input-style">
                   <input
                     type="email"
                     id="inputEmail"
@@ -57,7 +57,7 @@
                   />
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
+                <div class="custom-control custom-checkbox">
                   <input
                     type="checkbox"
                     class="custom-control-input"
@@ -65,11 +65,14 @@
                   />
                 </div>
                 <button
-                  class="btn btn-lg btn-primary btn-block text-uppercase"
+                  class="btn btn-md btn-primary btn-block text-uppercase"
                   type="submit"
                 >
                   Sign in
                 </button>
+                <div class="d-flex align-items-center justify-content-end">
+                  <a href="register.html" class="mt-2">New User?</a>
+                </div>
               </form>
             </div>
           </div>
