@@ -1,0 +1,95 @@
+html,
+body {
+  height: 100%;
+}
+
+.scrollable-element {
+  scrollbar-width: none;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+
+.chat-box-bar {
+  background-color: #fffafa;
+  border-bottom: 1px solid #7d848c;
+  border-left: 1px solid #7d848c;
+}
+
+.contact-box-bar {
+  border-bottom: 1px solid #7d848c;
+}
+
+.chat-box {
+  background-color: #fffafa;
+  border-left: 1px solid #7d848c;
+}
+
+.chat-input {
+  font-size: 1.5rem;
+}
+
+.text-imp {
+  color: #000000;
+  opacity: 1;
+}
+
+.text-unimp {
+  color: #000000;
+  opacity: 0.3;
+}
+
+i {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+i:hover {
+  color: #1f7292;
+  cursor: pointer;
+}
+
+.contact :hover {
+  background-color: #1f7292;
+  cursor: pointer;
+}
+
+.contact p {
+  font-size: 2rem;
+}
+
+.message {
+  color: #000000;
+  opacity: 1;
+}
+
+.message p {
+  font-size: 1.5rem;
+}
+
+.message-name p {
+  opacity: 0.3;
+}
+
+.img-thumbnail-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.sent {
+  border: 1px solid #7d848c;
+  border-radius: 20px;
+}
+
+.received {
+  background-color: #1f7292;
+  border: 1px solid #7d848c;
+  border-radius: 20px;
+}
+
+.received p {
+  color: #fffafa;
+}
+/*# sourceMappingURL=chat.css.map */

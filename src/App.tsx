@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
-import MessageWindow from "./Messages/MessageWindow/MessageWindow";
-
+import Contacts from "./components/Contacts/Contacts";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <MessageWindow />
+      <Contacts />
     </div>
   );
 };
