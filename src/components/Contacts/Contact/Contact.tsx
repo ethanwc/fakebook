@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./Contact.css"
+import "./Contact.css";
 
 interface ContactProps {
   Name: string;
@@ -18,7 +18,7 @@ const Contact: React.FC<ContactProps> = ({ Name, Image, Message }) => (
             className="img-thumbnail-small m-2"
           />
           <div>
-            <p className="text-imp m-2">James Bond</p>
+            <p className="text-imp m-2">{Name}</p>
             <h5 className="text-unimp ml-2">5 min ago</h5>
             <p className="text-imp ml-2">
               This will be the most recent message recent you have receive...
