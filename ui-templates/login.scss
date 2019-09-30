@@ -1,0 +1,19 @@
+$white: #fffafa;
+$blue: #1f7292;
+$secondary-gray: #7d848c;
+$mainblue: #9cb3b8;
+$secondary-blue: #6cafb4;
+$black: #000000;
+
+.body {
+  background-color: $blue;
+}
+
+.card-background {
+  background-color: $blue;
+
+  button {
+    background-color: $white;
+    color: $blue;
+  }
+}
