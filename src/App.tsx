@@ -3,12 +3,10 @@ import "./App.css";
 import Contacts from "./components/Contacts/Contacts";
 import Messages from "./components/Messages/Messages";
 import Chat from "./controllers/Chat/Chat";
+import Posts from "./components/Posts/Posts";
 
 const App: React.FC = () => {
-
-  return (
-   <Chat/>
-  );
+  return <Posts />;
 };
 
 export default App;
