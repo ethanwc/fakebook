@@ -3,10 +3,12 @@ import Contact from "./Contact/Contact";
 import useAxios from "axios-hooks";
 
 export default function Contacts() {
+  // Get Contacts
   const [{ data: getData, loading: getLoading, error: getError }] = useAxios(
     "https://uinames.com/api/?amount=25"
   );
 
+  // Example Post
   const [
     { data: putData, loading: putLoading, error: putError },
     executePut
@@ -18,6 +20,7 @@ export default function Contacts() {
     { manual: true }
   );
 
+  // Example Update
   function updateContacts() {
     executePut({
       data: {
@@ -32,6 +35,7 @@ export default function Contacts() {
 
   return (
     <div>
+      
       {getData.map(
         (item: {
           name: string;
