@@ -30,24 +30,18 @@ export default function Contacts() {
   if (getLoading || putLoading) return <p>Loading...</p>;
   if (getError || putError) return <p>Error!</p>;
 
-  let contacts = JSON.stringify(getData);
-  
-  // let name = contacts[0]["name"]
-
-
-  // let contacts = JSON.parse(getData);
-
-  // let contacts = getData;
-  
-  
-  // contacts.map((item, i) => (
-  //   <Contact Name={item} Image={""} Message={""} />
-  // ));
-
   return (
     <div>
-      <p>{JSON.stringify(getData)}</p>
-      {/* {contacts} */}
+      {getData.map(
+        (item: {
+          name: string;
+          surname: string;
+          gender: string;
+          region: string;
+        }) => (
+          <Contact Name={item.name} Image={""} Message={""} />
+        )
+      )}
     </div>
   );
 }
