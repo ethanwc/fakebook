@@ -2,6 +2,8 @@ import React from "react";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 import "../../../assets/styles/Profile/profile.css";
 import Contact from "../../Contacts/Contact/Contact";
+import Contacts from "../../Contacts/Contacts";
+import ContactsUI from "../../Contacts/Contact/ContactsUI";
 const scrollStyle = {
   height: "400px",
   overflow: "auto",
@@ -19,9 +21,17 @@ export default function ProfileUI() {
           <ProfileInfo />
         </div>
 
-        <div className="col-9 posts bg-info">
+        <div className="col-9 contact-box">
+      <div className="h-100 d-flex flex-column">
+        <div className="flex-grow-1 " style={scrollStyle}>
+          <Contacts />
+        </div>
+      </div>
+    </div>
+
+        {/* <div className="col-9 posts bg-info">
           <div className="h-100 d-flex flex-column">
-            <div className="row">
+            <div className="row bg-danger">
               <div className="col-10">
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="d-flex m-2">
@@ -36,28 +46,12 @@ export default function ProfileUI() {
                     <i className="material-icons">view_module</i>
                   </div>
                 </div>
-                <div className="row flex-grow-1 no-gutter">
-                  <div className="col-10">
-                    <div className="h-100 d-flex flex-column">
-                      <div className="flex-grow-1" style={scrollStyle}>
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                        <Contact Name={""} Image={""} Message={""} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
+
+            <ContactsUI />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

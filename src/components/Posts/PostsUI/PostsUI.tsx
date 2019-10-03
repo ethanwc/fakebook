@@ -5,6 +5,7 @@ import PostBody from "../Post/PostBody";
 import PostComment from "../Post/PostComment";
 import PostNewComment from "../Post/PostNewComment";
 import Navbar from "../../Navbar/Navbar";
+import Post from "../Post/Post";
 import "../../../assets/styles/Post/posts.css";
 export default function Posts() {
   return (
@@ -22,46 +23,9 @@ export default function Posts() {
               <div className="col-8 offset-2">
                 <Content />
               </div>
-            </div>
-            <div className="post m-2 mt-3 rounded">
-              <PostHeader />
-
-              <PostBody />
-
-              <PostComment />
-              <PostNewComment />
-            </div>
-
-            <div className="post m-2 mt-3 rounded">
-              <PostHeader />
-
-              <PostBody />
-
-              <PostComment />
-              <PostNewComment />
-            </div>
-
-            <div className="post m-2 mt-3 rounded">
-              <PostHeader />
-
-              <PostBody />
-
-              <PostComment />
-              <PostNewComment />
-            </div>
-
-            <div className="post m-2 mt-3 rounded">
-              <PostHeader />
-
-              <PostBody />
-
-              <PostComment />
-              <PostNewComment />
+              <Post />
             </div>
           </div>
-        </div>
-        <div className="col-2">
-          <div className="h-100 d-flex flex-column"></div>
         </div>
       </div>
     </div>

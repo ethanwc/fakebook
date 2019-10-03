@@ -10,12 +10,6 @@ import "../../../assets/styles/Chat/Chat.css";
  * Creates the chat ui from various components, composed of contacts and messages.
  */
 export default function ChatUI() {
-  let style = {
-    height: "200px",
-    overflow: "auto",
-    "scrollbar-width": "none"
-  };
-
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
