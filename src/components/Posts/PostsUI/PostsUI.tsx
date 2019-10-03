@@ -1,9 +1,9 @@
 import React from "react";
-import Content from "./Content/Content";
-import PostHeader from "./Post/PostHeader";
-import PostBody from "./Post/PostBody";
-import PostComment from "./Post/PostComment";
-import PostNewComment from "./Post/PostNewComment";
+import Content from "../Content/Content";
+import PostHeader from "../Post/PostHeader";
+import PostBody from "../Post/PostBody";
+import PostComment from "../Post/PostComment";
+import PostNewComment from "../Post/PostNewComment";
 
 export default function Posts() {
   return (
