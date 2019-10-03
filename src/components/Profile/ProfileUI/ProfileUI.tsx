@@ -5,7 +5,7 @@ import ProfileBar from "../ProfileBar";
 import Contact from "../../Contacts/Contact/Contact";
 import Contacts from "../../Contacts/Contacts";
 import ContactsUI from "../../Contacts/Contact/ContactsUI";
-import Post from "../../Posts/Post/Post";
+import Posts from "../../Posts/Posts";
 const scrollStyle = {
   height: "400px",
   overflow: "auto",
@@ -27,8 +27,8 @@ export default function ProfileUI() {
           <div className="h-100 d-flex flex-column">
             <ProfileBar />
 
-            <div className="flex-grow-1 " style={scrollStyle}>
-              <Post />
+            <div className="flex-grow-1" style={scrollStyle}>
+              <Posts />
             </div>
           </div>
         </div>

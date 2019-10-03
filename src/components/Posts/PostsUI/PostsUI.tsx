@@ -6,8 +6,9 @@ import PostComment from "../Post/PostComment";
 import PostNewComment from "../Post/PostNewComment";
 import Navbar from "../../Navbar/Navbar";
 import Post from "../Post/Post";
+import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
-export default function Posts() {
+export default function PostsUI() {
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -23,7 +24,7 @@ export default function Posts() {
               <div className="col-8 offset-2">
                 <Content />
               </div>
-              <Post />
+              <Posts />
             </div>
           </div>
         </div>
