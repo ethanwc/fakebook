@@ -4,7 +4,7 @@ import PostHeader from "../Post/PostHeader";
 import PostBody from "../Post/PostBody";
 import PostComment from "../Post/PostComment";
 import PostNewComment from "../Post/PostNewComment";
-
+import "../../../assets/styles/Post/posts.css";
 export default function Posts() {
   return (
     <div className="container-fluid min-100 d-flex flex-column">
