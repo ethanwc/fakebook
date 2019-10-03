@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./MessageSent.css";
 
 interface MessageSentProps {
   Name: string;

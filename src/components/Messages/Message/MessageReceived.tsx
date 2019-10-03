@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./MessageReceived.css";
 
 interface MessageReceivedProps {
   Name: string;

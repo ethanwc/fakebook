@@ -1,6 +1,4 @@
 import * as React from "react";
-import "./Contact.css";
-
 interface ContactProps {
   Name: string;
   Image: string;

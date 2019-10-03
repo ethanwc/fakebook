@@ -3,6 +3,8 @@ import ContactsUI from "../../components/Contacts/Contact/ContactsUI";
 import MessagesUI from "../../components/Messages/Message/MessagesUI";
 import ContactBar from "../../components/Contacts/Contact/ContactBar";
 import MessageBar from "../../components/Messages/Message/MessageBar";
+import "./ScrollStyle.css";
+import "../../components/Chat/Chat.css";
 
 /**
  * Creates the chat ui from various components, composed of contacts and messages.

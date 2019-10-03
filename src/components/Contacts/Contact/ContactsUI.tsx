@@ -1,8 +1,8 @@
 import React from "react";
-import Contacts from "../Contacts"
+import Contacts from "../Contacts";
 
 export default function ContactsUI() {
-      let style = {
+  let style = {
     height: "200px",
     overflow: "auto",
     "scrollbar-width": "none"
