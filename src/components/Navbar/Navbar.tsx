@@ -3,7 +3,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
-        <img src="updog_logo.png" alt="" className="logo" />
+        <img src="logo.png" alt="" className="logo" />
       </a>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
