@@ -7,7 +7,7 @@ export default function ContactBar() {
         <div className="d-flex">
           <div className="d-flex flex-grow-1">
             <div className="p-2">
-              <a href="posts.html">
+              <a href="/">
                 <i className="m-0 mt-2 p-0 ml-3 material-icons">arrow_back</i>
               </a>
             </div>

@@ -4,6 +4,7 @@ import PostHeader from "../Post/PostHeader";
 import PostBody from "../Post/PostBody";
 import PostComment from "../Post/PostComment";
 import PostNewComment from "../Post/PostNewComment";
+import Navbar from "../../Navbar/Navbar";
 import "../../../assets/styles/Post/posts.css";
 export default function Posts() {
   return (
@@ -12,6 +13,8 @@ export default function Posts() {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+      <Navbar />
+
       <div className="row flex-grow-1 no-gutter">
         <div className="col-8 offset-2">
           <div className="h-100 d-flex flex-column">

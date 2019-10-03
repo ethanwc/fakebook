@@ -4,7 +4,7 @@ export default function ProfileInfo() {
   return (
     <div className="h-100 d-flex flex-column">
       <div className="profile m-2">
-        <a href="posts.html">
+        <a href="/">
           <i className="m-0 mt-2 p-0 material-icons">arrow_back</i>
         </a>
 
