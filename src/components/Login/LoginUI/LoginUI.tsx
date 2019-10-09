@@ -1,4 +1,5 @@
 import React from "react";
+import useAxios from "axios-hooks";
 import "../../../assets/styles/Login/login.css";
 const logoStyle = {
   width: "80x",
@@ -14,7 +15,7 @@ export default function LoginUI() {
               <div className="card-body card-background ">
                 <div className="d-flex align-items-center justify-content-center ml-3 mr-3">
                   <img
-                    src="updog_logo.png"
+                    src={require("../../../assets/logo/updog_logo.png")}
                     alt=""
                     className="img-thumbnail-small m-2"
                     style={logoStyle}

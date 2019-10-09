@@ -7,15 +7,17 @@ import "../../../assets/styles/Post/posts.css";
 
 interface PostProps {
   Name: string;
+  Title: string;
+  Content: string;
 }
 
-const Post: React.FC<PostProps> = ({ Name }) => (
+const Post: React.FC<PostProps> = ({ Name, Title, Content }) => (
   <div className="row flex-grow-1 no-gutter">
     <div className="col-8 offset-2">
       <div className="h-100 d-flex flex-column">
         <div className="post m-2 mt-3 rounded">
-          <PostHeader />
-          <PostBody />
+          <PostHeader Name={Name} Title={Title}/>
+          <PostBody Content={Content}/>
           <PostComment />
           <PostNewComment />{" "}
         </div>

@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function PostHeader() {
+interface PostHeaderProps {
+  Name: string;
+  Title: string;
+}
+
+const PostHeader: React.FC<PostHeaderProps> = ({ Name, Title }) => {
   return (
     <div className="d-flex align-items-center justify-content-between m-2">
       <div className="d-flex align-self-center">
@@ -10,7 +15,11 @@ export default function PostHeader() {
           className="img-thumbnail-small"
         />
 
-        <div className="m-2 align-self-center">James Bond posted a photo</div>
+        <div className="m-2 align-self-center">
+          <h2>
+            {Name} : {Title}
+          </h2>
+        </div>
       </div>
 
       <div className="d-flex align-self-center mr-1">
@@ -19,4 +28,6 @@ export default function PostHeader() {
       </div>
     </div>
   );
-}
+};
+
+export default PostHeader;
