@@ -1,38 +1,31 @@
 import React, { useState } from "react";
 import "../../../assets/styles/Register/register.css";
-import Endpoints from "../../../assets/endpoints/endpoints.json";
-import Axios from "axios";
 
 const logoStyle = {
   width: "80x",
   height: "80px"
 };
-const uri = `${Endpoints.route}/${Endpoints.auth}/register`;
 
-const RegisterUI = (props: any) => {
+const RegisterUI = (props: {
+  handleRegister: (arg0: { name: string; email: any; password: any }) => void;
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cpassword, setcPassword] = useState("");
 
+  //Submits form, prevents page refresh
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    handleRegister();
-  };
-
-  const handleRegister = () => {
     const userInfo = {
       name: "steve",
       email: email,
       password: password
     };
-    Axios.post(uri, userInfo, {})
-      .then(function(response) {
-        console.log(response.data);
-        localStorage.setItem("token", response.data.tokenData);
-      })
-      .catch(function(error) {
-        console.log("error" + error);
-      });
+    props.handleRegister(userInfo);
   };
+      //todo: match all fields, redirect.
+
+  //Register
   return (
     <body className="bg">
       <div className="container">
@@ -57,6 +50,8 @@ const RegisterUI = (props: any) => {
                       id="inputEmail"
                       className="form-control"
                       placeholder="Email address"
+                      onChange={e => setEmail(e.target.value)}
+                      value={email}
                       required
                     />
                   </div>
@@ -66,6 +61,8 @@ const RegisterUI = (props: any) => {
                       type="password"
                       id="inputPassword"
                       className="form-control"
+                      onChange={e => setPassword(e.target.value)}
+                      value={password}
                       placeholder="Password"
                       required
                     />
@@ -74,6 +71,8 @@ const RegisterUI = (props: any) => {
                     <input
                       type="password"
                       id="confirmPassword"
+                      onChange={e => setcPassword(e.target.value)}
+                      value={cpassword}
                       className="form-control"
                       placeholder="Confirm Password"
                       required
@@ -88,7 +87,6 @@ const RegisterUI = (props: any) => {
                   </div>
                   <button
                     className="btn btn-md btn-primary btn-block text-uppercase"
-                    onClick={handleRegister}
                     type="submit"
                   >
                     Sign Up

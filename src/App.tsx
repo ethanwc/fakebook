@@ -4,7 +4,7 @@ import Chat from "./controllers/Chat/ChatController";
 import Posts from "./components/Posts/PostsUI/PostsUI";
 import Profile from "./controllers/Profile/Profile";
 import Login from "./controllers/Login/LoginController";
-import Register from "./components/Register/RegisterUI/RegisterUI";
+import Register from "./controllers/Register/RegisterController";
 import { useRoutes } from "hookrouter";
 /**
  * Hookrouter for routing.
