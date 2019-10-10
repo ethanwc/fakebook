@@ -1,43 +1,33 @@
 import React, { useState } from "react";
 import "../../../assets/styles/Login/login.css";
-import Endpoints from "../../../assets/endpoints/endpoints.json";
-
-import Axios from "axios";
 
 const logoStyle = {
   width: "80x",
   height: "80px"
 };
 
-const uri = `${Endpoints.route}/${Endpoints.auth}/login`;
-
 //UI for logging in.
-const LoginUI = (props: any) => {
+const LoginUI = (props: {
+  handleLogin: (arg0: {
+    name: string;
+    email: string;
+    password: string;
+  }) => void;
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   //Submits form, prevents page refresh
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    handleLogin();
-  };
-
-  //Login logic, request to api
-  const handleLogin = () => {
     const userInfo = {
       name: "steve",
       email: email,
       password: password
     };
-    Axios.post(uri, userInfo, {})
-      .then(function(response) {
-        const res = JSON.parse(JSON.stringify(response.data));
-        localStorage.setItem("token", res.tokenData.token);
-      })
-      .catch(function(error) {
-        console.log("error" + error);
-      });
+    props.handleLogin(userInfo);
   };
+
   //Login
   return (
     <body className="bg">
