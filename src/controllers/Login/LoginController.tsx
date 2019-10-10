@@ -22,9 +22,5 @@ export default function LoginController() {
     console.log(localStorage.getItem("token"));
   };
 
-  return (
-    <div>
-      <LoginUI handleLogin={handleLogin} />
-    </div>
-  );
+  return <LoginUI handleLogin={handleLogin} />;
 }
