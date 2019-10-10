@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../assets/styles/Register/register.css";
 import Endpoints from "../../../assets/endpoints/endpoints.json";
 import Axios from "axios";
@@ -7,21 +7,32 @@ const logoStyle = {
   width: "80x",
   height: "80px"
 };
-export default function RegisterUI() {
-  const newUser = {
-    name: "billy",
-    email: "bill@mail.com",
-    password: "password"
+const uri = `${Endpoints.route}/${Endpoints.auth}/register`;
+
+const RegisterUI = (props: any) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    handleRegister();
   };
 
-  const uri = `${Endpoints.route}/${Endpoints.auth}/register`;
-
-  function handleRegister() {
-    Axios.post(uri, newUser).then(function(response) {
-      console.log(response);
-    });
-  }
-
+  const handleRegister = () => {
+    const userInfo = {
+      name: "steve",
+      email: email,
+      password: password
+    };
+    Axios.post(uri, userInfo, {})
+      .then(function(response) {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.tokenData);
+      })
+      .catch(function(error) {
+        console.log("error" + error);
+      });
+  };
   return (
     <body className="bg">
       <div className="container">
@@ -39,7 +50,7 @@ export default function RegisterUI() {
                 </div>
 
                 <h5 className="card-title text-center mb-4">Sign Up</h5>
-                <form className="form-signin">
+                <form className="form-signin" onSubmit={handleSubmit}>
                   <div className="form-label-group input-style">
                     <input
                       type="email"
@@ -95,4 +106,6 @@ export default function RegisterUI() {
       </div>
     </body>
   );
-}
+};
+
+export default RegisterUI;
