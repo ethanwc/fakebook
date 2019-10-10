@@ -5,20 +5,22 @@ import Posts from "./components/Posts/PostsUI/PostsUI";
 import Profile from "./controllers/Profile/Profile";
 import Login from "./controllers/Login/LoginController";
 import Register from "./controllers/Register/RegisterController";
-import { useRoutes } from "hookrouter";
+import Contact from "./components/Contacts/Contact/Contact";
+import { Router, Route, Switch } from "react-router-dom";
+import history from "./utils/history";
+
 /**
- * Hookrouter for routing.
+ * Route the webpage.
  */
-const routes = {
-  "/": () => <Posts />,
-  "/chat": () => <Chat />,
-  "/profile": () => <Profile />,
-  "/login": () => <Login />,
-  "/register": () => <Register />
-};
+const routing = (
+  <Router history={history}>
+    <Route exact path="/" component={Posts} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/register" component={Register} />
+  </Router>
+);
 const App: React.FC = () => {
-  const routeResult = useRoutes(routes);
-  return routeResult || <Login />;
+  return routing;
 };
 
 export default App;
