@@ -1,7 +1,6 @@
 import React from "react";
 import Post from "./Post/Post";
 import Endpoints from "../../assets/endpoints/endpoints.json";
-
 import useAxios from "axios-hooks";
 
 export default function Posts() {
@@ -24,7 +23,11 @@ export default function Posts() {
           content: string;
           title: string;
         }) => (
-          <Post Name={item.author.name} Title={item.title} Content={item.content}/>
+          <Post
+            Name={item.author.name}
+            Title={item.title}
+            Content={item.content}
+          />
         )
       )}
     </div>

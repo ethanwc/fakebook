@@ -15,10 +15,12 @@
     "bootstrap": "^4.3.1",
     "hookrouter": "^1.2.3",
     "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
     "material-design-icons": "^3.0.1",
     "material-icons-react": "^1.0.4",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
+    "react-cookie": "^4.0.1",
     "react-dom": "^16.10.1",
     "react-google-material-icons": "^1.0.4",
     "react-router": "^5.1.2",
@@ -49,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/js-cookie": "^2.2.3",
     "@types/react": "^16.9.4",
     "@types/react-router": "^5.1.1",
     "@types/react-router-dom": "^5.1.0"

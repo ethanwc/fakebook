@@ -1,6 +1,12 @@
 import React from "react";
+import useAxios from "axios-hooks";
+import Endpoints from "../../../assets/endpoints/endpoints.json";
+import Axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Content() {
+
+ 
   return (
     <div className="new-post m-2 mt-3 rounded pt-3">
       <div className="d-flex align-items-center ml-3 mr-3">
@@ -22,7 +28,9 @@ export default function Content() {
         <h4 className="mr-3">People</h4>
         <h4 className="mr-3">Mood</h4>
 
-        <button className="btn ml-auto share-btn mb-3">Share</button>
+        <button className="btn ml-auto share-btn mb-3">
+          Share
+        </button>
       </div>
     </div>
   );

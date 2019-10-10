@@ -1,10 +1,27 @@
 import React from "react";
 import "../../../assets/styles/Register/register.css";
+import Endpoints from "../../../assets/endpoints/endpoints.json";
+import Axios from "axios";
+
 const logoStyle = {
   width: "80x",
   height: "80px"
 };
 export default function RegisterUI() {
+  const newUser = {
+    name: "billy",
+    email: "bill@mail.com",
+    password: "password"
+  };
+
+  const uri = `${Endpoints.route}/${Endpoints.auth}/register`;
+
+  function handleRegister() {
+    Axios.post(uri, newUser).then(function(response) {
+      console.log(response);
+    });
+  }
+
   return (
     <body className="bg">
       <div className="container">
@@ -60,6 +77,7 @@ export default function RegisterUI() {
                   </div>
                   <button
                     className="btn btn-md btn-primary btn-block text-uppercase"
+                    onClick={handleRegister}
                     type="submit"
                   >
                     Sign Up
