@@ -9,6 +9,7 @@ import Post from "../Post/Post";
 import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
 export default function PostsUI() {
+  console.log("token from posts", localStorage.getItem("token"))
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link

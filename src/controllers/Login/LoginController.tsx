@@ -21,7 +21,7 @@ export default function LoginController(props: any) {
         history.push("/");
       })
       .catch(function(error) {
-        console.log("error" + error);
+        console.log("error: " + error);
       });
     console.log(localStorage.getItem("token"));
   };

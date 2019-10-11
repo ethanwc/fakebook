@@ -6,10 +6,11 @@ const logoStyle = {
   height: "80px"
 };
 
-const RegisterUI = (props: {
-  handleRegister: (arg0: { name: string; email: any; password: any }) => void;
-}) => {
+const RegisterUI = (props: any) => {
+  //hooks to get information from forms
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setcPassword] = useState("");
 
@@ -17,13 +18,17 @@ const RegisterUI = (props: {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const userInfo = {
-      name: "steve",
+      name: name,
+      username: username,
       email: email,
       password: password
     };
-    props.handleRegister(userInfo);
+
+    if (props.checkPasswords(password, cpassword))
+      props.handleRegister(userInfo);
+    else console.log("fail");
   };
-      //todo: match all fields, redirect.
+  //todo: match all fields, redirect.
 
   //Register
   return (
@@ -43,8 +48,34 @@ const RegisterUI = (props: {
                 </div>
 
                 <h5 className="card-title text-center mb-4">Sign Up</h5>
+                {/* todo: error component here that is toggled by request */}
                 <form className="form-signin" onSubmit={handleSubmit}>
-                  <div className="form-label-group input-style">
+                  <div className="form-label-group input-style mt-4">
+                    <input
+                      type="text"
+                      id="inputName"
+                      className="form-control"
+                      placeholder="Name"
+                      onChange={e => setName(e.target.value)}
+                      value={name}
+                      required
+                    />
+                  </div>
+                  <div className="form-label-group input-style mt-4">
+                    <input
+                      type="text"
+                      id="inputUsername"
+                      className="form-control"
+                      placeholder="Username"
+                      pattern=".{4,}"
+                      title="Min username length of 4"
+                      onChange={e => setUsername(e.target.value)}
+                      value={username}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-label-group input-style mt-4">
                     <input
                       type="email"
                       id="inputEmail"
@@ -64,6 +95,8 @@ const RegisterUI = (props: {
                       onChange={e => setPassword(e.target.value)}
                       value={password}
                       placeholder="Password"
+                      title="Min password length of 8"
+                      pattern=".{8,}"
                       required
                     />
                   </div>
@@ -73,6 +106,8 @@ const RegisterUI = (props: {
                       id="confirmPassword"
                       onChange={e => setcPassword(e.target.value)}
                       value={cpassword}
+                      pattern=".{8,}"
+                      title="Min password length of 8"
                       className="form-control"
                       placeholder="Confirm Password"
                       required

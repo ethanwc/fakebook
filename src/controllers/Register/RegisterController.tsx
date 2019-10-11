@@ -9,8 +9,12 @@ import Endpoints from "../../assets/endpoints/endpoints.json";
 export default function RegisterController() {
   const uri = `${Endpoints.route}/${Endpoints.auth}/register`;
 
+  //Check if confirm password matches
+  const checkPasswords = (p1: string, p2: string) => p1 === p2;
+
   //Register logic, request to api
   const handleRegister = (userInfo: any) => {
+    //todo: verify info before registering user... check password match and reqs, also check username length,
     Axios.post(uri, userInfo, {})
       .then(function(response) {
         const res = JSON.parse(JSON.stringify(response.data));
@@ -22,5 +26,10 @@ export default function RegisterController() {
     console.log(localStorage.getItem("token"));
   };
 
-  return <RegisterUI handleRegister={handleRegister} />;
+  return (
+    <RegisterUI
+      handleRegister={handleRegister}
+      checkPasswords={checkPasswords}
+    />
+  );
 }
