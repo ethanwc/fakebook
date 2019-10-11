@@ -22,7 +22,7 @@ const PostsUI = (props: any) => {
                 <Content submitPost={props.submitPost} />
               </div>
             </div>
-            <Posts />
+            <Posts getPosts={props.getPosts} posts={props.posts} />
           </div>
         </div>
       </div>

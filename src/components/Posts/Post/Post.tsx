@@ -12,13 +12,13 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ Name, Title, Content }) => (
-  <div className="row flex-grow-1 no-gutter">
+  <div className="row flex-grow-1 no-gutter bg-warning">
     <div className="col-8 offset-2">
-      <div className="h-100 d-flex flex-column">
-        <div className="post m-2 mt-3 rounded">
+      <div className="h-100 d-flex flex-column bg-primary">
+        <div className="post m-2 mt-3 rounded bg-light">
           <PostHeader Title={Title} />
           <PostBody Content={Content} />
-          <PostComment />
+          {/* <PostComment /> */}
           <PostNewComment />{" "}
           {/* todo: new comment should be logged in user's info */}
         </div>

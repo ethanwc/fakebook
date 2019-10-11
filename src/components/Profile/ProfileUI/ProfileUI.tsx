@@ -27,7 +27,7 @@ const ProfileUI = () => {
             <ProfileBar />
 
             <div className="flex-grow-1" style={scrollStyle}>
-              <Posts />
+              {/* <Posts getPosts={getPosts}/> */}
             </div>
           </div>
         </div>
