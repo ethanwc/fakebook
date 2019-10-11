@@ -1,15 +1,11 @@
 import React from "react";
 import Content from "../Content/Content";
-import PostHeader from "../Post/PostHeader";
-import PostBody from "../Post/PostBody";
-import PostComment from "../Post/PostComment";
-import PostNewComment from "../Post/PostNewComment";
 import Navbar from "../../Navbar/Navbar";
-import Post from "../Post/Post";
 import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
-export default function PostsUI() {
-  console.log("token from posts", localStorage.getItem("token"))
+
+const PostsUI = (props: any) => {
+  console.log("token from posts", localStorage.getItem("token"));
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -23,13 +19,15 @@ export default function PostsUI() {
           <div className="h-100 d-flex flex-column">
             <div className="row no-gutter">
               <div className="col-8 offset-2">
-                <Content />
+                <Content submitPost={props.submitPost} />
               </div>
-              <Posts />
             </div>
+            <Posts />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default PostsUI;

@@ -1,32 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxios from "axios-hooks";
 import Endpoints from "../../../assets/endpoints/endpoints.json";
 import Axios from "axios";
 import Cookies from "js-cookie";
 
-export default function Content() {
-  const uri = `${Endpoints.route}/${Endpoints.posts}`;
-
-  const postInfo = {
-    content: "asdf",
-    title: "wtjdawd"
-  };
-
-  const handlePost = () => {
-    Axios.post(uri, postInfo, {
-      headers: {
-        Cookie: `Set-Cookie=${localStorage.getItem("token")}`
-      }
-    })
-      .then(function(response) {
-        // const res = JSON.parse(JSON.stringify(response.data));
-        // localStorage.setItem("token", res.tokenData.token);
-        //refresh page after post?
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log("error: " + error);
-      });
+const Content = (props: any) => {
+  const [postContent, setPostContent] = useState("");
+  /**
+   * Handles a new post being submitted if length > 0,
+   * Clears post length,
+   * adds new post to ui,
+   * calls submit post to send it to the api.
+   */
+  const handleNewPost = () => {
+    const postInfo = {
+      content: postContent,
+      title: `${localStorage.getItem("name")} shared a post`
+    };
+    if (postInfo.content.length > 0) props.submitPost(postInfo);
   };
 
   return (
@@ -40,7 +31,9 @@ export default function Content() {
         <textarea
           className="form-control post-input"
           placeholder="What are you thinking about?"
-          id="comment"
+          value={postContent}
+          onChange={e => setPostContent(e.target.value)}
+          required
         ></textarea>
       </div>
 
@@ -50,10 +43,12 @@ export default function Content() {
         <h4 className="mr-3">People</h4>
         <h4 className="mr-3">Mood</h4>
 
-        <button className="btn ml-auto share-btn mb-3" onClick={handlePost}>
+        <button className="btn ml-auto share-btn mb-3" onClick={handleNewPost}>
           Share
         </button>
       </div>
     </div>
   );
-}
+};
+
+export default Content;

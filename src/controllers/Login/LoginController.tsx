@@ -17,6 +17,7 @@ export default function LoginController(props: any) {
       .then(function(response) {
         const res = JSON.parse(JSON.stringify(response.data));
         localStorage.setItem("token", res.tokenData.token);
+        localStorage.setItem("name", res._doc.name);
         //assuming successful login, redirect to posts ("url/")
         history.push("/");
       })

@@ -16,10 +16,11 @@ const Post: React.FC<PostProps> = ({ Name, Title, Content }) => (
     <div className="col-8 offset-2">
       <div className="h-100 d-flex flex-column">
         <div className="post m-2 mt-3 rounded">
-          <PostHeader Name={Name} Title={Title}/>
-          <PostBody Content={Content}/>
+          <PostHeader Title={Title} />
+          <PostBody Content={Content} />
           <PostComment />
           <PostNewComment />{" "}
+          {/* todo: new comment should be logged in user's info */}
         </div>
       </div>
     </div>

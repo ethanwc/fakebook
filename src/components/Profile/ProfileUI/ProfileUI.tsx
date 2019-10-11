@@ -1,17 +1,16 @@
 import React from "react";
+import ProfileBar from "../ProfileBar";
+import Posts from "../../Posts/Posts";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 import "../../../assets/styles/Profile/profile.css";
-import ProfileBar from "../ProfileBar";
-import Contact from "../../Contacts/Contact/Contact";
-import Contacts from "../../Contacts/Contacts";
-import ContactsUI from "../../Contacts/Contact/ContactsUI";
-import Posts from "../../Posts/Posts";
+
 const scrollStyle = {
   height: "400px",
   overflow: "auto",
   "scrollbar-width": "none"
 };
-export default function ProfileUI() {
+
+const ProfileUI = () => {
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -35,4 +34,6 @@ export default function ProfileUI() {
       </div>
     </div>
   );
-}
+};
+
+export default ProfileUI;

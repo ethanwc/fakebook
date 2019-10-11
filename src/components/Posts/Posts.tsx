@@ -9,12 +9,14 @@ export default function Posts() {
     `${Endpoints.route}/${Endpoints.posts}`
   );
 
+  //todo: migrate to controller, then have an update after new post successful. avoid page refresh?
+
   if (getLoading) return <p>Loading...</p>;
   if (getError) return <p>Error!</p>;
 
   return (
     <div>
-      {getData.map(
+      {getData.reverse().map(
         (item: {
           _id: string;
           author: {
