@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function PostNewComment() {
+const PostNewComment = (props: any) => {
+  const [comment, setComment] = useState("");
+
+  const handleSubmit = () => {
+    props.submitComment(comment, props._id);
+  };
+
   return (
     <div className="d-flex align-items-center">
       <img
@@ -8,13 +14,23 @@ export default function PostNewComment() {
         alt=""
         className="img-thumbnail-small m-2"
       />
+
       <div className="input-group m-2">
         <input
           type="text"
           className="form-control post-input"
-          placeholder="Comment"
+          placeholder="Enter a comment"
+          value={comment}
+          onChange={e => setComment(e.target.value)}
+          pattern=".{1,}"
+          required
         />
       </div>
+      <button className="btn ml-auto share-btn mr-2" onClick={handleSubmit}>
+        Post
+      </button>
     </div>
   );
-}
+};
+
+export default PostNewComment;

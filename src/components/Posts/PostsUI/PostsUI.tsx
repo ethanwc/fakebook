@@ -5,7 +5,7 @@ import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
 
 const PostsUI = (props: any) => {
-  console.log("token from posts", localStorage.getItem("token"));
+  console.log("id from posts", localStorage.getItem("_id"));
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -22,7 +22,7 @@ const PostsUI = (props: any) => {
                 <Content submitPost={props.submitPost} />
               </div>
             </div>
-            <Posts getPosts={props.getPosts} posts={props.posts} />
+            <Posts getPosts={props.getPosts} submitComment={props.submitComment} posts={props.posts} />
           </div>
         </div>
       </div>

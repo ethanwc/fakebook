@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PostComment() {
+export default function PostComment(props: any) {
   return (
     <div className="d-flex justify-content-between comment">
       <img
@@ -16,12 +16,7 @@ export default function PostComment() {
             <i className="material-icons m-1">thumb_up</i>
           </div>
         </div>
-        <p className="text-imp m-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          molestias blanditiis veniam pariatur, culpa harum expedita rem
-          quisquam. Sit incidunt velit neque tempora fugiat perferendis deleniti
-          dolorum obcaecati placeat quasi.
-        </p>
+        <p className="text-imp m-2">{props.comment}</p>
       </div>
     </div>
   );

@@ -9,18 +9,32 @@ interface PostProps {
   Name: string;
   Title: string;
   Content: string;
+  _id: string;
+  comments: [];
+  submitComment: Function;
 }
 
-const Post: React.FC<PostProps> = ({ Name, Title, Content }) => (
-  <div className="row flex-grow-1 no-gutter bg-warning">
+const Post: React.FC<PostProps> = ({
+  Name,
+  Title,
+  Content,
+  submitComment,
+  _id,
+  comments
+}) => (
+  <div className="row flex-grow-1 no-gutter">
     <div className="col-8 offset-2">
-      <div className="h-100 d-flex flex-column bg-primary">
-        <div className="post m-2 mt-3 rounded bg-light">
+      <div className="h-100 d-flex flex-column">
+        <div className="post m-2 mt-3 rounded">
           <PostHeader Title={Title} />
           <PostBody Content={Content} />
-          {/* <PostComment /> */}
-          <PostNewComment />{" "}
-          {/* todo: new comment should be logged in user's info */}
+          {/* map through comments to display them. */}
+          {comments.map((item: { id: string; comment: string }) => (
+            <PostComment comment={item.comment} />
+          ))}
+          <PostNewComment submitComment={submitComment} _id={_id} />{" "}
+          {/* Send patch request to /posts/:id */}
+          {/* must provide the comment and user id */}
         </div>
       </div>
     </div>

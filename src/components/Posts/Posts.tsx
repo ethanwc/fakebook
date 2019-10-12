@@ -11,6 +11,8 @@ const Posts = (props: any) => {
         .reverse()
         .map(
           (item: {
+            _id: string,
+            comments: []
             author: {
               name: string;
             };
@@ -21,6 +23,9 @@ const Posts = (props: any) => {
               Name={item.author.name}
               Title={item.title}
               Content={item.content}
+              submitComment={props.submitComment}
+              _id={item._id}
+              comments={item.comments}
             />
           )
         )}
