@@ -1,10 +1,37 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 interface PostHeaderProps {
   Title: string;
+  favoritePost: Function;
+  likePost: Function;
+  liked: Function;
+  favorited: Function;
+  _id: String;
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ Title }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({
+  Title,
+  favoritePost,
+  likePost,
+  liked,
+  favorited,
+  _id
+}) => {
+  const handleLike = () => likePost(_id);
+  const handleFavorite = () => favoritePost(_id);
+
+  const blue: CSSProperties = {
+    color: "#1f7292"
+  };
+
+  const black: CSSProperties = {
+    color: "black"
+  };
+
+  console.log(liked(_id));
+  const likeStyle = liked(_id) ? blue : black;
+  const favoriteStyle = favorited(_id) ? blue : black;
+
   return (
     <div className="d-flex align-items-center justify-content-between m-2">
       <div className="d-flex align-self-center">
@@ -20,8 +47,21 @@ const PostHeader: React.FC<PostHeaderProps> = ({ Title }) => {
       </div>
 
       <div className="d-flex align-self-center mr-1">
-        <i className="material-icons m-1 mr-2">favorite </i>
-        <i className="material-icons m-1">thumb_up</i>
+        {" "}
+        <i
+          className="material-icons m-1 mr-2"
+          onClick={handleFavorite}
+          style={favoriteStyle}
+        >
+          favorite{" "}
+        </i>
+        <i
+          style={likeStyle}
+          className="material-icons m-1"
+          onClick={handleLike}
+        >
+          thumb_up
+        </i>
       </div>
     </div>
   );

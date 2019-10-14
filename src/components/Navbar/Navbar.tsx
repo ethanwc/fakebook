@@ -1,5 +1,10 @@
 import React from "react";
 export default function Navbar() {
+  const handleLogout = () => {
+    localStorage.setItem("token", "null");
+    localStorage.setItem("name", "null");
+    localStorage.setItem("_id", "null");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
@@ -45,7 +50,7 @@ export default function Navbar() {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/logout">
+            <a className="nav-link" href="/login" onClick={handleLogout}>
               Logout
             </a>
           </li>

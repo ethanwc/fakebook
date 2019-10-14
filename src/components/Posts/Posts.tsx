@@ -23,6 +23,10 @@ const Posts = (props: any) => {
             submitComment={props.submitComment}
             _id={item._id}
             comments={item.comments}
+            likePost={props.likePost}
+            favoritePost={props.favoritePost}
+            liked={props.liked}
+            favorited={props.favorited}
           />
         )
       )}

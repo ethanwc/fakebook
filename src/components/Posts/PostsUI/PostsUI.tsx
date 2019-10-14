@@ -21,7 +21,15 @@ const PostsUI = (props: any) => {
                 <Content submitPost={props.submitPost} />
               </div>
             </div>
-            <Posts getPosts={props.getPosts} submitComment={props.submitComment} posts={props.posts} />
+            <Posts
+              getPosts={props.getPosts}
+              submitComment={props.submitComment}
+              posts={props.posts}
+              likePost={props.likePost}
+              favoritePost={props.favoritePost}
+              liked={props.liked}
+              favorited={props.favorited}
+            />
           </div>
         </div>
       </div>

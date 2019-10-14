@@ -95,11 +95,113 @@ const PostsController = () => {
       });
   };
 
+  //check if a post is liked by current user
+  const liked = (_id: string) => {
+    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    return postToUpdate.likes.includes(localStorage.getItem("_id"));
+  };
+
+  //add or remove userid from post array of likers, thereby changing number of likes
+  const likePost = (_id: string) => {
+    //uri for specific post to update
+    const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${_id}`;
+
+    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+
+    let liked = postToUpdate.likes.includes(localStorage.getItem("_id"));
+
+    //toggle user liking a post / add remove from array
+    let likes = liked
+      ? postToUpdate.likes.filter(
+          (i: string) => i !== localStorage.getItem("_id")
+        )
+      : [...postToUpdate.likes, localStorage.getItem("_id")];
+    postToUpdate.likes = likes;
+
+    const updatedPost = postToUpdate;
+
+    Axios.patch(uri_update_post, updatedPost, {
+      data: {
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(response) {
+        if (response.status === 200) {
+          var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
+
+          let postsToUpdate = [...posts];
+          postsToUpdate.splice(updateIndex, 1, updatedPost);
+
+          setPosts(postsToUpdate);
+        }
+      })
+      .catch(function(error) {
+        console.log("error: " + error);
+        //assuming unauthorized, redirect to login
+        //todo: check here.
+        // history.push("/login");
+      });
+  };
+
+  //check if a post is favorited by current user
+  const favorited = (_id: string) => {
+    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    return postToUpdate.favorites.includes(localStorage.getItem("_id"));
+  };
+
+  //add or remove userid from post array of favoriters, thereby changing number of favorites
+  const favoritePost = (_id: string) => {
+    //uri for specific post to update
+    const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${_id}`;
+
+    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+
+    let favorited = postToUpdate.favorites.includes(
+      localStorage.getItem("_id")
+    );
+
+    //toggle user liking a post / add remove from array
+    let favorites = favorited
+      ? postToUpdate.favorites.filter(
+          (i: string) => i !== localStorage.getItem("_id")
+        )
+      : [...postToUpdate.favorites, localStorage.getItem("_id")];
+    postToUpdate.favorites = favorites;
+
+    const updatedPost = postToUpdate;
+
+    Axios.patch(uri_update_post, updatedPost, {
+      data: {
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(response) {
+        if (response.status === 200) {
+          var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
+
+          let postsToUpdate = [...posts];
+          postsToUpdate.splice(updateIndex, 1, updatedPost);
+
+          setPosts(postsToUpdate);
+        }
+      })
+      .catch(function(error) {
+        console.log("error: " + error);
+        //assuming unauthorized, redirect to login
+        //todo: check here.
+        // history.push("/login");
+      });
+  };
+
   return (
     <PostsUI
       submitPost={submitPost}
       submitComment={submitComment}
       posts={posts}
+      likePost={likePost}
+      favoritePost={favoritePost}
+      liked={liked}
+      favorited={favorited}
     />
   );
 };
