@@ -28,7 +28,6 @@ const PostHeader: React.FC<PostHeaderProps> = ({
     color: "black"
   };
 
-  console.log(liked(_id));
   const likeStyle = liked(_id) ? blue : black;
   const favoriteStyle = favorited(_id) ? blue : black;
 

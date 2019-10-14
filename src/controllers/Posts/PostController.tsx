@@ -35,6 +35,8 @@ const PostsController = () => {
           let res = response.data;
           const newPost = {
             comments: [],
+            likes: [],
+            favorites: [],
             _id: res._id,
             content: res.content,
             title: res.title,
@@ -77,7 +79,6 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          console.log("worked");
           var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
 
           let postsToUpdate = [...posts];
@@ -98,6 +99,7 @@ const PostsController = () => {
   //check if a post is liked by current user
   const liked = (_id: string) => {
     let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    console.log(postToUpdate);
     return postToUpdate.likes.includes(localStorage.getItem("_id"));
   };
 
