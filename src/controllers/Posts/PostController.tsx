@@ -30,15 +30,31 @@ const PostsController = () => {
       }
     })
       .then(function(response) {
+        console.log(response);
         if (response.status === 200) {
+          let res = response.data;
           const newPost = {
-            content: postInfo.content,
-            title: postInfo.title,
-            author: {
-              name: "billy"
-            }
+            comments: [],
+            _id: res._id,
+            content: res.content,
+            title: res.title,
+            author: res.author
           };
 
+          /**
+           * {comments: Array(0), _id: "5da4cdb94f89104f30d6143e", content: "awdawdwda", title: "billy shared a post", author: {…}, …}
+author: {friends: Array(0), _id: "5d9e587eb670520fd4d65fa8", name: "billy", email: "bill@mail.com", __v: 0}
+comments: []
+content: "awdawdwda"
+title: "billy shared a post"
+__v: 0
+_id: "5da4cdb94f89104f30d6143e"
+           */
+
+          // console.log("**********************");
+          // console.log(posts);
+          // console.log(posts[0]);
+          // console.log(newPost);
           setPosts([...posts, newPost]);
         }
       })

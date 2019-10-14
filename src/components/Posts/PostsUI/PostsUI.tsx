@@ -5,7 +5,6 @@ import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
 
 const PostsUI = (props: any) => {
-  console.log("id from posts", localStorage.getItem("_id"));
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
