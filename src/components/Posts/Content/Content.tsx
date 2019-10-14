@@ -17,7 +17,10 @@ const Content = (props: any) => {
       content: postContent,
       title: `${localStorage.getItem("name")} shared a post`
     };
-    if (postInfo.content.length > 0) props.submitPost(postInfo);
+    if (postInfo.content.length > 0) {
+      props.submitPost(postInfo);
+      setPostContent("");
+    }
   };
 
   return (

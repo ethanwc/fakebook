@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PostsUI from "../../components/Posts/PostsUI/PostsUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
 import Axios from "axios";
-import { array } from "prop-types";
+import history from "../../utils/history";
 
 /**
  * Handles everything associated with posts
@@ -41,25 +41,13 @@ const PostsController = () => {
             author: res.author
           };
 
-          /**
-           * {comments: Array(0), _id: "5da4cdb94f89104f30d6143e", content: "awdawdwda", title: "billy shared a post", author: {…}, …}
-author: {friends: Array(0), _id: "5d9e587eb670520fd4d65fa8", name: "billy", email: "bill@mail.com", __v: 0}
-comments: []
-content: "awdawdwda"
-title: "billy shared a post"
-__v: 0
-_id: "5da4cdb94f89104f30d6143e"
-           */
-
-          // console.log("**********************");
-          // console.log(posts);
-          // console.log(posts[0]);
-          // console.log(newPost);
           setPosts([...posts, newPost]);
         }
       })
       .catch(function(error) {
         console.log("error: " + error);
+        //assuming unauthorized, redirect to login
+        history.push("/login");
       });
   };
 
@@ -70,7 +58,8 @@ _id: "5da4cdb94f89104f30d6143e"
     //since we are submitting a comment, need to add a new comment to the post.
     const newComment = {
       id: _id,
-      comment: comment
+      comment: comment,
+      author: localStorage.getItem("name")
     };
 
     let updatedComments = [...postToUpdate.comments, newComment];
@@ -101,39 +90,9 @@ _id: "5da4cdb94f89104f30d6143e"
       })
       .catch(function(error) {
         console.log("error: " + error);
+        //assuming unauthorized, redirect to login
+        history.push("/login");
       });
-
-    // console.log(postToUpdate);
-
-    // for (let comment of postToUpdate.comments)
-    // console.log(comment.comment, comment.id);
-
-    // console.log(postToUpdate.comments[0].comment);
-    // console.log(postToUpdate);
-
-    // console.log(comment, _id);
-    //need userid, comment, postid... just need postid now
-    // Axios.post(uri_submit_post, postInfo, {
-    //   data: {
-    //     Authentication: `${localStorage.getItem("token")}`
-    //   }
-    // })
-    //   .then(function(response) {
-    //     if (response.status === 200) {
-    //       const newPost = {
-    //         content: postInfo.content,
-    //         title: postInfo.title,
-    //         author: {
-    //           name: "billy"
-    //         }
-    //       };
-
-    //       setPosts([...posts, newPost]);
-    //     }
-    //   })
-    //   .catch(function(error) {
-    //     console.log("error: " + error);
-    //   });
   };
 
   return (

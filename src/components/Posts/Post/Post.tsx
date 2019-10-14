@@ -29,8 +29,8 @@ const Post: React.FC<PostProps> = ({
           <PostHeader Title={Title} />
           <PostBody Content={Content} />
           {/* map through comments to display them. */}
-          {comments.map((item: { id: string; comment: string }) => (
-            <PostComment comment={item.comment} />
+          {comments.map((item: { id: string; comment: string; author: string }) => (
+            <PostComment comment={item.comment} author={item.author} />
           ))}
           <PostNewComment submitComment={submitComment} _id={_id} />{" "}
           {/* Send patch request to /posts/:id */}

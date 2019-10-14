@@ -5,6 +5,7 @@ const PostNewComment = (props: any) => {
 
   const handleSubmit = () => {
     props.submitComment(comment, props._id);
+    setComment("");
   };
 
   return (
