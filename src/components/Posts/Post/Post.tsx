@@ -16,6 +16,8 @@ interface PostProps {
   likePost: Function;
   liked: Function;
   favorited: Function;
+  likeComment: Function;
+  likedComment: Function;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -27,6 +29,8 @@ const Post: React.FC<PostProps> = ({
   likePost,
   liked,
   favorited,
+  likeComment,
+  likedComment,
   _id,
   comments
 }) => (
@@ -46,12 +50,17 @@ const Post: React.FC<PostProps> = ({
           {/* map through comments to display them. */}
           {comments.map(
             (item: { id: string; comment: string; author: string }) => (
-              <PostComment comment={item.comment} author={item.author} />
+              <PostComment
+                comment={item.comment}
+                author={item.author}
+                likeComment={likeComment}
+                likedComment={likedComment}
+                postid={_id}
+                id={item.id}
+              />
             )
           )}
           <PostNewComment submitComment={submitComment} _id={_id} />{" "}
-          {/* Send patch request to /posts/:id */}
-          {/* must provide the comment and user id */}
         </div>
       </div>
     </div>

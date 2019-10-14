@@ -26,6 +26,8 @@ const Posts = (props: any) => {
             favoritePost={props.favoritePost}
             liked={props.liked}
             favorited={props.favorited}
+            likeComment={props.likeComment}
+            likedComment={props.likedComment}
           />
         )
       )}

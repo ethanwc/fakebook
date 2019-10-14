@@ -3,7 +3,7 @@ import PostsUI from "../../components/Posts/PostsUI/PostsUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
 import Axios from "axios";
 import history from "../../utils/history";
-
+const uuidv1 = require("uuid/v1");
 /**
  * Handles everything associated with posts
  */
@@ -30,7 +30,6 @@ const PostsController = () => {
       }
     })
       .then(function(response) {
-        console.log(response);
         if (response.status === 200) {
           let res = response.data;
           const newPost = {
@@ -59,7 +58,8 @@ const PostsController = () => {
 
     //since we are submitting a comment, need to add a new comment to the post.
     const newComment = {
-      id: _id,
+      id: uuidv1(),
+      likes: [],
       comment: comment,
       author: localStorage.getItem("name")
     };
@@ -99,7 +99,6 @@ const PostsController = () => {
   //check if a post is liked by current user
   const liked = (_id: string) => {
     let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
-    console.log(postToUpdate);
     return postToUpdate.likes.includes(localStorage.getItem("_id"));
   };
 
@@ -195,6 +194,69 @@ const PostsController = () => {
       });
   };
 
+  // let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+  // return postToUpdate.likes.includes(localStorage.getItem("_id"));
+
+  //check if a comment is liked by current user
+  const likedComment = (postid: string, commentid: string) => {
+    let post = posts.find((i: { _id: string }) => i._id === postid);
+    let comment = post.comments.find((i: { id: string }) => i.id === commentid);
+
+    return comment.likes.includes(localStorage.getItem("_id"));
+  };
+
+  //like a specific comment
+  const likeComment = (postid: string, commentid: string) => {
+    //uri for specific post to update
+    const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${postid}`;
+
+    //get specific post
+    let postToUpdate = posts.find((i: { _id: string }) => i._id === postid);
+
+    //get specific comment
+    let commentToUpdate = postToUpdate.comments.find(
+      (i: { id: string }) => i.id === commentid
+    );
+
+    let liked = commentToUpdate.likes.includes(localStorage.getItem("_id"));
+
+    let likes = liked
+      ? commentToUpdate.likes.filter(
+          (i: string) => i !== localStorage.getItem("_id")
+        )
+      : [...commentToUpdate.likes, localStorage.getItem("_id")];
+
+    postToUpdate.comments.find(
+      (i: { id: string }) => i.id === commentid
+    ).likes = likes;
+
+    const updatedPost = postToUpdate;
+
+    Axios.patch(uri_update_post, updatedPost, {
+      data: {
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(response) {
+        if (response.status === 200) {
+          var updateIndex = posts.find(
+            (i: { _id: string }) => i._id === postid
+          );
+
+          let postsToUpdate = [...posts];
+          postsToUpdate.splice(updateIndex, 1, updatedPost);
+
+          setPosts(postsToUpdate);
+        }
+      })
+      .catch(function(error) {
+        console.log("error: " + error);
+        //assuming unauthorized, redirect to login
+        //todo: check here.
+        // history.push("/login");
+      });
+  };
+
   return (
     <PostsUI
       submitPost={submitPost}
@@ -204,6 +266,8 @@ const PostsController = () => {
       favoritePost={favoritePost}
       liked={liked}
       favorited={favorited}
+      likeComment={likeComment}
+      likedComment={likedComment}
     />
   );
 };

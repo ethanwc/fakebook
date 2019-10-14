@@ -1,6 +1,35 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
-export default function PostComment(props: any) {
+interface PostCommentProps {
+  likeComment: Function;
+  likedComment: Function;
+  postid: string;
+  id: string;
+  author: string;
+  comment: string;
+}
+
+const PostComment: React.FC<PostCommentProps> = ({
+  likeComment,
+  likedComment,
+  id,
+  postid,
+  author,
+  comment
+}) => {
+  const handleLike = () => likeComment(postid, id);
+  const blue: CSSProperties = {
+    color: "#1f7292"
+  };
+
+  const black: CSSProperties = {
+    color: "black"
+  };
+
+  // console.log("id is: ", id);
+  // console.log("otheridis: ", postid);
+  const likeStyle = likedComment(postid, id) ? blue : black;
+
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center comment">
@@ -11,15 +40,23 @@ export default function PostComment(props: any) {
             className="img-thumbnail-small m-2"
           />
           <div>
-            <p className="text-imp m-2 comment-name">{props.author}</p>
-            <p className="text-imp m-2">{props.comment}</p>
+            <p className="text-imp m-2 comment-name">{author}</p>
+            <p className="text-imp m-2">{comment}</p>
           </div>
         </div>
 
         <div className="d-flex align-self-start mr-1">
-          <i className="material-icons m-1">thumb_up</i>
+          <i
+            className="material-icons m-1"
+            onClick={handleLike}
+            style={likeStyle}
+          >
+            thumb_up
+          </i>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default PostComment;
