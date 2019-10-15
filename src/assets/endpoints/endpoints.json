@@ -1,5 +1,7 @@
 {
-    "route" : "http://localhost:8000",
-    "posts" : "posts",
-    "auth" : "auth"
+  "route": "http://localhost:8000",
+  "posts": "posts",
+  "auth": "auth",
+  "users": "users",
+  "info": "info"
 }

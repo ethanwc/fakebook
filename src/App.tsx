@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Chat from "./controllers/Chat/ChatController";
 import Posts from "./controllers/Posts/PostController";
-import Profile from "./controllers/Profile/Profile";
+import Profile from "./controllers/Profile/ProfileController";
 import Login from "./controllers/Login/LoginController";
 import Register from "./controllers/Register/RegisterController";
 import { Router, Route, Switch } from "react-router-dom";

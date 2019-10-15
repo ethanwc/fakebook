@@ -133,8 +133,7 @@ const PostsController = () => {
       .catch(function(error) {
         console.log("error: " + error);
         //assuming unauthorized, redirect to login
-        //todo: check here.
-        // history.push("/login");
+        history.push("/login");
       });
   };
 
@@ -180,14 +179,11 @@ const PostsController = () => {
       .catch(function(error) {
         console.log("error: " + error);
         //assuming unauthorized, redirect to login
-        //todo: check here.
-        // history.push("/login");
+        history.push("/login");
       });
   };
 
-  // let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
-  // return postToUpdate.likes.includes(localStorage.getItem("_id"));
-
+  
   //check if a comment is liked by current user
   const likedComment = (postid: string, commentid: string) => {
     let post = posts.find((i: { _id: string }) => i._id === postid);
@@ -238,8 +234,7 @@ const PostsController = () => {
       .catch(function(error) {
         console.log("error: " + error);
         //assuming unauthorized, redirect to login
-        //todo: check here.
-        // history.push("/login");
+        history.push("/login");
       });
   };
 

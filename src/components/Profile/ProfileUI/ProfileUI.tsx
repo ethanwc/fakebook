@@ -1,6 +1,5 @@
 import React from "react";
 import ProfileBar from "../ProfileBar";
-import Posts from "../../Posts/Posts";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 import "../../../assets/styles/Profile/profile.css";
 
@@ -10,7 +9,7 @@ const scrollStyle = {
   "scrollbar-width": "none"
 };
 
-const ProfileUI = () => {
+const ProfileUI = (props: any) => {
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -19,7 +18,7 @@ const ProfileUI = () => {
       />
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
-          <ProfileInfo />
+          <ProfileInfo profileInfo={props.profileInfo} />
         </div>
 
         <div className="col-9 contact-box">
@@ -27,7 +26,17 @@ const ProfileUI = () => {
             <ProfileBar />
 
             <div className="flex-grow-1" style={scrollStyle}>
-              {/* <Posts getPosts={getPosts}/> */}
+              {/* <Posts
+                getPosts={props.getPosts}
+                submitComment={props.submitComment}
+                posts={props.posts}
+                likePost={props.likePost}
+                favoritePost={props.favoritePost}
+                liked={props.liked}
+                favorited={props.favorited}
+                likeComment={props.likeComment}
+                likedComment={props.likedComment}
+              /> */}
             </div>
           </div>
         </div>
