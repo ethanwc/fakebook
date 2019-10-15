@@ -79,10 +79,7 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
-
           let postsToUpdate = [...posts];
-          postsToUpdate.splice(updateIndex, 1, updatedPost);
 
           setPosts(postsToUpdate);
 
@@ -128,10 +125,7 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
-
           let postsToUpdate = [...posts];
-          postsToUpdate.splice(updateIndex, 1, updatedPost);
 
           setPosts(postsToUpdate);
         }
@@ -178,10 +172,7 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          var updateIndex = posts.find((i: { _id: string }) => i._id === _id);
-
           let postsToUpdate = [...posts];
-          postsToUpdate.splice(updateIndex, 1, updatedPost);
 
           setPosts(postsToUpdate);
         }
@@ -239,12 +230,7 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          var updateIndex = posts.find(
-            (i: { _id: string }) => i._id === postid
-          );
-
           let postsToUpdate = [...posts];
-          postsToUpdate.splice(updateIndex, 1, updatedPost);
 
           setPosts(postsToUpdate);
         }
