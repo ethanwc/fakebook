@@ -18,7 +18,7 @@ const ProfileUI = (props: any) => {
       />
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
-          <ProfileInfo profileInfo={props.profileInfo} />
+          <ProfileInfo profileInfo={props.profileInfo} posts={props.posts} />
         </div>
 
         <div className="col-9 contact-box">

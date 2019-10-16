@@ -5,7 +5,7 @@ const Posts = (props: any) => {
   if (props.posts === undefined) return <p>Loading</p>;
   return (
     <div>
-      {props.posts.reverse().map(
+      {props.posts.map(
         (item: {
           _id: string;
           comments: [];
