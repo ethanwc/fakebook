@@ -10,6 +10,7 @@ interface PostProps {
   Title: string;
   Content: string;
   _id: string;
+  authorid: string;
   comments: [];
   submitComment: Function;
   favoritePost: Function;
@@ -32,7 +33,8 @@ const Post: React.FC<PostProps> = ({
   likeComment,
   likedComment,
   _id,
-  comments
+  comments,
+  authorid
 }) => (
   <div className="row flex-grow-1 no-gutter">
     <div className="col-8 offset-2">
@@ -42,9 +44,10 @@ const Post: React.FC<PostProps> = ({
             Title={Title}
             favoritePost={favoritePost}
             likePost={likePost}
-            _id={_id}
+            postid={_id}
             liked={liked}
             favorited={favorited}
+            authorid={authorid}
           />
           <PostBody Content={Content} />
           {/* map through comments to display them. */}

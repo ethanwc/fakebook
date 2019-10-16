@@ -32,6 +32,8 @@ const PostsController = () => {
       .then(function(response) {
         if (response.status === 200) {
           let res = response.data;
+          console.log(res);
+
           const newPost = {
             comments: [],
             likes: [],
@@ -39,7 +41,8 @@ const PostsController = () => {
             _id: res._id,
             content: res.content,
             title: res.title,
-            author: res.author
+            author: res.author,
+            authorid: res.author._id
           };
 
           setPosts([...posts, newPost]);
@@ -183,7 +186,6 @@ const PostsController = () => {
       });
   };
 
-  
   //check if a comment is liked by current user
   const likedComment = (postid: string, commentid: string) => {
     let post = posts.find((i: { _id: string }) => i._id === postid);

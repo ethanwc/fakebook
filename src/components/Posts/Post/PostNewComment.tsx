@@ -4,8 +4,10 @@ const PostNewComment = (props: any) => {
   const [comment, setComment] = useState("");
 
   const handleSubmit = () => {
-    props.submitComment(comment, props._id);
-    setComment("");
+    if (comment.length > 0) {
+      props.submitComment(comment, props._id);
+      setComment("");
+    }
   };
 
   return (

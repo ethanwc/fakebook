@@ -3,6 +3,7 @@ import Post from "./Post/Post";
 
 const Posts = (props: any) => {
   if (props.posts === undefined) return <p>Loading</p>;
+  console.log(props.posts);
   return (
     <div>
       {props.posts.map(
@@ -11,6 +12,7 @@ const Posts = (props: any) => {
           comments: [];
           author: {
             name: string;
+            _id: string;
           };
           content: string;
           title: string;
@@ -28,6 +30,7 @@ const Posts = (props: any) => {
             favorited={props.favorited}
             likeComment={props.likeComment}
             likedComment={props.likedComment}
+            authorid={item.author._id}
           />
         )
       )}

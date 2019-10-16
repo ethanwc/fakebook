@@ -9,12 +9,18 @@ const ProfileInfo = (props: any) => {
   let likes = 0,
     favorites = 0;
   for (const i of props.posts) {
+    for (const c of i.comments) likes += c.likes.length;
     likes += i.likes.length;
     favorites += i.favorites.length;
   }
 
+  // const handleFollow = () => {
+  //   //call controller's api call to follow someone, also increment/decrement. need to determine if already followed?
+  // };
+
+  console.log(props.authorid);
   const button =
-    props.profileInfo[0]._id !== localStorage.getItem("_id") ? (
+    localStorage.getItem("view_profile") !== localStorage.getItem("_id") ? (
       <Button className="mr-1">Follow</Button>
     ) : null;
 

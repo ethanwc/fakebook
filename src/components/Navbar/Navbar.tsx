@@ -4,6 +4,7 @@ export default function Navbar() {
     localStorage.setItem("token", "null");
     localStorage.setItem("name", "null");
     localStorage.setItem("_id", "null");
+    localStorage.setItem("view_profile", "null");
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
