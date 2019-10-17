@@ -14,6 +14,8 @@ const Profile = (props: any) => {
   //hooks for posts info
   const [posts, setPosts] = useState();
 
+  //uri to update profile
+  const uri_profile_update = `${Endpoints.route}/${Endpoints.users}/${Endpoints.profile}`;
   //uri to follow a profile
   const uri_profile_follow = `${Endpoints.route}/${Endpoints.users}/${Endpoints.follow}`;
   //uri to get profile info
@@ -34,6 +36,7 @@ const Profile = (props: any) => {
     fetchData();
   }, []);
 
+  //send http req to follow someone's profile
   const followProfile = (followInfo: any) => {
     Axios.post(uri_profile_follow, followInfo, {
       data: {
@@ -51,14 +54,29 @@ const Profile = (props: any) => {
       });
   };
 
-  // console.log(profileInfo);
-  // console.log(posts);
+  //edit your profile
+  const editProfile = (updateInfo: any) => {
+    //takes location, about, id, authentication,
+    Axios.post(uri_profile_update, updateInfo, {
+      data: {
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(resposne) {
+        setProfileInfo([resposne.data]);
+        //add or remove... or just use server logic and display?
+      })
+      .catch(function(error) {
+        //handle error
+      });
+  };
 
   return (
     <ProfileUI
       profileInfo={profileInfo}
       posts={posts}
       followProfile={followProfile}
+      editProfile={editProfile}
     />
   );
 };

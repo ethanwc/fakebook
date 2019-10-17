@@ -3,11 +3,9 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ProfileInfo = (props: any) => {
-
-  if (props.profileInfo === undefined || props.posts === undefined){
-    console.log(props)
+  if (props.profileInfo === undefined || props.posts === undefined) {
+    console.log(props);
     return <p>Loading</p>;
-
   }
 
   //setup:
@@ -30,6 +28,18 @@ const ProfileInfo = (props: any) => {
     props.followProfile(followInfo);
   };
 
+  //todo: toggle between inputs and displays to update
+  //hepler call for edit profile logic
+  const handleEditProfile = () => {
+    const updatedProfile = {
+      id: localStorage.getItem("_id"),
+      location: "bellevue",
+      about: "not much to see here"
+    };
+
+    props.editProfile(updatedProfile);
+  };
+
   const followText = info.following.includes(localStorage.getItem("_id"))
     ? "Unfollow"
     : "Follow";
@@ -42,7 +52,9 @@ const ProfileInfo = (props: any) => {
     </Button>
   ) : null;
   const edit = !ownProfile ? (
-    <i className="m-0 mt-2 p-0 material-icons">edit</i>
+    <i className="m-0 mt-2 p-0 material-icons" onClick={handleEditProfile}>
+      edit
+    </i>
   ) : null;
 
   return (
@@ -98,6 +110,8 @@ const ProfileInfo = (props: any) => {
 
         <h2 className="text-center m-2">About</h2>
         <p className="text-center  text-unimp">{info.about}</p>
+
+        <p className="text-center  text-unimp">{info.location}</p>
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ const ProfileUI = (props: any) => {
   console.log(props);
   return (
     <div className="container-fluid min-100 d-flex flex-column">
-      
       <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
@@ -24,6 +23,7 @@ const ProfileUI = (props: any) => {
             profileInfo={props.profileInfo}
             posts={props.posts}
             followProfile={props.followProfile}
+            editProfile={props.editProfile}
           />
         </div>
 

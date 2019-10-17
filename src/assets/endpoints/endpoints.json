@@ -4,5 +4,6 @@
   "auth": "auth",
   "users": "users",
   "info": "info",
-  "follow": "follow"
+  "follow": "follow",
+  "profile": "profile"
 }
