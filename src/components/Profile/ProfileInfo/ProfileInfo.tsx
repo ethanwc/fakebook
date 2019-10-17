@@ -136,9 +136,13 @@ const ProfileInfo = (props: any) => {
         />
 
         <div className="d-flex justify-content-center align-items-center">
-          <h2 className="text-center mr-1">{info.name}</h2>
+          <h2 className="text-center">{info.name}</h2>
 
-          <Status ownProfile={ownProfile} setStatus={props.setStatus} status={info.status}/>
+          <Status
+            ownProfile={ownProfile}
+            setStatus={props.setStatus}
+            status={info.status}
+          />
         </div>
 
         <h5 className="text-center text-imp">{info.username}</h5>

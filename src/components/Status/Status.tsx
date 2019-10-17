@@ -44,7 +44,7 @@ const Status = (props: any) => {
 
   //set status or view status?
   const status = props.ownProfile ? (
-    <i className="material-icons" style={currentStatus}>
+    <i className="material-icons m-2" style={currentStatus}>
       radio_button_checked
     </i>
   ) : (
@@ -54,7 +54,7 @@ const Status = (props: any) => {
         className="border-0 btn btn-primary-outline btn-link"
         style={dropStyle}
       >
-        <i className="material-icons" style={currentStatus}>
+        <i className="material-icons mr-2 mt-2" style={currentStatus}>
           radio_button_checked
         </i>
       </Dropdown.Toggle>
