@@ -64,7 +64,8 @@ const PostsController = () => {
       id: uuidv1(),
       likes: [],
       comment: comment,
-      author: localStorage.getItem("name")
+      author: localStorage.getItem("name"),
+      authorid: localStorage.getItem("_id")
     };
 
     let updatedComments = [...postToUpdate.comments, newComment];

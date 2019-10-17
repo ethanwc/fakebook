@@ -14,6 +14,8 @@ const Profile = (props: any) => {
   //hooks for posts info
   const [posts, setPosts] = useState();
 
+  //uri to follow a profile
+  const uri_profile_follow = `${Endpoints.route}/${Endpoints.users}/${Endpoints.follow}`;
   //uri to get profile info
   const uri_profile_info = `${Endpoints.route}/${Endpoints.users}/${id}/${Endpoints.info}`;
   //uri to get user's own posts
@@ -24,26 +26,41 @@ const Profile = (props: any) => {
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
       setProfileInfo(profile.data);
+      console.log("a");
+      console.log(profile.data);
       const posts = await Axios(uri_get_user_posts);
       setPosts(posts.data);
     };
     fetchData();
   }, []);
 
-  //todo: logic to always view your own posts... can't follow yourself or maybe dont render
-  //check if current profile id is your profile id to determine to render follow button
-
-  //todo: logic for viewing each profile.
-  //store person to view as props? clicking on their icon anywhere => sets profile ui.
-  //only view your own via your own button or view profile?
-  //just do a profiletoview in localstorage
-
-  const followProfile = () => {};
+  const followProfile = (followInfo: any) => {
+    Axios.post(uri_profile_follow, followInfo, {
+      data: {
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(resposne) {
+        setProfileInfo([resposne.data]);
+        //add or remove... or just use server logic and display?
+        console.log("b");
+        console.log(resposne.data);
+      })
+      .catch(function(error) {
+        //handle error
+      });
+  };
 
   // console.log(profileInfo);
   // console.log(posts);
 
-  return <ProfileUI profileInfo={profileInfo} posts={posts} />;
+  return (
+    <ProfileUI
+      profileInfo={profileInfo}
+      posts={posts}
+      followProfile={followProfile}
+    />
+  );
 };
 
 export default Profile;

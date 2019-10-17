@@ -3,5 +3,6 @@
   "posts": "posts",
   "auth": "auth",
   "users": "users",
-  "info": "info"
+  "info": "info",
+  "follow": "follow"
 }

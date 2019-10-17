@@ -59,7 +59,8 @@ body {
   opacity: 0.3;
 }
 
-i {
+i,
+img {
   transition: 0.3s;
   &:hover {
     color: $blue;

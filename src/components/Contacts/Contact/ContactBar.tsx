@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function ContactBar() {
   return (
     <div className="row contact-box-bar">
@@ -7,9 +7,9 @@ export default function ContactBar() {
         <div className="d-flex">
           <div className="d-flex flex-grow-1">
             <div className="p-2">
-              <a href="/">
+              <Link to={"/"} className="">
                 <i className="m-0 mt-2 p-0 ml-3 material-icons">arrow_back</i>
-              </a>
+              </Link>
             </div>
 
             <div className="my-auto mr-2 flex-grow-1">

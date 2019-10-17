@@ -53,12 +53,14 @@ body {
   opacity: 0.3;
 }
 
-i {
+i,
+img {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-i:hover {
+i:hover,
+img:hover {
   color: #1f7292;
   cursor: pointer;
 }

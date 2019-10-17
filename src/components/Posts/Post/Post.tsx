@@ -52,7 +52,12 @@ const Post: React.FC<PostProps> = ({
           <PostBody Content={Content} />
           {/* map through comments to display them. */}
           {comments.map(
-            (item: { id: string; comment: string; author: string }) => (
+            (item: {
+              id: string;
+              comment: string;
+              author: string;
+              authorid: string;
+            }) => (
               <PostComment
                 comment={item.comment}
                 author={item.author}
@@ -60,10 +65,15 @@ const Post: React.FC<PostProps> = ({
                 likedComment={likedComment}
                 postid={_id}
                 id={item.id}
+                authorid={item.authorid}
               />
             )
           )}
-          <PostNewComment submitComment={submitComment} _id={_id} />{" "}
+          <PostNewComment
+            submitComment={submitComment}
+            _id={_id}
+            authorid={authorid}
+          />{" "}
         </div>
       </div>
     </div>

@@ -10,15 +10,21 @@ const scrollStyle = {
 };
 
 const ProfileUI = (props: any) => {
+  console.log(props);
   return (
     <div className="container-fluid min-100 d-flex flex-column">
+      
       <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
-          <ProfileInfo profileInfo={props.profileInfo} posts={props.posts} />
+          <ProfileInfo
+            profileInfo={props.profileInfo}
+            posts={props.posts}
+            followProfile={props.followProfile}
+          />
         </div>
 
         <div className="col-9 contact-box">
