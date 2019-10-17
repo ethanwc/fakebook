@@ -24,6 +24,7 @@ const ProfileUI = (props: any) => {
             posts={props.posts}
             followProfile={props.followProfile}
             editProfile={props.editProfile}
+            setStatus={props.setStatus}
           />
         </div>
 

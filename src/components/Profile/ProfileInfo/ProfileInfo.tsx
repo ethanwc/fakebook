@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useState, CSSProperties } from "react";
+import { Button, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Status from "../../Status/Status";
 
 const ProfileInfo = (props: any) => {
+  const [editing, setEditing] = useState(false);
+  const [aboutInfo, setAboutInfo] = useState("");
+  const [locationInfo, setLocationInfo] = useState("");
+  //return loading until loaded.
+  //todo: loading animation
   if (props.profileInfo === undefined || props.posts === undefined) {
-    console.log(props);
     return <p>Loading</p>;
   }
 
@@ -28,22 +33,24 @@ const ProfileInfo = (props: any) => {
     props.followProfile(followInfo);
   };
 
-  //todo: toggle between inputs and displays to update
   //hepler call for edit profile logic
   const handleEditProfile = () => {
     const updatedProfile = {
       id: localStorage.getItem("_id"),
-      location: "bellevue",
-      about: "not much to see here"
+      location: locationInfo,
+      about: aboutInfo
     };
 
     props.editProfile(updatedProfile);
+    setEditing(false);
   };
 
+  //are you following or unfollowing?
   const followText = info.following.includes(localStorage.getItem("_id"))
     ? "Unfollow"
     : "Follow";
 
+  //determine if it's the users own profile
   const ownProfile =
     localStorage.getItem("view_profile") !== localStorage.getItem("_id");
   const followButton = ownProfile ? (
@@ -51,11 +58,61 @@ const ProfileInfo = (props: any) => {
       {followText}
     </Button>
   ) : null;
-  const edit = !ownProfile ? (
-    <i className="m-0 mt-2 p-0 material-icons" onClick={handleEditProfile}>
-      edit
-    </i>
+
+  //conditional save component
+  const save = editing ? (
+    <div>
+      <i
+        className="m-0 mt-2 p-0 material-icons"
+        onClick={() => setEditing(false)}
+      >
+        cancel
+      </i>
+      <i className="m-0 mt-2 p-0 material-icons" onClick={handleEditProfile}>
+        save
+      </i>
+    </div>
   ) : null;
+
+  //conditional edit component
+  const edit =
+    !ownProfile && !editing ? (
+      <i
+        className="m-0 mt-2 p-0 material-icons"
+        onClick={() => setEditing(true)}
+      >
+        edit
+      </i>
+    ) : null;
+
+  //conditional dispaly or input based on edit for about
+  const about = !editing ? (
+    <p className="text-center text-unimp">{info.about}</p>
+  ) : (
+    <textarea
+      value={aboutInfo}
+      placeholder={info.about}
+      onChange={e => setAboutInfo(e.target.value)}
+      className="form-control post-input rounded"
+      required
+    />
+  );
+
+  console.log(info.status);
+
+  //conditional dispaly or input based on edit for location
+  const location = !editing ? (
+    <p className="text-center text-unimp">{info.location}</p>
+  ) : (
+    <input
+      type="text"
+      value={locationInfo}
+      placeholder={info.location}
+      onChange={e => setLocationInfo(e.target.value)}
+      className="input rounded"
+      required
+    />
+  );
 
   return (
     <div className="h-100 d-flex flex-column">
@@ -68,7 +125,7 @@ const ProfileInfo = (props: any) => {
           <Link to={"/"} className="">
             <i className="m-0 mt-2 p-0 ml-3 material-icons">arrow_back</i>
           </Link>
-
+          {save}
           {edit}
         </div>
 
@@ -77,7 +134,13 @@ const ProfileInfo = (props: any) => {
           alt=""
           className="w-100 rounded"
         />
-        <h2 className="text-center p-0 m-0">{info.name}</h2>
+
+        <div className="d-flex justify-content-center align-items-center">
+          <h2 className="text-center mr-1">{info.name}</h2>
+
+          <Status ownProfile={ownProfile} setStatus={props.setStatus} status={info.status}/>
+        </div>
+
         <h5 className="text-center text-imp">{info.username}</h5>
         <div className="d-flex justify-content-center m-2">{followButton}</div>
 
@@ -109,9 +172,10 @@ const ProfileInfo = (props: any) => {
         </div>
 
         <h2 className="text-center m-2">About</h2>
-        <p className="text-center  text-unimp">{info.about}</p>
+        <div className="d-flex justify-content-center">{about}</div>
 
-        <p className="text-center  text-unimp">{info.location}</p>
+        <h5 className="text-center text-unimp">Location</h5>
+        <div className="d-flex justify-content-center">{location}</div>
       </div>
     </div>
   );
