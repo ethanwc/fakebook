@@ -37,50 +37,53 @@ const Post: React.FC<PostProps> = ({
   comments,
   authorid,
   updateInfo
-}) => (
-  <div className="row flex-grow-1 no-gutter">
-    <div className="col-12">
-      <div className="h-100 d-flex flex-column">
-        <div className="post m-2 mt-3 rounded">
-          <PostHeader
-            Title={Title}
-            favoritePost={favoritePost}
-            likePost={likePost}
-            postid={_id}
-            liked={liked}
-            favorited={favorited}
-            authorid={authorid}
-          />
-          <PostBody Content={Content} />
-          {/* map through comments to display them. */}
-          {comments.map(
-            (item: {
-              id: string;
-              comment: string;
-              author: string;
-              authorid: string;
-            }) => (
-              <PostComment
-                comment={item.comment}
-                author={item.author}
-                likeComment={likeComment}
-                likedComment={likedComment}
-                postid={_id}
-                id={item.id}
-                authorid={item.authorid}
-                updateInfo={updateInfo}
-              />
-            )
-          )}
-          <PostNewComment
-            submitComment={submitComment}
-            _id={_id}
-            authorid={authorid}
-          />{" "}
+}) => {
+  console.log("defined here?", authorid, Title);
+  return (
+    <div className="row flex-grow-1 no-gutter">
+      <div className="col-12">
+        <div className="h-100 d-flex flex-column">
+          <div className="post m-2 mt-3 rounded">
+            <PostHeader
+              Title={Title}
+              favoritePost={favoritePost}
+              likePost={likePost}
+              postid={_id}
+              liked={liked}
+              favorited={favorited}
+              authorid={authorid}
+              updateInfo={updateInfo}
+            />
+            <PostBody Content={Content} />
+            {/* map through comments to display them. */}
+            {comments.map(
+              (item: {
+                id: string;
+                comment: string;
+                author: string;
+                authorid: string;
+              }) => (
+                <PostComment
+                  comment={item.comment}
+                  author={item.author}
+                  likeComment={likeComment}
+                  likedComment={likedComment}
+                  postid={_id}
+                  id={item.id}
+                  authorid={item.authorid}
+                  updateInfo={updateInfo}
+                />
+              )
+            )}
+            <PostNewComment
+              submitComment={submitComment}
+              _id={_id}
+              authorid={authorid}
+            />{" "}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
-
+  );
+};
 export default Post;

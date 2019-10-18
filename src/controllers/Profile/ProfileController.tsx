@@ -7,8 +7,6 @@ import Axios from "axios";
  * Profile Controller
  */
 const Profile = (props: any) => {
-  console.error("ppp", props.posts);
-
   const id = localStorage.getItem("view_profile");
 
   //uri to set status
@@ -26,11 +24,8 @@ const Profile = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
+
       props.setProfileInfo(profile.data);
-      console.log("a");
-      console.log(profile.data);
-      const posts = await Axios(uri_get_user_posts);
-      props.setPosts(posts.data);
     };
     fetchData();
   }, []);
@@ -45,8 +40,6 @@ const Profile = (props: any) => {
       .then(function(response) {
         props.setProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
-        console.log("b");
-        console.log(response.data);
       })
       .catch(function(error) {
         //handle error
@@ -73,8 +66,6 @@ const Profile = (props: any) => {
   //setstatus
   const setStatus = (statusInfo: any) => {
     //takes location, about, id, authentication,
-    console.log(localStorage.getItem("token"));
-    console.log(`${localStorage.getItem("_id")}`);
     Axios.post(uri_profile_status, statusInfo, {})
       .then(function(response) {
         props.setProfileInfo([response.data]);

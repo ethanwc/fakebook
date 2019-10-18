@@ -29,21 +29,7 @@ const PostsController = (props: any) => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          let res = response.data;
-          console.log(res);
-
-          const newPost = {
-            comments: [],
-            likes: [],
-            favorites: [],
-            _id: res._id,
-            content: res.content,
-            title: res.title,
-            author: res.author,
-            authorid: res.author._id
-          };
-
-          props.setPosts([...props.posts, newPost]);
+          updateInfo();        
         }
       })
       .catch(function(error) {
@@ -248,9 +234,10 @@ const PostsController = (props: any) => {
 
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
+      console.error("ike esta: ", profile.data)
       props.setProfileInfo(profile.data);
-      const posts = await Axios(uri_get_user_posts);
-      props.setPosts(posts.data);
+      // const posts = await Axios(uri_get_user_posts);
+      // props.setPosts(posts.data);
     };
     fetchData();
   };

@@ -9,11 +9,9 @@ const ProfileInfo = (props: any) => {
   const [locationInfo, setLocationInfo] = useState("");
   //return loading until loaded.
   //todo: loading animation
-  console.log(props.profileinfo);
   if (props.profileInfo === undefined || props.posts === undefined) {
     return <p>Loading</p>;
   }
-
 
   //setup:
   const info = props.profileInfo[0];
@@ -47,6 +45,7 @@ const ProfileInfo = (props: any) => {
     setEditing(false);
   };
 
+  console.error(info)
   //are you following or unfollowing?
   const followText = info.following.includes(localStorage.getItem("_id"))
     ? "Unfollow"

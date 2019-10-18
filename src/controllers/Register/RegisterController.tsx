@@ -23,7 +23,6 @@ export default function RegisterController() {
       .catch(function(error) {
         console.log("error" + error);
       });
-    console.log(localStorage.getItem("token"));
   };
 
   return (

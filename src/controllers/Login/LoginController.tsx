@@ -25,7 +25,6 @@ export default function LoginController(props: any) {
       .catch(function(error) {
         console.log("error: " + error);
       });
-    console.log(localStorage.getItem("token"));
   };
 
   return <LoginUI handleLogin={handleLogin} />;

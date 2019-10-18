@@ -7,8 +7,9 @@ interface PostHeaderProps {
   likePost: Function;
   liked: Function;
   favorited: Function;
-  postid: String;
-  authorid: String;
+  updateInfo: Function;
+  postid: string;
+  authorid: string;
 }
 
 const PostHeader: React.FC<PostHeaderProps> = ({
@@ -18,8 +19,10 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   liked,
   favorited,
   postid,
-  authorid
+  authorid,
+  updateInfo
 }) => {
+  console.error("id", authorid);
   const handleLike = () => likePost(postid);
   const handleFavorite = () => favoritePost(postid);
 
@@ -35,11 +38,9 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   const favoriteStyle = favorited(postid) ? blue : black;
 
   const redirectToProfile = () => {
-    if (history.location.pathname === "/profile") {
-      console.log(authorid);
-    }
-    // localStorage.setItem("view_profile", authorid.toString());
-    // history.push("/profile");
+    localStorage.setItem("view_profile", authorid.toString());
+    history.push("/profile");
+    updateInfo();
   };
 
   return (

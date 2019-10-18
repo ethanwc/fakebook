@@ -11,7 +11,6 @@ const scrollStyle = {
 };
 
 const ProfileUI = (props: any) => {
-  console.log(props);
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link

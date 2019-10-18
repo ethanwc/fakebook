@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   //hooks for posts info
   const [posts, setPosts] = useState();
-  const [profileInfo, setProfileInfo] = useState("");
+  const [profileInfo, setProfileInfo] = useState();
 
   /**
    * Route the webpage.
@@ -29,6 +29,7 @@ const App: React.FC = () => {
         <Navbar />
         <PostsController
           setProfileInfo={setProfileInfo}
+          profileInfo={profileInfo}
           posts={posts}
           setPosts={setPosts}
           componentVal={true}
@@ -45,8 +46,6 @@ const App: React.FC = () => {
           posts={posts}
         />
       </Route>
-      component={Profile}
-      />
     </Router>
   );
 

@@ -2,7 +2,6 @@ import React, { CSSProperties } from "react";
 import { Dropdown } from "react-bootstrap";
 
 const Status = (props: any) => {
-  console.log("in status", props);
   const statusGreen: CSSProperties = {
     color: "green"
   };

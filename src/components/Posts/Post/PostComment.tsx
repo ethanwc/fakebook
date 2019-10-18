@@ -22,7 +22,6 @@ const PostComment: React.FC<PostCommentProps> = ({
   authorid,
   updateInfo
 }) => {
-  console.log("id:", authorid);
   const handleLike = () => likeComment(postid, id);
   const blue: CSSProperties = {
     color: "#1f7292"
