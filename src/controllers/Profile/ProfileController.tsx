@@ -7,12 +7,9 @@ import Axios from "axios";
  * Profile Controller
  */
 const Profile = (props: any) => {
-  const id = localStorage.getItem("view_profile");
+  console.error("ppp", props.posts);
 
-  //hooks for profile info
-  const [profileInfo, setProfileInfo] = useState();
-  //hooks for posts info
-  const [posts, setPosts] = useState();
+  const id = localStorage.getItem("view_profile");
 
   //uri to set status
   const uri_profile_status = `${Endpoints.route}/${Endpoints.users}/${Endpoints.status}`;
@@ -29,11 +26,11 @@ const Profile = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
-      setProfileInfo(profile.data);
+      props.setProfileInfo(profile.data);
       console.log("a");
       console.log(profile.data);
       const posts = await Axios(uri_get_user_posts);
-      setPosts(posts.data);
+      props.setPosts(posts.data);
     };
     fetchData();
   }, []);
@@ -45,11 +42,11 @@ const Profile = (props: any) => {
         Authentication: `${localStorage.getItem("token")}`
       }
     })
-      .then(function(resposne) {
-        setProfileInfo([resposne.data]);
+      .then(function(response) {
+        props.setProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
         console.log("b");
-        console.log(resposne.data);
+        console.log(response.data);
       })
       .catch(function(error) {
         //handle error
@@ -64,8 +61,8 @@ const Profile = (props: any) => {
         Authentication: `${localStorage.getItem("token")}`
       }
     })
-      .then(function(resposne) {
-        setProfileInfo([resposne.data]);
+      .then(function(response) {
+        props.setProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
       })
       .catch(function(error) {
@@ -79,8 +76,8 @@ const Profile = (props: any) => {
     console.log(localStorage.getItem("token"));
     console.log(`${localStorage.getItem("_id")}`);
     Axios.post(uri_profile_status, statusInfo, {})
-      .then(function(resposne) {
-        setProfileInfo([resposne.data]);
+      .then(function(response) {
+        props.setProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
       })
       .catch(function(error) {
@@ -90,11 +87,13 @@ const Profile = (props: any) => {
 
   return (
     <ProfileUI
-      profileInfo={profileInfo}
-      posts={posts}
+      profileInfo={props.profileInfo}
+      posts={props.posts}
+      setPosts={props.setPosts}
       followProfile={followProfile}
       editProfile={editProfile}
       setStatus={setStatus}
+      setProfileInfo={props.setProfileInfo}
     />
   );
 };

@@ -9,13 +9,11 @@ const uuidv1 = require("uuid/v1");
  */
 const uri_get_posts = `${Endpoints.route}/${Endpoints.posts}`;
 
-const PostsController = () => {
-  const [posts, setPosts] = useState();
-
+const PostsController = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await Axios(uri_get_posts);
-      setPosts(result.data);
+      props.setPosts(result.data);
     };
     fetchData();
   }, []);
@@ -45,7 +43,7 @@ const PostsController = () => {
             authorid: res.author._id
           };
 
-          setPosts([...posts, newPost]);
+          props.setPosts([...props.posts, newPost]);
         }
       })
       .catch(function(error) {
@@ -57,7 +55,7 @@ const PostsController = () => {
 
   const submitComment = (comment: string, _id: string) => {
     //find post that was clicked on
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    let postToUpdate = props.posts.find((i: { _id: string }) => i._id === _id);
 
     //since we are submitting a comment, need to add a new comment to the post.
     const newComment = {
@@ -83,9 +81,8 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          let postsToUpdate = [...posts];
-
-          setPosts(postsToUpdate);
+          let postsToUpdate = [...props.posts];
+          props.setPosts(postsToUpdate);
 
           //todo: update posts by replacing current post with new post because comments are sub components
         }
@@ -99,7 +96,7 @@ const PostsController = () => {
 
   //check if a post is liked by current user
   const liked = (_id: string) => {
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    let postToUpdate = props.posts.find((i: { _id: string }) => i._id === _id);
     return postToUpdate.likes.includes(localStorage.getItem("_id"));
   };
 
@@ -108,7 +105,7 @@ const PostsController = () => {
     //uri for specific post to update
     const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${_id}`;
 
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    let postToUpdate = props.posts.find((i: { _id: string }) => i._id === _id);
 
     let liked = postToUpdate.likes.includes(localStorage.getItem("_id"));
 
@@ -129,9 +126,8 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          let postsToUpdate = [...posts];
-
-          setPosts(postsToUpdate);
+          let postsToUpdate = [...props.posts];
+          props.setPosts(postsToUpdate);
         }
       })
       .catch(function(error) {
@@ -143,7 +139,7 @@ const PostsController = () => {
 
   //check if a post is favorited by current user
   const favorited = (_id: string) => {
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    let postToUpdate = props.posts.find((i: { _id: string }) => i._id === _id);
     return postToUpdate.favorites.includes(localStorage.getItem("_id"));
   };
 
@@ -152,7 +148,7 @@ const PostsController = () => {
     //uri for specific post to update
     const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${_id}`;
 
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === _id);
+    let postToUpdate = props.posts.find((i: { _id: string }) => i._id === _id);
 
     let favorited = postToUpdate.favorites.includes(
       localStorage.getItem("_id")
@@ -175,9 +171,8 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          let postsToUpdate = [...posts];
-
-          setPosts(postsToUpdate);
+          let postsToUpdate = [...props.posts];
+          props.setPosts(postsToUpdate);
         }
       })
       .catch(function(error) {
@@ -189,7 +184,7 @@ const PostsController = () => {
 
   //check if a comment is liked by current user
   const likedComment = (postid: string, commentid: string) => {
-    let post = posts.find((i: { _id: string }) => i._id === postid);
+    let post = props.posts.find((i: { _id: string }) => i._id === postid);
     let comment = post.comments.find((i: { id: string }) => i.id === commentid);
 
     return comment.likes.includes(localStorage.getItem("_id"));
@@ -201,7 +196,9 @@ const PostsController = () => {
     const uri_update_post = `${Endpoints.route}/${Endpoints.posts}/${postid}`;
 
     //get specific post
-    let postToUpdate = posts.find((i: { _id: string }) => i._id === postid);
+    let postToUpdate = props.posts.find(
+      (i: { _id: string }) => i._id === postid
+    );
 
     //get specific comment
     let commentToUpdate = postToUpdate.comments.find(
@@ -229,9 +226,8 @@ const PostsController = () => {
     })
       .then(function(response) {
         if (response.status === 200) {
-          let postsToUpdate = [...posts];
-
-          setPosts(postsToUpdate);
+          let postsToUpdate = [...props.posts];
+          props.setPosts(postsToUpdate);
         }
       })
       .catch(function(error) {
@@ -241,17 +237,37 @@ const PostsController = () => {
       });
   };
 
+  //Due to posts being showed next to a profile, it should check if their stats are changing.
+  const updateInfo = () => {
+    const uri_profile_info = `${Endpoints.route}/${
+      Endpoints.users
+    }/${localStorage.getItem("view_profile")}/${Endpoints.info}`;
+    const uri_get_user_posts = `${Endpoints.route}/${
+      Endpoints.users
+    }/${localStorage.getItem("view_profile")}/${Endpoints.posts}`;
+
+    const fetchData = async () => {
+      const profile = await Axios.get(uri_profile_info, {});
+      props.setProfileInfo(profile.data);
+      const posts = await Axios(uri_get_user_posts);
+      props.setPosts(posts.data);
+    };
+    fetchData();
+  };
+
   return (
     <PostsUI
       submitPost={submitPost}
       submitComment={submitComment}
-      posts={posts}
+      posts={props.posts}
       likePost={likePost}
       favoritePost={favoritePost}
       liked={liked}
       favorited={favorited}
       likeComment={likeComment}
       likedComment={likedComment}
+      component={props.componentVal}
+      updateInfo={updateInfo}
     />
   );
 };

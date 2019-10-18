@@ -2,6 +2,7 @@ import React from "react";
 import ProfileBar from "../ProfileBar";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 import "../../../assets/styles/Profile/profile.css";
+import PostsController from "../../../controllers/Posts/PostController";
 
 const scrollStyle = {
   height: "400px",
@@ -33,17 +34,13 @@ const ProfileUI = (props: any) => {
             <ProfileBar />
 
             <div className="flex-grow-1" style={scrollStyle}>
-              {/* <Posts
-                getPosts={props.getPosts}
-                submitComment={props.submitComment}
+              <PostsController
+                componentVal={false}
+                profileInfo={props.profileInfo}
+                setProfileInfo={props.setProfileInfo}
                 posts={props.posts}
-                likePost={props.likePost}
-                favoritePost={props.favoritePost}
-                liked={props.liked}
-                favorited={props.favorited}
-                likeComment={props.likeComment}
-                likedComment={props.likedComment}
-              /> */}
+                setPosts={props.setPosts}
+              />
             </div>
           </div>
         </div>

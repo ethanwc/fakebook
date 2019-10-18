@@ -9,9 +9,11 @@ const ProfileInfo = (props: any) => {
   const [locationInfo, setLocationInfo] = useState("");
   //return loading until loaded.
   //todo: loading animation
+  console.log(props.profileinfo);
   if (props.profileInfo === undefined || props.posts === undefined) {
     return <p>Loading</p>;
   }
+
 
   //setup:
   const info = props.profileInfo[0];

@@ -35,8 +35,11 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   const favoriteStyle = favorited(postid) ? blue : black;
 
   const redirectToProfile = () => {
-    localStorage.setItem("view_profile", authorid.toString());
-    history.push("/profile");
+    if (history.location.pathname === "/profile") {
+      console.log(authorid);
+    }
+    // localStorage.setItem("view_profile", authorid.toString());
+    // history.push("/profile");
   };
 
   return (

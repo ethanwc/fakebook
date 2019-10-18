@@ -19,6 +19,7 @@ interface PostProps {
   favorited: Function;
   likeComment: Function;
   likedComment: Function;
+  updateInfo: Function;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -34,10 +35,11 @@ const Post: React.FC<PostProps> = ({
   likedComment,
   _id,
   comments,
-  authorid
+  authorid,
+  updateInfo
 }) => (
   <div className="row flex-grow-1 no-gutter">
-    <div className="col-8 offset-2">
+    <div className="col-12">
       <div className="h-100 d-flex flex-column">
         <div className="post m-2 mt-3 rounded">
           <PostHeader
@@ -66,6 +68,7 @@ const Post: React.FC<PostProps> = ({
                 postid={_id}
                 id={item.id}
                 authorid={item.authorid}
+                updateInfo={updateInfo}
               />
             )
           )}

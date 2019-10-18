@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 
 const Posts = (props: any) => {
   if (props.posts === undefined) return <p>Loading</p>;
-  console.log(props.posts);
+  console.error("maping: ", props.posts)
   return (
     <div>
       {props.posts.map(
@@ -31,6 +31,7 @@ const Posts = (props: any) => {
             likeComment={props.likeComment}
             likedComment={props.likedComment}
             authorid={item.author._id}
+            updateInfo={props.updateInfo}
           />
         )
       )}
