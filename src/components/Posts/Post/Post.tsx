@@ -38,7 +38,6 @@ const Post: React.FC<PostProps> = ({
   authorid,
   updateInfo
 }) => {
-  console.log("defined here?", authorid, Title);
   return (
     <div className="row flex-grow-1 no-gutter">
       <div className="col-12">

@@ -16,7 +16,7 @@ const App: React.FC = () => {
    * Top level information shared between controllers
    */
 
-  //hooks for posts info
+   //hooks for posts info
   const [posts, setPosts] = useState();
   const [profileInfo, setProfileInfo] = useState();
 

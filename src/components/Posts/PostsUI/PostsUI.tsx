@@ -6,8 +6,13 @@ import "../../../assets/styles/Post/posts.css";
 
 const PostsUI = (props: any) => {
   const component = props.component ? (
-    <Content submitPost={props.submitPost} content={props.content} authorid={localStorage.getItem("_id")} />
+    <Content
+      submitPost={props.submitPost}
+      content={props.content}
+      authorid={localStorage.getItem("_id")}
+    />
   ) : null;
+
 
   return (
     <div className="container-fluid min-100 d-flex flex-column">

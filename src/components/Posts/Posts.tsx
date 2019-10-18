@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import Post from "./Post/Post";
+import history from "../../utils/history";
 
 const Posts = (props: any) => {
   if (props.posts === undefined) return <p>Loading</p>;
 
+  //only show the posts of the profile being viewed hence we are already in profile view.
+  const filteredPosts =
+    history.location.pathname === "/profile"
+      ? props.posts.filter(
+          (i: any) => i.author._id === localStorage.getItem("view_profile")
+        )
+      : props.posts;
+
   return (
     <div>
-      {props.posts.map(
+      {filteredPosts.map(
         (item: {
           _id: string;
           comments: [];
