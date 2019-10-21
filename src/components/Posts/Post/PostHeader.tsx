@@ -22,7 +22,6 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   authorid,
   updateInfo
 }) => {
-  console.error("id", authorid);
   const handleLike = () => likePost(postid);
   const handleFavorite = () => favoritePost(postid);
 

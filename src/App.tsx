@@ -16,7 +16,7 @@ const App: React.FC = () => {
    * Top level information shared between controllers
    */
 
-   //hooks for posts info
+  //hooks for posts, info, status
   const [posts, setPosts] = useState();
   const [profileInfo, setProfileInfo] = useState();
 
@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const routing = (
     <Router history={history}>
       <Route exact path="/">
-        <Navbar />
+        <Navbar profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
         <PostsController
           setProfileInfo={setProfileInfo}
           profileInfo={profileInfo}

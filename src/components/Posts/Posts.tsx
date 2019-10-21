@@ -9,7 +9,7 @@ const Posts = (props: any) => {
   const filteredPosts =
     history.location.pathname === "/profile"
       ? props.posts.filter(
-          (i: any) => i.author._id === localStorage.getItem("view_profile")
+          (i: any) => i.authorid === localStorage.getItem("view_profile")
         )
       : props.posts;
 
@@ -19,17 +19,13 @@ const Posts = (props: any) => {
         (item: {
           _id: string;
           comments: [];
-          author: {
-            name: string;
-            _id: string;
-          };
+          authorid: string;
           content: string;
           title: string;
         }) => (
           <Post
-            Name={item.author.name}
             Title={item.title}
-            authorid={item.author._id}
+            authorid={item.authorid}
             Content={item.content}
             submitComment={props.submitComment}
             _id={item._id}

@@ -21,6 +21,7 @@ const ProfileUI = (props: any) => {
         <div className="col-3">
           <ProfileInfo
             profileInfo={props.profileInfo}
+            setProfileInfo={props.setProfileInfo}
             posts={props.posts}
             followProfile={props.followProfile}
             editProfile={props.editProfile}

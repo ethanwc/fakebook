@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+import Status from "../Status/Status";
+const Navbar = (props: any) => {
   const handleLogout = () => {
     localStorage.setItem("token", "null");
     localStorage.setItem("name", "null");
@@ -31,31 +32,11 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Status
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">
-                Online
-              </a>
-              <a className="dropdown-item" href="#">
-                Away
-              </a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">
-                Offline
-              </a>
-            </div>
-          </li>
+          <Status
+            ownProfile={true}
+            profileInfo={props.profileInfo}
+            setProfileInfo={props.setProfileInfo}
+          />
           <li>
             <Link to={"/login"} className="nav-link" onClick={handleLogout}>
               Logout

@@ -6,7 +6,6 @@ import PostNewComment from "../Post/PostNewComment";
 import "../../../assets/styles/Post/posts.css";
 
 interface PostProps {
-  Name: string;
   Title: string;
   Content: string;
   _id: string;
@@ -23,7 +22,6 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({
-  Name,
   Title,
   Content,
   submitComment,

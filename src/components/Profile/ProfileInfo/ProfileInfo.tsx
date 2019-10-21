@@ -45,7 +45,6 @@ const ProfileInfo = (props: any) => {
     setEditing(false);
   };
 
-  console.error(info)
   //are you following or unfollowing?
   const followText = info.following.includes(localStorage.getItem("_id"))
     ? "Unfollow"
@@ -53,8 +52,8 @@ const ProfileInfo = (props: any) => {
 
   //determine if it's the users own profile
   const ownProfile =
-    localStorage.getItem("view_profile") !== localStorage.getItem("_id");
-  const followButton = ownProfile ? (
+    localStorage.getItem("view_profile") === localStorage.getItem("_id");
+  const followButton = !ownProfile ? (
     <Button className="mr-1" onClick={handleFollow}>
       {followText}
     </Button>
@@ -99,8 +98,6 @@ const ProfileInfo = (props: any) => {
     />
   );
 
-  console.log(info.status);
-
   //conditional dispaly or input based on edit for location
   const location = !editing ? (
     <p className="text-center text-unimp">{info.location}</p>
@@ -141,8 +138,8 @@ const ProfileInfo = (props: any) => {
 
           <Status
             ownProfile={ownProfile}
-            setStatus={props.setStatus}
-            status={info.status}
+            profileInfo={props.profileInfo}
+            setProfileInfo={props.setProfileInfo}
           />
         </div>
 

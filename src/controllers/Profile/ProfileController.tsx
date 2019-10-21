@@ -9,14 +9,12 @@ import Axios from "axios";
 const Profile = (props: any) => {
   const id = localStorage.getItem("view_profile");
 
-  //uri to set status
-  const uri_profile_status = `${Endpoints.route}/${Endpoints.users}/${Endpoints.status}`;
   //uri to update profile
   const uri_profile_update = `${Endpoints.route}/${Endpoints.users}/${Endpoints.profile}`;
   //uri to follow a profile
   const uri_profile_follow = `${Endpoints.route}/${Endpoints.users}/${Endpoints.follow}`;
   //uri to get profile info
-  const uri_profile_info = `${Endpoints.route}/${Endpoints.users}/${id}/${Endpoints.info}`;
+  const uri_profile_info = `${Endpoints.route}/${Endpoints.users}/${id}`;
   //uri to get user's own posts
   const uri_get_user_posts = `${Endpoints.route}/${Endpoints.users}/${id}/${Endpoints.posts}`;
   //get info for the users profile
@@ -24,7 +22,6 @@ const Profile = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
-
       props.setProfileInfo(profile.data);
     };
     fetchData();
@@ -63,19 +60,6 @@ const Profile = (props: any) => {
       });
   };
 
-  //setstatus
-  const setStatus = (statusInfo: any) => {
-    //takes location, about, id, authentication,
-    Axios.post(uri_profile_status, statusInfo, {})
-      .then(function(response) {
-        props.setProfileInfo([response.data]);
-        //add or remove... or just use server logic and display?
-      })
-      .catch(function(error) {
-        //handle error
-      });
-  };
-
   return (
     <ProfileUI
       profileInfo={props.profileInfo}
@@ -83,7 +67,7 @@ const Profile = (props: any) => {
       setPosts={props.setPosts}
       followProfile={followProfile}
       editProfile={editProfile}
-      setStatus={setStatus}
+      setStatus={props.setStatus}
       setProfileInfo={props.setProfileInfo}
     />
   );

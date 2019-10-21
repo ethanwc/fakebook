@@ -8,12 +8,16 @@ const uuidv1 = require("uuid/v1");
  * Handles everything associated with posts
  */
 const uri_get_posts = `${Endpoints.route}/${Endpoints.posts}`;
-
+const uri_profile_info = `${Endpoints.route}/${
+  Endpoints.users
+}/${localStorage.getItem("_id")}`;
 const PostsController = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await Axios(uri_get_posts);
-      props.setPosts(result.data);
+      props.setPosts(result.data.posts);
+      const profile = await Axios.get(uri_profile_info, {});
+      props.setProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -28,9 +32,7 @@ const PostsController = (props: any) => {
       }
     })
       .then(function(response) {
-        if (response.status === 200) {
-          updateInfo();        
-        }
+        props.setPosts([...props.posts, response.data]);
       })
       .catch(function(error) {
         console.log("error: " + error);
@@ -227,15 +229,15 @@ const PostsController = (props: any) => {
   const updateInfo = () => {
     const uri_profile_info = `${Endpoints.route}/${
       Endpoints.users
-    }/${localStorage.getItem("view_profile")}/${Endpoints.info}`;
+    }/${localStorage.getItem("view_profile")}`;
     const uri_get_user_posts = `${Endpoints.route}/${
       Endpoints.users
     }/${localStorage.getItem("view_profile")}/${Endpoints.posts}`;
 
     const fetchData = async () => {
       const profile = await Axios.get(uri_profile_info, {});
-      console.error("ike esta: ", profile.data)
       props.setProfileInfo(profile.data);
+      //todo: review this code
       // const posts = await Axios(uri_get_user_posts);
       // props.setPosts(posts.data);
     };

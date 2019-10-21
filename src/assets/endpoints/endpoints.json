@@ -1,10 +1,10 @@
 {
-  "route": "http://localhost:8000",
+  "route": "http://localhost:8000/api",
   "posts": "posts",
   "auth": "auth",
   "users": "users",
   "info": "info",
   "follow": "follow",
   "profile": "profile",
-  "status" : "status"
+  "status": "status"
 }

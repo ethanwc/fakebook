@@ -1,5 +1,7 @@
 import React, { CSSProperties } from "react";
 import { Dropdown } from "react-bootstrap";
+import Endpoints from "../../assets/endpoints/endpoints.json";
+import Axios from "axios";
 
 const Status = (props: any) => {
   const statusGreen: CSSProperties = {
@@ -18,6 +20,9 @@ const Status = (props: any) => {
     backgroundColor: "white"
   };
 
+  //uri to set status
+  const uri_profile_status = `${Endpoints.route}/${Endpoints.users}/${Endpoints.status}`;
+
   //Online, Away, Offline
   const handleSetStatus = (status: string) => {
     const statusInfo = {
@@ -25,11 +30,21 @@ const Status = (props: any) => {
       status: status,
       id: localStorage.getItem("_id")
     };
-    props.setStatus(statusInfo);
+
+    Axios.post(uri_profile_status, statusInfo, {})
+      .then(function(response) {
+        props.setProfileInfo([response.data]);
+        //add or remove... or just use server logic and display?
+      })
+      .catch(function(error) {
+        //handle error
+      });
   };
+  
+  if (props.profileInfo === undefined) return <p> loading</p>;
 
   const currentStatus: CSSProperties = (() => {
-    switch (props.status) {
+    switch (props.profileInfo[0].status) {
       case "Online":
         return statusGreen;
       case "Away":
@@ -42,7 +57,7 @@ const Status = (props: any) => {
   })();
 
   //set status or view status?
-  const status = props.ownProfile ? (
+  const status = !props.ownProfile ? (
     <i className="material-icons m-2" style={currentStatus}>
       radio_button_checked
     </i>

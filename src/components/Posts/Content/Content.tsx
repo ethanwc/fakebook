@@ -14,7 +14,8 @@ const Content = (props: any) => {
     const postInfo = {
       content: postContent,
       title: `${localStorage.getItem("name")} shared a post`,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      authorid: props.authorid
     };
     if (postInfo.content.length > 0) {
       props.submitPost(postInfo);
