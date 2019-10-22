@@ -13,15 +13,12 @@ const ChatUI = (props: any) => {
   if (props.chats === undefined || props.activeChat === undefined)
     return <p> loading</p>;
 
-  console.log(props.chats[0]._id);
 
-  console.log(props.activeChat);
 
   const filteredChat = props.chats.find(
     (x: { _id: any }) => x._id === props.activeChat
   );
 
-  console.log(filteredChat);
 
   return (
     <div className="container-fluid min-100 d-flex flex-column">

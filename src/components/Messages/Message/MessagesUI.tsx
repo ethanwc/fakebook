@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import Messages from "../Messages";
 
 const MessagesUI = (props: any) => {
@@ -8,16 +8,18 @@ const MessagesUI = (props: any) => {
     scrollbarWidth: "none"
   };
 
-  //todo; use hooks for input
+  //hook for message input
+  const [message, setMessage] = useState("");
+
   const handleSendMessage = () => {
     const messageInfo = {
       author: localStorage.getItem("_id"),
       date: new Date().toLocaleString(),
-      content: "fake message test 1234",
+      content: message,
       type: "msg"
     };
-
-    props.sendMessage(messageInfo, "5dae50746a9c8366487997bf");
+    props.sendMessage(messageInfo, props.activeChat);
+    setMessage("");
   };
   return (
     <div className="col-8 chat-box">
@@ -31,6 +33,10 @@ const MessagesUI = (props: any) => {
               type="text"
               className="form-control chat-input input-lg"
               placeholder="Enter a message"
+              onChange={e => setMessage(e.target.value)}
+              value={message}
+              pattern=".{1,}"
+              required
             />
             <div className="input-group-append">
               <button className="btn" type="button" onClick={handleSendMessage}>

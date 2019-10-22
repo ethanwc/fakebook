@@ -36,14 +36,14 @@ const ChatController = (props: any) => {
 
   const uri_send_message = `${Endpoints.route}/${Endpoints.chat}/${Endpoints.message}`;
   const sendMessage = (messageInfo: any, chatId: string) => {
-    console.log(uri_send_message);
-    console.log("trying to send msg");
     Axios.post(uri_send_message, messageInfo, {
       data: {
         chatId: chatId,
         Authentication: `${localStorage.getItem("token")}`
       }
     }).then(function(response) {
+      //new chat is returned -> update chats with hook
+      //todo: update messages?
       console.log(response.data);
     });
   };
