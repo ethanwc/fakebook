@@ -5,7 +5,6 @@ import { string } from "prop-types";
 
 const Messages = (props: any) => {
   if (props.messages === undefined) return <p> loading</p>;
-
   const generateMessage = (authorid: string, date: string, content: string) => {
     const msg =
       authorid === localStorage.getItem("_id") ? (

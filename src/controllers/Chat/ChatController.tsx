@@ -34,6 +34,8 @@ const ChatController = (props: any) => {
   //todo: loading animation
   if (props.profileInfo === undefined) return <p> loading</p>;
 
+  const updateIndex = () => chats.findIndex((c: any) => c._id === activeChat);
+
   const uri_send_message = `${Endpoints.route}/${Endpoints.chat}/${Endpoints.message}`;
   const sendMessage = (messageInfo: any, chatId: string) => {
     Axios.post(uri_send_message, messageInfo, {
@@ -42,9 +44,14 @@ const ChatController = (props: any) => {
         Authentication: `${localStorage.getItem("token")}`
       }
     }).then(function(response) {
-      //new chat is returned -> update chats with hook
-      //todo: update messages?
-      console.log(response.data);
+      let updatedChat = response.data.chat;
+      let messages = response.data.messages;
+      updatedChat.messages = messages;
+      let chatsClone = [...chats];
+      chatsClone[updateIndex()] = updatedChat;
+      // console.log(updatedChat);
+      // console.log(chats);
+      setChats(chatsClone);
     });
   };
 

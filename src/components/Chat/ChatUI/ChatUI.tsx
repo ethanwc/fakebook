@@ -13,12 +13,11 @@ const ChatUI = (props: any) => {
   if (props.chats === undefined || props.activeChat === undefined)
     return <p> loading</p>;
 
-
-
   const filteredChat = props.chats.find(
     (x: { _id: any }) => x._id === props.activeChat
   );
 
+  console.log("refiltered?");
 
   return (
     <div className="container-fluid min-100 d-flex flex-column">
