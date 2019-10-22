@@ -9,7 +9,11 @@ import "../../../assets/styles/Chat/Chat.css";
 /**
  * Creates the chat ui from various components, composed of contacts and messages.
  */
-const ChatUI = () => {
+const ChatUI = (props: any) => {
+  if (props.chats !== undefined) {
+    console.error(props.chats);
+  }
+  //how this works: ... lots of different chats, clicking a chat sets the currentChat hook which results in those messages being displaced in the messageui
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -26,9 +30,15 @@ const ChatUI = () => {
       </div>
 
       <div className="row flex-grow-1 no-gutter">
-        <ContactsUI />
+        {/* <ContactsUI /> */}
+        {/* todo: rename to ChatsUI  */}
 
-        <MessagesUI />
+        <MessagesUI
+          // todo: array.one() where the chatid is the active chat, then display those messages
+          messages={props.messages}
+          sendMessage={props.sendMessage}
+          activeChat={props.activeChat}
+        />
       </div>
     </div>
   );

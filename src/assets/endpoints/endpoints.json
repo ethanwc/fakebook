@@ -6,5 +6,7 @@
   "info": "info",
   "follow": "follow",
   "profile": "profile",
-  "status": "status"
+  "status": "status",
+  "chat": "chat",
+  "message": "message"
 }

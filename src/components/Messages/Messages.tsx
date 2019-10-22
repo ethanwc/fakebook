@@ -1,9 +1,9 @@
 import React from "react";
 import MessageSent from "./Message/MessageSent";
 import MessageReceived from "./Message/MessageSent";
-import useAxios from "axios-hooks";
 
-const Messages = () => {
+const Messages = (props: any) => {
+  //todo: if messageid matches logged in person set to sent or receieved.
   return (
     <p>asdf</p>
     // <div>

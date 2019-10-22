@@ -1,12 +1,8 @@
 import React from "react";
 import Contact from "./Contact/Contact";
-import useAxios from "axios-hooks";
 
 const Contacts = () => {
   // Get Contacts
-  const [{ data: getData, loading: getLoading, error: getError }] = useAxios(
-    "https://uinames.com/api/?amount=25"
-  );
 
   return (
     <p>asdf</p>
