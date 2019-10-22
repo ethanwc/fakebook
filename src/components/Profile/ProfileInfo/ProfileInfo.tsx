@@ -1,5 +1,5 @@
-import React, { useState, CSSProperties } from "react";
-import { Button, Dropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Status from "../../Status/Status";
 

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import Messages from "../Messages";
-export default function MessagesUI() {
-  let style = {
+
+const MessagesUI = () => {
+  let style: CSSProperties = {
     height: "200px",
     overflow: "auto",
-    "scrollbar-width": "none"
+    scrollbarWidth: "none"
   };
   return (
     <div className="col-8 chat-box">
@@ -31,4 +32,6 @@ export default function MessagesUI() {
       </div>
     </div>
   );
-}
+};
+
+export default MessagesUI;

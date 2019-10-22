@@ -1,11 +1,11 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import Contacts from "../Contacts";
 
-export default function ContactsUI() {
-  let style = {
+const ContactsUI = () => {
+  let style: CSSProperties = {
     height: "200px",
     overflow: "auto",
-    "scrollbar-width": "none"
+    scrollbarWidth: "none"
   };
   return (
     <div className="col-4 contact-box">
@@ -16,5 +16,6 @@ export default function ContactsUI() {
       </div>
     </div>
   );
-}
- 
+};
+
+export default ContactsUI;

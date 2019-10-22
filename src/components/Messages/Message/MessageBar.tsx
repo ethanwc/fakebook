@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MessageBar() {
+const MessageBar = () => {
   return (
     <div className="row chat-box-bar">
       <div className="col-md-4 align-self-center">
@@ -20,7 +20,7 @@ export default function MessageBar() {
               <input
                 type="text"
                 className="form-control rounded"
-                placeholder="Search conversation"
+                placeholder="Search"
               />
             </div>
           </div>
@@ -29,3 +29,5 @@ export default function MessageBar() {
     </div>
   );
 }
+
+export default MessageBar;

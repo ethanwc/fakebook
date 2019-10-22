@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import Chat from "./controllers/Chat/ChatController";
-import Posts from "./controllers/Posts/PostController";
 import Profile from "./controllers/Profile/ProfileController";
 import Login from "./controllers/Login/LoginController";
 import Register from "./controllers/Register/RegisterController";
 import { Router, Route } from "react-router-dom";
 import history from "./utils/history";
 import Navbar from "./components/Navbar/Navbar";
-import PostsController from "./controllers/Posts/PostController";
+import Posts from "./controllers/Posts/PostController";
 
 //App Driver
 const App: React.FC = () => {
@@ -27,7 +26,7 @@ const App: React.FC = () => {
     <Router history={history}>
       <Route exact path="/">
         <Navbar profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
-        <PostsController
+        <Posts
           setProfileInfo={setProfileInfo}
           profileInfo={profileInfo}
           posts={posts}
@@ -37,7 +36,9 @@ const App: React.FC = () => {
       </Route>
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
-      <Route exact path="/chat" component={Chat} />
+      <Route exact path="/chat">
+        <Chat profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
+      </Route>
       <Route exact path="/profile">
         <Profile
           setProfileInfo={setProfileInfo}

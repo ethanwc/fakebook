@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ProfileUI from "../../components/Profile/ProfileUI/ProfileUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
 import Axios from "axios";

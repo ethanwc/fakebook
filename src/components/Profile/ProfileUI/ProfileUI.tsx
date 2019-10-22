@@ -1,13 +1,13 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import ProfileBar from "../ProfileBar";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 import "../../../assets/styles/Profile/profile.css";
 import PostsController from "../../../controllers/Posts/PostController";
 
-const scrollStyle = {
+const scrollStyle: CSSProperties = {
   height: "400px",
   overflow: "auto",
-  "scrollbar-width": "none"
+  scrollbarWidth: "none"
 };
 
 const ProfileUI = (props: any) => {

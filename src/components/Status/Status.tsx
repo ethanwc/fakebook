@@ -40,7 +40,7 @@ const Status = (props: any) => {
         //handle error
       });
   };
-  
+
   if (props.profileInfo === undefined) return <p> loading</p>;
 
   const currentStatus: CSSProperties = (() => {

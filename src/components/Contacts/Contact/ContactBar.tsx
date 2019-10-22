@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function ContactBar() {
+const ContactBar = () => {
   return (
     <div className="row contact-box-bar">
       <div className="col p-0 m-0">
@@ -16,7 +16,7 @@ export default function ContactBar() {
               <input
                 type="text"
                 className="form-control rounded ml-2"
-                placeholder="Search contacts"
+                placeholder="Search Chats"
               />
             </div>
           </div>
@@ -31,3 +31,5 @@ export default function ContactBar() {
     </div>
   );
 }
+
+export default ContactBar;

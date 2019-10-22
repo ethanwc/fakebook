@@ -9,7 +9,7 @@ import "../../../assets/styles/Chat/Chat.css";
 /**
  * Creates the chat ui from various components, composed of contacts and messages.
  */
-export default function ChatUI() {
+const ChatUI = () => {
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -32,4 +32,6 @@ export default function ChatUI() {
       </div>
     </div>
   );
-}
+};
+
+export default ChatUI;

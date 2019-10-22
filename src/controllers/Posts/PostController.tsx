@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PostsUI from "../../components/Posts/PostsUI/PostsUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
 import Axios from "axios";

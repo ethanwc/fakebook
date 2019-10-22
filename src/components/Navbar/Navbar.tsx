@@ -14,29 +14,27 @@ const Navbar = (props: any) => {
     localStorage.setItem("view_profile", id);
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg navbar-light">
+      <a className="navbar-brand">
         <img src={require("./logo.png")} alt="" className="logo" />
       </a>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li>
-            <Link to={"/chat"} className="nav-link">
-              Chat
-            </Link>
-          </li>
-          <li>
-            <Link to={"/profile"} className="nav-link" onClick={handleRoute}>
-              Profile
-            </Link>
-          </li>
-
+        <ul className="navbar-nav mr-auto ">
           <Status
             ownProfile={true}
             profileInfo={props.profileInfo}
             setProfileInfo={props.setProfileInfo}
           />
+          <li>
+            <Link to={"/chat"} className="nav-link">
+              Chat
+            </Link>
+          </li>
+          <Link to={"/profile"} className="nav-link" onClick={handleRoute}>
+            Profile
+          </Link>
+
           <li>
             <Link to={"/login"} className="nav-link" onClick={handleLogout}>
               Logout
