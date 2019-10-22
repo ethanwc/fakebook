@@ -8,5 +8,6 @@
   "profile": "profile",
   "status": "status",
   "chat": "chat",
-  "message": "message"
+  "message": "message",
+  "all": "all"
 }

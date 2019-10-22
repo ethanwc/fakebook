@@ -17,13 +17,13 @@ const MessagesUI = (props: any) => {
       type: "msg"
     };
 
-    props.sendMessage(messageInfo, props.activeChat);
+    props.sendMessage(messageInfo, "5dae50746a9c8366487997bf");
   };
   return (
     <div className="col-8 chat-box">
       <div className="h-100 d-flex flex-column">
         <div className="flex-grow-1" style={style}>
-          <Messages />
+          <Messages messages={props.messages} activeChat={props.activeChat} />
         </div>
         <div className="row justify-content-center align-content-center">
           <div className="input-group">

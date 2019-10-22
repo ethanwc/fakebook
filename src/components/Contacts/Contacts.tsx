@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Contact from "./Contact/Contact";
 
-const Contacts = () => {
-  // Get Contacts
+const Contacts = (props: any) => {
+  const generateContact = (members: string[], chatid: string) => {
+    const otherid = members.filter(i => i !== localStorage.getItem("_id"));
+    return (
+      <Contact
+        authorid={otherid[0]}
+        chatid={chatid}
+        setActiveChat={props.setActiveChat}
+      />
+    );
+  };
 
   return (
-    <p>asdf</p>
-    // <div>
-    //   {getData.map(
-    //     (item: {
-    //       name: string;
-    //       surname: string;
-    //       gender: string;
-    //       region: string;
-    //     }) => (
-    //       <Contact Name={item.name} Image={""} Message={""} />
-    //     )
-    //   )}
-    // </div>
+    <div>
+      {props.chats.map((item: { _id: string; members: [] }) =>
+        generateContact(item.members, item._id)
+      )}
+    </div>
   );
 };
 
