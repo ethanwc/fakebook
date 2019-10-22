@@ -17,6 +17,7 @@ const App: React.FC = () => {
 
   //hooks for posts, info, status
   const [posts, setPosts] = useState();
+  const [viewProfileInfo, setViewProfileInfo] = useState();
   const [profileInfo, setProfileInfo] = useState();
 
   /**
@@ -27,6 +28,7 @@ const App: React.FC = () => {
       <Route exact path="/">
         <Navbar profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
         <Posts
+          setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
           profileInfo={profileInfo}
           posts={posts}
@@ -41,6 +43,8 @@ const App: React.FC = () => {
       </Route>
       <Route exact path="/profile">
         <Profile
+          viewProfileInfo={viewProfileInfo}
+          setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
           setPosts={setPosts}
           profileInfo={profileInfo}

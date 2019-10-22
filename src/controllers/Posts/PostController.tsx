@@ -17,7 +17,8 @@ const PostsController = (props: any) => {
       const result = await Axios(uri_get_posts);
       props.setPosts(result.data.posts);
       const profile = await Axios.get(uri_profile_info, {});
-      props.setProfileInfo(profile.data);
+      //todo: check here
+      // props.setProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -230,6 +231,7 @@ const PostsController = (props: any) => {
     const uri_profile_info = `${Endpoints.route}/${
       Endpoints.users
     }/${localStorage.getItem("view_profile")}`;
+
     const uri_get_user_posts = `${Endpoints.route}/${
       Endpoints.users
     }/${localStorage.getItem("view_profile")}/${Endpoints.posts}`;

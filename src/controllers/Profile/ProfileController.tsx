@@ -21,6 +21,7 @@ const Profile = (props: any) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      //profile data is being overidden, update id to profile data
       const profile = await Axios.get(uri_profile_info, {});
       props.setProfileInfo(profile.data);
     };

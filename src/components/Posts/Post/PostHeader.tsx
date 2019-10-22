@@ -39,6 +39,10 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", authorid.toString());
     history.push("/profile");
+    console.log(
+      localStorage.getItem("_id"),
+      localStorage.getItem("view_profile")
+    );
     updateInfo();
   };
 
