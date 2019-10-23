@@ -20,12 +20,19 @@ const ProfileInfo = (props: any) => {
   //setup:
   const info = props.viewProfileInfo[0];
 
+  console.log(props.posts[0]);
+
+  const userid = localStorage.getItem("_id");
+
   let likes = 0,
     favorites = 0;
   for (const i of props.posts) {
-    for (const c of i.comments) likes += c.likes.length;
-    likes += i.likes.length;
-    favorites += i.favorites.length;
+    for (const c of i.comments)
+      if (c.authorid === userid) likes += c.likes.length;
+    if (i.authorid === userid) {
+      likes += i.likes.length;
+      favorites += i.favorites.length;
+    }
   }
 
   //call controller to follow/unfollow someone

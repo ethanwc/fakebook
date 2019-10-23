@@ -6,6 +6,7 @@ interface ContactProps {
   authorid: string;
   chatid: string;
   chatSearch: string;
+  messages: any[];
   setActiveChat: Function;
   updateProfile: Function;
 }
@@ -13,6 +14,7 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({
   authorid,
   chatid,
+  messages,
   setActiveChat,
   chatSearch,
   updateProfile
@@ -58,20 +60,27 @@ const Contact: React.FC<ContactProps> = ({
       />
     );
 
-  //todo: loading animation
+  console.log(messages);
+
+  const lastMsg =
+    messages !== undefined && messages.length > 0
+      ? messages[messages.length - 1].content.toString()
+      : "No Messages";
+
+  const lastMsgTime =
+    messages !== undefined && messages.length > 0
+      ? messages[messages.length - 1].date.toString()
+      : "";
+
   return (
-    <div className="col-12 p-2" onClick={() => setActiveChat(chatid)}>
-      <div className="d-flex justify-content-left">
-        <div className="contact rounded mt-2 mb-2">
-          <div className="d-flex justify-content-between">
-            {contactImage}
-            <div>
-              <p className="text-imp m-2">{contactInfo[0].name}</p>
-              <h5 className="text-unimp ml-2">5 min ago</h5>
-              <p className="text-imp ml-2">
-                This will be the most recent message recent you have receive...
-              </p>
-            </div>
+    <div className="col-12 p-2 contact" onClick={() => setActiveChat(chatid)}>
+      <div className="d-flex justify-content-left rounded mt-2 mb-2">
+        <div className="d-flex justify-content-end">
+          {contactImage}
+          <div>
+            <p className="text-imp m-2">{contactInfo[0].name}</p>
+            <h5 className="text-unimp ml-2">{lastMsgTime}</h5>
+            <h5 className="text-imp ml-2">{lastMsg} </h5>
           </div>
         </div>
       </div>
