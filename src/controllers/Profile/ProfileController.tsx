@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ProfileUI from "../../components/Profile/ProfileUI/ProfileUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
+import history from "../../utils/history";
 import Axios from "axios";
 
 /**
@@ -16,6 +17,7 @@ const Profile = (props: any) => {
     Endpoints.users
   }/${localStorage.getItem("view_profile")}`;
   //uri to get user's own posts
+  const uri_chat_create = `${Endpoints.route}/${Endpoints.chat}/${Endpoints.create}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,8 +61,43 @@ const Profile = (props: any) => {
       });
   };
 
+  //create a chat between someone, and also just route them to that chat via activechat
+  //todo: move active chat to app from chat controller
+  const createChat = (members: string[]) => {
+    Axios.post(uri_chat_create, members, {
+      data: {
+        members: members,
+        Authentication: `${localStorage.getItem("token")}`
+      }
+    })
+      .then(function(response) {
+        console.log(response.data[0]);
+
+        props.setActiveChat(response.data[0]);
+
+        //load all chats a user is in
+        const uri_all_chats = `${Endpoints.route}/${
+          Endpoints.chat
+        }/${localStorage.getItem("_id")}/${Endpoints.all}`;
+
+        //load profile info and chats
+        const fetchData = async () => {
+          Axios.get(uri_all_chats).then(async chats => {
+            // props.setChats(chats.data);
+            history.push("/chat");
+          });
+        };
+        fetchData();
+      })
+      .catch(function(error) {
+        console.log(error);
+        //handle error
+      });
+  };
+
   return (
     <ProfileUI
+      createChat={createChat}
       imgurls={props.imgurls}
       setViewProfileInfo={props.setViewProfileInfo}
       viewProfileInfo={props.viewProfileInfo}

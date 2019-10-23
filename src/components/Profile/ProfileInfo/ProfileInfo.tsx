@@ -64,6 +64,19 @@ const ProfileInfo = (props: any) => {
     </Button>
   ) : null;
 
+  const handleCreateChat = () => {
+    props.createChat([
+      localStorage.getItem("_id"),
+      localStorage.getItem("view_profile")
+    ]);
+  };
+
+  const messageButton = !ownProfile ? (
+    <Button className="mr-1" onClick={handleCreateChat}>
+      Message
+    </Button>
+  ) : null;
+
   //conditional save component
   const save = editing ? (
     <div>
@@ -186,7 +199,10 @@ const ProfileInfo = (props: any) => {
         </div>
 
         <h5 className="text-center text-imp">{info.username}</h5>
-        <div className="d-flex justify-content-center m-2">{followButton}</div>
+        <div className="d-flex justify-content-center m-2">
+          {followButton}
+          {messageButton}
+        </div>
 
         <div className="row">
           <div className="col-5 offset-1">

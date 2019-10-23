@@ -37,7 +37,7 @@ const MessageReceived: React.FC<MessageReceivedProps> = ({
     updateProfile(authorid);
   };
 
-  if (authorInfo === undefined) return <p>Loading</p>;
+  if (authorInfo === undefined) return <p>Loading messages</p>;
 
   const contactImage =
     authorInfo[0].imageurl !== undefined &&

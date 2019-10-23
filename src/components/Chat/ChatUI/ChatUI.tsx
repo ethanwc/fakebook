@@ -10,12 +10,17 @@ import "../../../assets/styles/Chat/Chat.css";
  * Creates the chat ui from various components, composed of contacts and messages.
  */
 const ChatUI = (props: any) => {
-  if (props.chats === undefined || props.activeChat === undefined)
-    return <p> loading chatui</p>;
+  console.log(props);
+  if (props.chats === undefined) return <p> loading chatui</p>;
 
-  const filteredChat = props.chats.find(
-    (x: { _id: any }) => x._id === props.activeChat
-  );
+  console.log(props.activeChat, props.chats);
+
+  let filteredChat =
+    props.activeChat === undefined
+      ? []
+      : props.chats.find((x: { _id: any }) => x._id === props.activeChat);
+
+  if (filteredChat === undefined) filteredChat = [];
 
   const contactBar = (
     <ContactBar
@@ -44,6 +49,7 @@ const ChatUI = (props: any) => {
     />
   );
 
+  console.error(filteredChat);
   const messagesUI = (
     <MessagesUI
       updateProfile={props.updateProfile}

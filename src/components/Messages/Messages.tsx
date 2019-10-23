@@ -4,7 +4,7 @@ import MessageReceived from "./Message/MessageReceived";
 import { string } from "prop-types";
 
 const Messages = (props: any) => {
-  if (props.messages === undefined) return <p> loading</p>;
+  if (props.messages === undefined) return null;
   const generateMessage = (authorid: string, date: string, content: string) => {
     const msg =
       authorid === localStorage.getItem("_id") ? (

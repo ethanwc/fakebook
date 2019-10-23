@@ -21,6 +21,8 @@ const App: React.FC = () => {
   const [posts, setPosts] = useState();
   const [viewProfileInfo, setViewProfileInfo] = useState();
   const [profileInfo, setProfileInfo] = useState();
+  const [chats, setChats] = useState();
+  const [activeChat, setActiveChat] = useState();
 
   let imgurls = new Map<string, string>();
 
@@ -59,15 +61,16 @@ const App: React.FC = () => {
           updateProfile={updateProfile}
         />
       </Route>
-      <Route
-        exact
-        path="/login"
-        component={Login}
-        updateProfile={updateProfile}
-      />
+      <Route exact path="/login">
+        <Login setProfileInfo={setProfileInfo} updateProfile={updateProfile} />
+      </Route>
       <Route exact path="/register" component={Register} />
       <Route exact path="/chat">
         <Chat
+          chats={chats}
+          setChats={setChats}
+          activeChat={activeChat}
+          setActiveChat={setActiveChat}
           profileInfo={profileInfo}
           setProfileInfo={setProfileInfo}
           updateProfile={updateProfile}
@@ -75,6 +78,8 @@ const App: React.FC = () => {
       </Route>
       <Route exact path="/profile">
         <Profile
+          setChats={setChats}
+          setActiveChat={setActiveChat}
           viewProfileInfo={viewProfileInfo}
           setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}

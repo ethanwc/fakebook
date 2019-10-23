@@ -21,6 +21,7 @@ const ProfileUI = (props: any) => {
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
           <ProfileInfo
+            createChat={props.createChat}
             setViewProfileInfo={props.setViewProfileInfo}
             viewProfileInfo={props.viewProfileInfo}
             setProfileInfo={props.setProfileInfo}

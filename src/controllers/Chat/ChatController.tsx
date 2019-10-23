@@ -6,8 +6,7 @@ import { delay } from "q";
 
 const ChatController = (props: any) => {
   //hooks for chat info
-  const [chats, setChats] = useState();
-  const [activeChat, setActiveChat] = useState();
+
   //used to search chats by user names
   const [chatSearch, setChatSearch] = useState("");
   //used to search messages by content
@@ -34,8 +33,10 @@ const ChatController = (props: any) => {
       await Axios.get(uri_profile_info).then(async profile => {
         props.setProfileInfo(profile.data);
         Axios.get(uri_all_chats).then(async chats => {
-          setChats(chats.data);
-          if (chats.data.length > 0) setActiveChat(chats.data[0]._id);
+          props.setChats(chats.data);
+          if (chats.data !== undefined && chats.data.length > 0)
+            if (props.activeChat === undefined)
+              props.setActiveChat(chats.data[0]._id);
           await delay(300);
 
           scrollToBottom();
@@ -48,7 +49,8 @@ const ChatController = (props: any) => {
   //todo: loading animation
   if (props.profileInfo === undefined) return <p> loading chat controller</p>;
 
-  const updateIndex = () => chats.findIndex((c: any) => c._id === activeChat);
+  const updateIndex = () =>
+    props.chats.findIndex((c: any) => c._id === props.activeChat);
 
   const uri_send_message = `${Endpoints.route}/${Endpoints.chat}/${Endpoints.message}`;
   const sendMessage = (messageInfo: any, chatId: string) => {
@@ -61,9 +63,9 @@ const ChatController = (props: any) => {
       let updatedChat = response.data.chat;
       let messages = response.data.messages;
       updatedChat.messages = messages;
-      let chatsClone = [...chats];
+      let chatsClone = [...props.chats];
       chatsClone[updateIndex()] = updatedChat;
-      setChats(chatsClone);
+      props.setChats(chatsClone);
       scrollToBottom();
     });
   };
@@ -78,10 +80,10 @@ const ChatController = (props: any) => {
       chatSearch={chatSearch}
       setChatSearch={setChatSearch}
       profileInfo={props.profileInfo}
-      chats={chats}
+      chats={props.chats}
       sendMessage={sendMessage}
-      activeChat={activeChat}
-      setActiveChat={setActiveChat}
+      activeChat={props.activeChat}
+      setActiveChat={props.setActiveChat}
     />
   );
 };

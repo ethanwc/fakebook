@@ -13,14 +13,25 @@ export default function LoginController(props: any) {
   //Login logic, request to api
   const handleLogin = (userInfo: any) => {
     Axios.post(uri, userInfo, {})
-      //todo: async check??
       .then(function(response) {
         const res = JSON.parse(JSON.stringify(response.data));
         localStorage.setItem("token", res.tokenData.token);
         localStorage.setItem("name", res._doc.name);
         localStorage.setItem("_id", res._doc._id);
-        //assuming successful login, redirect to posts ("url/")
-        history.push("/");
+
+        //load profile info if not already loaded
+        const uri_profile_info = `${Endpoints.route}/${
+          Endpoints.users
+        }/${localStorage.getItem("_id")}`;
+
+        const fetchData = async () => {
+          await Axios.get(uri_profile_info).then(async profile => {
+            props.setProfileInfo(profile.data);
+            history.push("/");
+          });
+        };
+
+        fetchData();
       })
       .catch(function(error) {
         console.log("error: " + error);

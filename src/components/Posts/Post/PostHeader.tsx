@@ -73,6 +73,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({
         src={require("../../../assets/logo/updog_logo.png")}
         alt=""
         className="img-thumbnail-small m-2"
+        onClick={redirectToProfile}
       />
     );
 
