@@ -54,7 +54,13 @@ const ChatController = (props: any) => {
       let chatsClone = [...chats];
       chatsClone[updateIndex()] = updatedChat;
       setChats(chatsClone);
+      scrollToBottom();
     });
+  };
+
+  const scrollToBottom = () => {
+    var objDiv = document.getElementById("chat-box");
+    if (objDiv !== null) objDiv.scrollTop = objDiv.scrollHeight;
   };
 
   return (

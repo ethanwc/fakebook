@@ -23,6 +23,11 @@ const ChatUI = (props: any) => {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+      <script
+        type="text/javascript"
+        src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
+      ></script>
+
       <div className="row no-gutter">
         <div className="col-4">
           <ContactBar
