@@ -18,7 +18,8 @@ interface PostProps {
   favorited: Function;
   likeComment: Function;
   likedComment: Function;
-  updateInfo: Function;
+  setViewProfileInfo: Function;
+  updateProfile: Function;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -34,7 +35,8 @@ const Post: React.FC<PostProps> = ({
   _id,
   comments,
   authorid,
-  updateInfo
+  setViewProfileInfo,
+  updateProfile
 }) => {
   return (
     <div className="row flex-grow-1 no-gutter">
@@ -42,6 +44,7 @@ const Post: React.FC<PostProps> = ({
         <div className="h-100 d-flex flex-column">
           <div className="post m-2 mt-3 rounded">
             <PostHeader
+              updateProfile={updateProfile}
               Title={Title}
               favoritePost={favoritePost}
               likePost={likePost}
@@ -49,7 +52,7 @@ const Post: React.FC<PostProps> = ({
               liked={liked}
               favorited={favorited}
               authorid={authorid}
-              updateInfo={updateInfo}
+              setViewProfileInfo={setViewProfileInfo}
             />
             <PostBody Content={Content} />
             {/* map through comments to display them. */}
@@ -61,6 +64,7 @@ const Post: React.FC<PostProps> = ({
                 authorid: string;
               }) => (
                 <PostComment
+                  updateProfile={updateProfile}
                   comment={item.comment}
                   author={item.author}
                   likeComment={likeComment}
@@ -68,14 +72,16 @@ const Post: React.FC<PostProps> = ({
                   postid={_id}
                   id={item.id}
                   authorid={item.authorid}
-                  updateInfo={updateInfo}
+                  setViewProfileInfo={setViewProfileInfo}
                 />
               )
             )}
             <PostNewComment
+              updateProfile={updateProfile}
               submitComment={submitComment}
               _id={_id}
               authorid={authorid}
+              setViewProfile={setViewProfileInfo}
             />{" "}
           </div>
         </div>

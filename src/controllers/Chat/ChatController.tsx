@@ -25,7 +25,7 @@ const ChatController = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       await Axios.get(uri_profile_info).then(async profile => {
-        props.setProfileInfo(profile.data);
+        // props.setProfileInfo(profile.data);
         Axios.get(uri_all_chats).then(chats => {
           setChats(chats.data);
           if (chats.data.length > 0) setActiveChat(chats.data[0]._id);

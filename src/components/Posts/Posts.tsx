@@ -24,6 +24,8 @@ const Posts = (props: any) => {
           title: string;
         }) => (
           <Post
+            updateProfile={props.updateProfile}
+            setViewProfileInfo={props.setViewProfileInfo}
             Title={item.title}
             authorid={item.authorid}
             Content={item.content}
@@ -36,7 +38,6 @@ const Posts = (props: any) => {
             favorited={props.favorited}
             likeComment={props.likeComment}
             likedComment={props.likedComment}
-            updateInfo={props.updateInfo}
           />
         )
       )}

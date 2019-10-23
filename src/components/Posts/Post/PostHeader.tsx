@@ -7,9 +7,10 @@ interface PostHeaderProps {
   likePost: Function;
   liked: Function;
   favorited: Function;
-  updateInfo: Function;
   postid: string;
   authorid: string;
+  setViewProfileInfo: Function;
+  updateProfile: Function;
 }
 
 const PostHeader: React.FC<PostHeaderProps> = ({
@@ -20,7 +21,8 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   favorited,
   postid,
   authorid,
-  updateInfo
+  setViewProfileInfo,
+  updateProfile
 }) => {
   const handleLike = () => likePost(postid);
   const handleFavorite = () => favoritePost(postid);
@@ -39,11 +41,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", authorid.toString());
     history.push("/profile");
-    console.log(
-      localStorage.getItem("_id"),
-      localStorage.getItem("view_profile")
-    );
-    updateInfo();
+    updateProfile(authorid);
   };
 
   return (

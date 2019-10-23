@@ -7,6 +7,7 @@ import "../../../assets/styles/Post/posts.css";
 const PostsUI = (props: any) => {
   const component = props.component ? (
     <Content
+      updateProfile={props.updateProfile}
       profileInfo={props.profileInfo}
       submitPost={props.submitPost}
       content={props.content}
@@ -26,6 +27,8 @@ const PostsUI = (props: any) => {
           <div className="h-100 d-flex flex-column">
             {component}
             <Posts
+              updateProfile={props.updateProfile}
+              setViewProfileInfo={props.setViewProfileInfo}
               profileInfo={props.profileInfo}
               getPosts={props.getPosts}
               submitComment={props.submitComment}
@@ -36,7 +39,6 @@ const PostsUI = (props: any) => {
               favorited={props.favorited}
               likeComment={props.likeComment}
               likedComment={props.likedComment}
-              updateInfo={props.updateInfo}
             />
           </div>
         </div>

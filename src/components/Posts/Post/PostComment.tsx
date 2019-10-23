@@ -4,12 +4,13 @@ import history from "../../../utils/history";
 interface PostCommentProps {
   likeComment: Function;
   likedComment: Function;
-  updateInfo: Function;
   postid: string;
   id: string;
   authorid: string;
   author: string;
   comment: string;
+  setViewProfileInfo: Function;
+  updateProfile: Function;
 }
 
 const PostComment: React.FC<PostCommentProps> = ({
@@ -20,7 +21,8 @@ const PostComment: React.FC<PostCommentProps> = ({
   author,
   comment,
   authorid,
-  updateInfo
+  setViewProfileInfo,
+  updateProfile
 }) => {
   const handleLike = () => likeComment(postid, id);
   const blue: CSSProperties = {
@@ -36,7 +38,8 @@ const PostComment: React.FC<PostCommentProps> = ({
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", authorid.toString());
     history.push("/profile");
-    updateInfo();
+    console.log(authorid);
+    updateProfile(authorid);
   };
   return (
     <div>

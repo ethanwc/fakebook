@@ -8,6 +8,8 @@ import { Router, Route } from "react-router-dom";
 import history from "./utils/history";
 import Navbar from "./components/Navbar/Navbar";
 import Posts from "./controllers/Posts/PostController";
+import Axios from "axios";
+import Endpoints from "./assets/endpoints/endpoints.json";
 
 //App Driver
 const App: React.FC = () => {
@@ -23,6 +25,7 @@ const App: React.FC = () => {
   /**
    * Route the webpage.
    */
+
   const routing = (
     <Router history={history}>
       <Route exact path="/">
@@ -47,7 +50,7 @@ const App: React.FC = () => {
           setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
           setPosts={setPosts}
-          profileInfo={profileInfo}
+          profileInfo={viewProfileInfo}
           posts={posts}
         />
       </Route>

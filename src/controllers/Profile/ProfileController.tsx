@@ -14,7 +14,9 @@ const Profile = (props: any) => {
   //uri to follow a profile
   const uri_profile_follow = `${Endpoints.route}/${Endpoints.users}/${Endpoints.follow}`;
   //uri to get profile info
-  const uri_profile_info = `${Endpoints.route}/${Endpoints.users}/${id}`;
+  const uri_profile_info = `${Endpoints.route}/${
+    Endpoints.users
+  }/${localStorage.getItem("view_profile")}`;
   //uri to get user's own posts
   const uri_get_user_posts = `${Endpoints.route}/${Endpoints.users}/${id}/${Endpoints.posts}`;
   //get info for the users profile
@@ -23,7 +25,7 @@ const Profile = (props: any) => {
     const fetchData = async () => {
       //profile data is being overidden, update id to profile data
       const profile = await Axios.get(uri_profile_info, {});
-      props.setProfileInfo(profile.data);
+      // props.setViewProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -36,7 +38,7 @@ const Profile = (props: any) => {
       }
     })
       .then(function(response) {
-        props.setProfileInfo([response.data]);
+        props.setViewProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
       })
       .catch(function(error) {
@@ -53,7 +55,7 @@ const Profile = (props: any) => {
       }
     })
       .then(function(response) {
-        props.setProfileInfo([response.data]);
+        props.setViewProfileInfo([response.data]);
         //add or remove... or just use server logic and display?
       })
       .catch(function(error) {
@@ -63,7 +65,8 @@ const Profile = (props: any) => {
 
   return (
     <ProfileUI
-      profileInfo={props.profileInfo}
+      setViewProfileInfo={props.setViewProfileInfo}
+      profileInfo={props.viewProfileInfo}
       posts={props.posts}
       setPosts={props.setPosts}
       followProfile={followProfile}

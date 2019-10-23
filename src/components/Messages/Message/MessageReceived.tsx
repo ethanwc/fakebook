@@ -15,6 +15,8 @@ const MessageReceived: React.FC<MessageReceivedProps> = ({
   content,
   messageSearch
 }) => {
+  if (!content.includes(messageSearch)) return null;
+
   return (
     <div className="col-8 p-2 mt-1 mb-1">
       <div className="d-flex">

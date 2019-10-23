@@ -20,6 +20,7 @@ const PostsController = (props: any) => {
       //todo: check here
       console.log(profile.data);
       props.setProfileInfo(profile.data);
+      // props.setViewProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -227,28 +228,20 @@ const PostsController = (props: any) => {
       });
   };
 
-  //Due to posts being showed next to a profile, it should check if their stats are changing.
-  const updateInfo = () => {
+  const updateProfile = async (id: string) => {
     const uri_profile_info = `${Endpoints.route}/${
       Endpoints.users
     }/${localStorage.getItem("view_profile")}`;
+    const profile = await Axios.get(uri_profile_info, {});
 
-    const uri_get_user_posts = `${Endpoints.route}/${
-      Endpoints.users
-    }/${localStorage.getItem("view_profile")}/${Endpoints.posts}`;
-
-    const fetchData = async () => {
-      const profile = await Axios.get(uri_profile_info, {});
-      props.setProfileInfo(profile.data);
-      //todo: review this code
-      // const posts = await Axios(uri_get_user_posts);
-      // props.setPosts(posts.data);
-    };
-    fetchData();
+    //todo : set view profile info to person?
+    props.setViewProfileInfo(profile.data);
   };
 
   return (
     <PostsUI
+      updateProfile={updateProfile}
+      setViewProfileInfo={props.setViewProfileInfo}
       profileInfo={props.profileInfo}
       submitPost={submitPost}
       submitComment={submitComment}
@@ -260,7 +253,6 @@ const PostsController = (props: any) => {
       likeComment={likeComment}
       likedComment={likedComment}
       component={props.componentVal}
-      updateInfo={updateInfo}
     />
   );
 };
