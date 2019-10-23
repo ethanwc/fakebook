@@ -6,6 +6,7 @@ const Contacts = (props: any) => {
     const otherid = members.filter(i => i !== localStorage.getItem("_id"));
     return (
       <Contact
+        chatSearch={props.chatSearch}
         authorid={otherid[0]}
         chatid={chatid}
         setActiveChat={props.setActiveChat}

@@ -6,12 +6,14 @@ interface MessageReceivedProps {
   authorid: string;
   date: string;
   content: string;
+  messageSearch: string;
 }
 
 const MessageReceived: React.FC<MessageReceivedProps> = ({
   authorid,
   date,
-  content
+  content,
+  messageSearch
 }) => {
   return (
     <div className="col-8 p-2 mt-1 mb-1">

@@ -17,8 +17,6 @@ const ChatUI = (props: any) => {
     (x: { _id: any }) => x._id === props.activeChat
   );
 
-  console.log("refiltered?");
-
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -27,19 +25,31 @@ const ChatUI = (props: any) => {
       />
       <div className="row no-gutter">
         <div className="col-4">
-          <ContactBar />
+          <ContactBar
+            chatSearch={props.chatSearch}
+            setChatSearch={props.setChatSearch}
+          />
         </div>
         <div className="col-8">
-          <MessageBar />
+          <MessageBar
+            messageSearch={props.messageSearch}
+            setMessageSearch={props.setMessageSearch}
+            profileInfo={props.profileInfo}
+          />
         </div>
       </div>
 
       <div className="row flex-grow-1 no-gutter">
-        <ContactsUI chats={props.chats} setActiveChat={props.setActiveChat} />
+        <ContactsUI
+          chatSearch={props.chatSearch}
+          chats={props.chats}
+          setActiveChat={props.setActiveChat}
+        />
         {/* todo: rename to ChatsUI  */}
 
         <MessagesUI
           // todo: array.one() where the chatid is the active chat, then display those messages
+          messageSearch={props.messageSearch}
           messages={filteredChat.messages}
           sendMessage={props.sendMessage}
           activeChat={props.activeChat}

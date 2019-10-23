@@ -9,5 +9,6 @@
   "status": "status",
   "chat": "chat",
   "message": "message",
-  "all": "all"
+  "all": "all",
+  "image": "image"
 }

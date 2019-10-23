@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useState, useRef, useEffect } from "react";
 import Messages from "../Messages";
 import MessageInput from "./MessageInput";
 
@@ -9,11 +9,25 @@ const MessagesUI = (props: any) => {
     scrollbarWidth: "none"
   };
 
+  //todo: scroll to bottom
+  const scrollMessagesRef = useRef(null);
+
+  // const scrollToBottom = () => {
+  //   let chatbox = document.getElementById("chat-box");
+  //   if (chatbox !== null) {
+  //     chatbox.scrollTop = chatbox.scrollHeight;
+  //     console.log(chatbox.scrollHeight);
+  //     chatbox.scrollTo(0, chatbox.scrollHeight);
+  //   }
+  // };
+
+  // useEffect(scrollToBottom);
+
   return (
-    <div className="col-8 chat-box">
+    <div className="col-8 chat-box" id="chat-box">
       <div className="h-100 d-flex flex-column">
         <div className="flex-grow-1" style={style}>
-          <Messages messages={props.messages} activeChat={props.activeChat} />
+          <Messages messageSearch={props.messageSearch} messages={props.messages} activeChat={props.activeChat} />
         </div>
         <div className="row justify-content-center align-content-center">
           <MessageInput
@@ -22,6 +36,7 @@ const MessagesUI = (props: any) => {
           />
         </div>
       </div>
+      {/* <div ref={scrollMessagesRef} /> */}
     </div>
   );
 };

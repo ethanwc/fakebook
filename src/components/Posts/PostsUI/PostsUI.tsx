@@ -7,12 +7,12 @@ import "../../../assets/styles/Post/posts.css";
 const PostsUI = (props: any) => {
   const component = props.component ? (
     <Content
+      profileInfo={props.profileInfo}
       submitPost={props.submitPost}
       content={props.content}
       authorid={localStorage.getItem("_id")}
     />
   ) : null;
-
 
   return (
     <div className="container-fluid min-100 d-flex flex-column">
@@ -26,6 +26,7 @@ const PostsUI = (props: any) => {
           <div className="h-100 d-flex flex-column">
             {component}
             <Posts
+              profileInfo={props.profileInfo}
               getPosts={props.getPosts}
               submitComment={props.submitComment}
               posts={props.posts}

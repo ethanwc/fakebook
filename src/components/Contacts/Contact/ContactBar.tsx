@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const ContactBar = () => {
+const ContactBar = (props: any) => {
   return (
     <div className="row contact-box-bar">
       <div className="col p-0 m-0">
@@ -17,6 +17,9 @@ const ContactBar = () => {
                 type="text"
                 className="form-control rounded ml-2"
                 placeholder="Search Chats"
+                onChange={e => props.setChatSearch(e.target.value)}
+                value={props.chatSearch}
+                required
               />
             </div>
           </div>
@@ -30,6 +33,6 @@ const ContactBar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ContactBar;

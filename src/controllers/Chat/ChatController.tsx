@@ -7,6 +7,10 @@ const ChatController = (props: any) => {
   //hooks for chat info
   const [chats, setChats] = useState();
   const [activeChat, setActiveChat] = useState();
+  //used to search chats by user names
+  const [chatSearch, setChatSearch] = useState("");
+  //used to search messages by content
+  const [messageSearch, setMessageSearch] = useState("");
 
   //load profile info if not already loaded
   const uri_profile_info = `${Endpoints.route}/${
@@ -57,6 +61,11 @@ const ChatController = (props: any) => {
 
   return (
     <ChatUI
+      messageSearch={messageSearch}
+      setMessageSearch={setMessageSearch}
+      chatSearch={chatSearch}
+      setChatSearch={setChatSearch}
+      profileInfo={props.profileInfo}
       chats={chats}
       sendMessage={sendMessage}
       activeChat={activeChat}

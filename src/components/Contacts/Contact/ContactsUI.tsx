@@ -11,7 +11,11 @@ const ContactsUI = (props: any) => {
     <div className="col-4 contact-box">
       <div className="h-100 d-flex flex-column">
         <div className="flex-grow-1 " style={style}>
-          <Contacts chats={props.chats} setActiveChat={props.setActiveChat} />
+          <Contacts
+            chatSearch={props.chatSearch}
+            chats={props.chats}
+            setActiveChat={props.setActiveChat}
+          />
         </div>
       </div>
     </div>

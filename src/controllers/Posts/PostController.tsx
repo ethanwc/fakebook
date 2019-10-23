@@ -18,7 +18,8 @@ const PostsController = (props: any) => {
       props.setPosts(result.data.posts);
       const profile = await Axios.get(uri_profile_info, {});
       //todo: check here
-      // props.setProfileInfo(profile.data);
+      console.log(profile.data);
+      props.setProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -248,6 +249,7 @@ const PostsController = (props: any) => {
 
   return (
     <PostsUI
+      profileInfo={props.profileInfo}
       submitPost={submitPost}
       submitComment={submitComment}
       posts={props.posts}

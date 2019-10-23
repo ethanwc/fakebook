@@ -17,6 +17,7 @@ const ProfileUI = (props: any) => {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
           <ProfileInfo

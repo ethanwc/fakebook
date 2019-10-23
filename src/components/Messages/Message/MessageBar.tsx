@@ -1,16 +1,18 @@
 import React from "react";
 
-const MessageBar = () => {
+const MessageBar = (props: any) => {
+  const time = new Date().toTimeString();
   return (
     <div className="row chat-box-bar">
       <div className="col-md-4 align-self-center">
-        <p className="m-0 p-0 text-imp">James Bond</p>
-        <p className="m-0 mb-1 p-0 text-unimp">Online</p>
+        <p className="m-0 p-0 text-imp">{props.profileInfo[0].name}</p>
+        <p className="m-0 mb-1 p-0 text-unimp">{props.profileInfo[0].status}</p>
       </div>
       <div className="col-4 align-self-center">
         <div className="d-flex ">
           <i className="material-icons text-unimp my-auto pr-1">access_time</i>
-          <p className="m-0 p-0">12:32PM</p>
+          {/* todo: actual time */}
+          <p className="m-0 p-0">{time}</p>
         </div>
       </div>
       <div className="col-4 my-auto">
@@ -21,6 +23,9 @@ const MessageBar = () => {
                 type="text"
                 className="form-control rounded"
                 placeholder="Search"
+                onChange={e => props.setMessageSearch(e.target.value)}
+                value={props.messageSearch}
+                required
               />
             </div>
           </div>
@@ -28,6 +33,6 @@ const MessageBar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default MessageBar;
