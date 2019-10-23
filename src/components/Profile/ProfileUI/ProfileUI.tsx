@@ -22,7 +22,7 @@ const ProfileUI = (props: any) => {
         <div className="col-3">
           <ProfileInfo
             setViewProfileInfo={props.setViewProfileInfo}
-            profileInfo={props.profileInfo}
+            viewProfileInfo={props.viewProfileInfo}
             setProfileInfo={props.setProfileInfo}
             posts={props.posts}
             followProfile={props.followProfile}

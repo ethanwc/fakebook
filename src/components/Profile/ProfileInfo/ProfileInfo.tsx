@@ -13,12 +13,13 @@ const ProfileInfo = (props: any) => {
   const [imageUrl, setImageUrl] = useState("");
   //return loading until loaded.
   //todo: loading animation
-  if (props.profileInfo === undefined || props.posts === undefined) {
+  console.log(props.viewProfileInfo);
+  if (props.viewProfileInfo === undefined || props.posts === undefined) {
     return <p>Loading</p>;
   }
 
   //setup:
-  const info = props.profileInfo[0];
+  const info = props.viewProfileInfo[0];
 
   let likes = 0,
     favorites = 0;
@@ -141,9 +142,9 @@ const ProfileInfo = (props: any) => {
         url: response.data.url,
         id: localStorage.getItem("_id")
       }).then(response => {
-        console.log(props.profileInfo);
+        console.log(props.viewProfileInfo);
         console.log(response.data);
-        props.setProfileInfo([response.data]);
+        props.setViewProfileInfo([response.data]);
       });
     });
   };
@@ -189,8 +190,8 @@ const ProfileInfo = (props: any) => {
 
           <Status
             ownProfile={ownProfile}
-            profileInfo={props.profileInfo}
-            setProfileInfo={props.setProfileInfo}
+            profileInfo={props.viewProfileInfo}
+            setProfileInfo={props.setViewProfileInfo}
           />
         </div>
 

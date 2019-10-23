@@ -35,6 +35,7 @@ const App: React.FC = () => {
 
     //todo : set view profile info to person?
     setViewProfileInfo(profile.data);
+    console.log("profile info updated");
   };
 
   const routing = (
@@ -55,7 +56,12 @@ const App: React.FC = () => {
           updateProfile={updateProfile}
         />
       </Route>
-      <Route exact path="/login" component={Login} />
+      <Route
+        exact
+        path="/login"
+        component={Login}
+        updateProfile={updateProfile}
+      />
       <Route exact path="/register" component={Register} />
       <Route exact path="/chat">
         <Chat profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
