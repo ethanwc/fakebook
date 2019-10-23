@@ -37,8 +37,6 @@ const PostComment: React.FC<PostCommentProps> = ({
 
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", authorid.toString());
-    history.push("/profile");
-    console.log(authorid);
     updateProfile(authorid);
   };
   return (

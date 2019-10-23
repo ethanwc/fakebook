@@ -22,10 +22,9 @@ const Content = (props: any) => {
       setPostContent("");
     }
   };
-  
+
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", props.authorid.toString());
-    history.push("/profile");
     props.updateProfile(props.authorid);
   };
 

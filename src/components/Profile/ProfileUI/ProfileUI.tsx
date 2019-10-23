@@ -21,6 +21,7 @@ const ProfileUI = (props: any) => {
       <div className="row flex-grow-1 no-gutter">
         <div className="col-3">
           <ProfileInfo
+            setViewProfileInfo={props.setViewProfileInfo}
             profileInfo={props.profileInfo}
             setProfileInfo={props.setProfileInfo}
             posts={props.posts}
@@ -36,6 +37,7 @@ const ProfileUI = (props: any) => {
 
             <div className="flex-grow-1" style={scrollStyle}>
               <PostsController
+                updateProfile={props.updateProfile}
                 setViewProfileInfo={props.setViewProfileInfo}
                 componentVal={false}
                 profileInfo={props.profileInfo}

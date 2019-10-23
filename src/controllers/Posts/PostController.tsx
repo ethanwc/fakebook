@@ -228,19 +228,9 @@ const PostsController = (props: any) => {
       });
   };
 
-  const updateProfile = async (id: string) => {
-    const uri_profile_info = `${Endpoints.route}/${
-      Endpoints.users
-    }/${localStorage.getItem("view_profile")}`;
-    const profile = await Axios.get(uri_profile_info, {});
-
-    //todo : set view profile info to person?
-    props.setViewProfileInfo(profile.data);
-  };
-
   return (
     <PostsUI
-      updateProfile={updateProfile}
+      updateProfile={props.updateProfile}
       setViewProfileInfo={props.setViewProfileInfo}
       profileInfo={props.profileInfo}
       submitPost={submitPost}

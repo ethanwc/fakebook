@@ -26,10 +26,25 @@ const App: React.FC = () => {
    * Route the webpage.
    */
 
+  const updateProfile = async (id: string) => {
+    const uri_profile_info = `${Endpoints.route}/${
+      Endpoints.users
+    }/${localStorage.getItem("view_profile")}`;
+    const profile = await Axios.get(uri_profile_info, {});
+    history.push("/profile");
+
+    //todo : set view profile info to person?
+    setViewProfileInfo(profile.data);
+  };
+
   const routing = (
     <Router history={history}>
       <Route exact path="/">
-        <Navbar profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
+        <Navbar
+          profileInfo={profileInfo}
+          setProfileInfo={setProfileInfo}
+          updateProfile={updateProfile}
+        />
         <Posts
           setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
@@ -37,6 +52,7 @@ const App: React.FC = () => {
           posts={posts}
           setPosts={setPosts}
           componentVal={true}
+          updateProfile={updateProfile}
         />
       </Route>
       <Route exact path="/login" component={Login} />
@@ -49,9 +65,10 @@ const App: React.FC = () => {
           viewProfileInfo={viewProfileInfo}
           setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
+          profileInfo={profileInfo}
           setPosts={setPosts}
-          profileInfo={viewProfileInfo}
           posts={posts}
+          updateProfile={updateProfile}
         />
       </Route>
     </Router>

@@ -12,6 +12,7 @@ const Navbar = (props: any) => {
   const handleRoute = () => {
     const id: string = localStorage.getItem("_id") || "null";
     localStorage.setItem("view_profile", id);
+    props.updateProfile(id);
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -31,6 +32,7 @@ const Navbar = (props: any) => {
               Chat
             </Link>
           </li>
+
           <Link to={"/profile"} className="nav-link" onClick={handleRoute}>
             Profile
           </Link>

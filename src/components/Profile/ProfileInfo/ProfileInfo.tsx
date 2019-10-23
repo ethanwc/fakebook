@@ -143,7 +143,7 @@ const ProfileInfo = (props: any) => {
       }).then(response => {
         console.log(props.profileInfo);
         console.log(response.data);
-        // props.setProfileInfo([response.data]);
+        props.setProfileInfo([response.data]);
       });
     });
   };

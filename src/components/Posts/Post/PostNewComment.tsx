@@ -15,7 +15,6 @@ const PostNewComment = (props: any) => {
 
   const redirectToProfile = () => {
     localStorage.setItem("view_profile", id);
-    history.push("/profile");
     props.updateProfile(id);
   };
 
