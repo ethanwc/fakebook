@@ -13,9 +13,8 @@ const ProfileInfo = (props: any) => {
   const [imageUrl, setImageUrl] = useState("");
   //return loading until loaded.
   //todo: loading animation
-  console.log(props.viewProfileInfo);
   if (props.viewProfileInfo === undefined || props.posts === undefined) {
-    return <p>Loading</p>;
+    return <p>Loading profile information</p>;
   }
 
   //setup:

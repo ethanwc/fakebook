@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ChatUI from "../../components/Chat/ChatUI/ChatUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
 import Axios from "axios";
+import { delay } from "q";
 
 const ChatController = (props: any) => {
   //hooks for chat info
@@ -21,14 +22,21 @@ const ChatController = (props: any) => {
     Endpoints.chat
   }/${localStorage.getItem("_id")}/${Endpoints.all}`;
 
+  const scrollToBottom = () => {
+    var objDiv = document.getElementById("chat-box");
+    if (objDiv !== null) objDiv.scrollTop = objDiv.scrollHeight;
+  };
   //load profile info and chats
   useEffect(() => {
     const fetchData = async () => {
       await Axios.get(uri_profile_info).then(async profile => {
-        // props.setProfileInfo(profile.data);
-        Axios.get(uri_all_chats).then(chats => {
+        props.setProfileInfo(profile.data);
+        Axios.get(uri_all_chats).then(async chats => {
           setChats(chats.data);
           if (chats.data.length > 0) setActiveChat(chats.data[0]._id);
+          await delay(300);
+
+          scrollToBottom();
         });
       });
     };
@@ -36,7 +44,7 @@ const ChatController = (props: any) => {
   }, []);
 
   //todo: loading animation
-  if (props.profileInfo === undefined) return <p> loading</p>;
+  if (props.profileInfo === undefined) return <p> loading chat controller</p>;
 
   const updateIndex = () => chats.findIndex((c: any) => c._id === activeChat);
 
@@ -47,7 +55,7 @@ const ChatController = (props: any) => {
         chatId: chatId,
         Authentication: `${localStorage.getItem("token")}`
       }
-    }).then(function(response) {
+    }).then(async function(response) {
       let updatedChat = response.data.chat;
       let messages = response.data.messages;
       updatedChat.messages = messages;
@@ -56,11 +64,6 @@ const ChatController = (props: any) => {
       setChats(chatsClone);
       scrollToBottom();
     });
-  };
-
-  const scrollToBottom = () => {
-    var objDiv = document.getElementById("chat-box");
-    if (objDiv !== null) objDiv.scrollTop = objDiv.scrollHeight;
   };
 
   return (

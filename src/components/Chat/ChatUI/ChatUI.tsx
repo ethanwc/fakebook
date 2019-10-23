@@ -11,7 +11,7 @@ import "../../../assets/styles/Chat/Chat.css";
  */
 const ChatUI = (props: any) => {
   if (props.chats === undefined || props.activeChat === undefined)
-    return <p> loading</p>;
+    return <p> loading chatui</p>;
 
   const filteredChat = props.chats.find(
     (x: { _id: any }) => x._id === props.activeChat

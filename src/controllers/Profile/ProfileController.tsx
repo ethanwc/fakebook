@@ -7,8 +7,6 @@ import Axios from "axios";
  * Profile Controller
  */
 const Profile = (props: any) => {
-  const id = localStorage.getItem("view_profile");
-
   //uri to update profile
   const uri_profile_update = `${Endpoints.route}/${Endpoints.users}/${Endpoints.profile}`;
   //uri to follow a profile
@@ -18,14 +16,12 @@ const Profile = (props: any) => {
     Endpoints.users
   }/${localStorage.getItem("view_profile")}`;
   //uri to get user's own posts
-  const uri_get_user_posts = `${Endpoints.route}/${Endpoints.users}/${id}/${Endpoints.posts}`;
-  //get info for the users profile
 
   useEffect(() => {
     const fetchData = async () => {
       //profile data is being overidden, update id to profile data
       const profile = await Axios.get(uri_profile_info, {});
-      // props.setViewProfileInfo(profile.data);
+      props.setViewProfileInfo(profile.data);
     };
     fetchData();
   }, []);
