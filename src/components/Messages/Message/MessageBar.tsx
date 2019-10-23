@@ -2,11 +2,30 @@ import React from "react";
 
 const MessageBar = (props: any) => {
   const time = new Date().toTimeString();
+  const showChatButton = props.hideChat ? (
+    <div className="pt-2">
+      <div className="d-flex float-right justify-content-center">
+        <i
+          className="material-icons mt-2 mr-3"
+          onClick={() => props.setHideChat(false)}
+        >
+          menu
+        </i>
+      </div>
+    </div>
+  ) : null;
   return (
     <div className="row chat-box-bar">
       <div className="col-md-4 align-self-center">
-        <p className="m-0 p-0 text-imp">{props.profileInfo[0].name}</p>
-        <p className="m-0 mb-1 p-0 text-unimp">{props.profileInfo[0].status}</p>
+        <div className="d-flex">
+          {showChatButton}
+          <div>
+            <p className="m-0 p-0 text-imp">{props.profileInfo[0].name}</p>
+            <p className="m-0 mb-1 p-0 text-unimp">
+              {props.profileInfo[0].status}
+            </p>
+          </div>
+        </div>
       </div>
       <div className="col-4 align-self-center">
         <div className="d-flex ">

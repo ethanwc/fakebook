@@ -30,11 +30,9 @@ const ProfileUI = (props: any) => {
             setStatus={props.setStatus}
           />
         </div>
-
         <div className="col-9 contact-box">
           <div className="h-100 d-flex flex-column">
             <ProfileBar />
-
             <div className="flex-grow-1" style={scrollStyle}>
               <PostsController
                 updateProfile={props.updateProfile}

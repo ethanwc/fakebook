@@ -26,7 +26,12 @@ const ContactBar = (props: any) => {
 
           <div className="p-2">
             <div className="d-flex float-right justify-content-center">
-              <i className="material-icons mt-2 ml-2 mr-2">menu</i>
+              <i
+                className="material-icons mt-2 ml-2 mr-2"
+                onClick={() => props.setHideChat(true)}
+              >
+                menu
+              </i>
             </div>
           </div>
         </div>

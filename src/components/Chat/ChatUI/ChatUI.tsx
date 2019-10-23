@@ -17,6 +17,65 @@ const ChatUI = (props: any) => {
     (x: { _id: any }) => x._id === props.activeChat
   );
 
+  const contactBar = (
+    <ContactBar
+      setHideChat={props.setHideChat}
+      chatSearch={props.chatSearch}
+      setChatSearch={props.setChatSearch}
+    />
+  );
+
+  const messageBar = (
+    <MessageBar
+      hideChat={props.hideChat}
+      setHideChat={props.setHideChat}
+      messageSearch={props.messageSearch}
+      setMessageSearch={props.setMessageSearch}
+      profileInfo={props.profileInfo}
+    />
+  );
+
+  const contactsUI = (
+    <ContactsUI
+      updateProfile={props.updateProfile}
+      chatSearch={props.chatSearch}
+      chats={props.chats}
+      setActiveChat={props.setActiveChat}
+    />
+  );
+
+  const messagesUI = (
+    <MessagesUI
+      updateProfile={props.updateProfile}
+      messageSearch={props.messageSearch}
+      messages={filteredChat.messages}
+      sendMessage={props.sendMessage}
+      activeChat={props.activeChat}
+    />
+  );
+
+  const bars = props.hideChat ? (
+    <div className="row no-gutter">
+      <div className="col-12">{messageBar}</div>
+    </div>
+  ) : (
+    <div className="row no-gutter">
+      <div className="col-4">{contactBar}</div>
+      <div className="col-8">{messageBar}</div>
+    </div>
+  );
+
+  const uis = props.hideChat ? (
+    <div className="row flex-grow-1 no-gutter">
+      <div className="col-12 chat-box">{messagesUI}</div>
+    </div>
+  ) : (
+    <div className="row flex-grow-1 no-gutter">
+      {contactsUI}
+      <div className="col-8 chat-box">{messagesUI}</div>
+    </div>
+  );
+
   return (
     <div className="container-fluid min-100 d-flex flex-column">
       <link
@@ -27,40 +86,8 @@ const ChatUI = (props: any) => {
         type="text/javascript"
         src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
       ></script>
-
-      <div className="row no-gutter">
-        <div className="col-4">
-          <ContactBar
-            chatSearch={props.chatSearch}
-            setChatSearch={props.setChatSearch}
-          />
-        </div>
-        <div className="col-8">
-          <MessageBar
-            messageSearch={props.messageSearch}
-            setMessageSearch={props.setMessageSearch}
-            profileInfo={props.profileInfo}
-          />
-        </div>
-      </div>
-
-      <div className="row flex-grow-1 no-gutter">
-        <ContactsUI
-          updateProfile={props.updateProfile}
-          chatSearch={props.chatSearch}
-          chats={props.chats}
-          setActiveChat={props.setActiveChat}
-        />
-        {/* todo: rename to ChatsUI  */}
-
-        <MessagesUI
-          updateProfile={props.updateProfile}
-          messageSearch={props.messageSearch}
-          messages={filteredChat.messages}
-          sendMessage={props.sendMessage}
-          activeChat={props.activeChat}
-        />
-      </div>
+      {bars}
+      {uis}
     </div>
   );
 };

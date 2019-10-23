@@ -12,6 +12,8 @@ const ChatController = (props: any) => {
   const [chatSearch, setChatSearch] = useState("");
   //used to search messages by content
   const [messageSearch, setMessageSearch] = useState("");
+  //hook to show/hide contact section in the chat
+  const [hideChat, setHideChat] = useState(false);
 
   //load profile info if not already loaded
   const uri_profile_info = `${Endpoints.route}/${
@@ -68,6 +70,8 @@ const ChatController = (props: any) => {
 
   return (
     <ChatUI
+      hideChat={hideChat}
+      setHideChat={setHideChat}
       updateProfile={props.updateProfile}
       messageSearch={messageSearch}
       setMessageSearch={setMessageSearch}

@@ -24,7 +24,6 @@ const MessagesUI = (props: any) => {
   // useEffect(scrollToBottom);
 
   return (
-    <div className="col-8 chat-box">
       <div className="h-100 d-flex flex-column">
         <div className="flex-grow-1" id="chat-box" style={style}>
           <Messages
@@ -41,8 +40,6 @@ const MessagesUI = (props: any) => {
           />
         </div>
       </div>
-      {/* <div ref={scrollMessagesRef} /> */}
-    </div>
   );
 };
 
