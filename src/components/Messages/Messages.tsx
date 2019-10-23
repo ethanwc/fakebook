@@ -8,10 +8,19 @@ const Messages = (props: any) => {
   const generateMessage = (authorid: string, date: string, content: string) => {
     const msg =
       authorid === localStorage.getItem("_id") ? (
-        <MessageSent messageSearch={props.messageSearch} date={date} content={content} />
+        <MessageSent
+          messageSearch={props.messageSearch}
+          date={date}
+          content={content}
+        />
       ) : (
-        //todo: author name or meh?
-        <MessageReceived messageSearch={props.messageSearch} authorid={authorid} date={date} content={content} />
+        <MessageReceived
+          messageSearch={props.messageSearch}
+          authorid={authorid}
+          date={date}
+          content={content}
+          updateProfile={props.updateProfile}
+        />
       );
     return msg;
   };

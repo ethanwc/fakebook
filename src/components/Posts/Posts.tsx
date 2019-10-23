@@ -24,6 +24,7 @@ const Posts = (props: any) => {
           title: string;
         }) => (
           <Post
+            imgurls={props.imgurls}
             updateProfile={props.updateProfile}
             setViewProfileInfo={props.setViewProfileInfo}
             Title={item.title}

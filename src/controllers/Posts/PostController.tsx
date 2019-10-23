@@ -17,10 +17,7 @@ const PostsController = (props: any) => {
       const result = await Axios(uri_get_posts);
       props.setPosts(result.data.posts);
       const profile = await Axios.get(uri_profile_info, {});
-      //todo: check here
-      console.log(profile.data);
       props.setProfileInfo(profile.data);
-      // props.setViewProfileInfo(profile.data);
     };
     fetchData();
   }, []);
@@ -74,8 +71,6 @@ const PostsController = (props: any) => {
         if (response.status === 200) {
           let postsToUpdate = [...props.posts];
           props.setPosts(postsToUpdate);
-
-          //todo: update posts by replacing current post with new post because comments are sub components
         }
       })
       .catch(function(error) {
@@ -230,6 +225,7 @@ const PostsController = (props: any) => {
 
   return (
     <PostsUI
+      imgurls={props.imgurls}
       updateProfile={props.updateProfile}
       setViewProfileInfo={props.setViewProfileInfo}
       profileInfo={props.profileInfo}

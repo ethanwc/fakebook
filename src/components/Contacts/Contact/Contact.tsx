@@ -7,13 +7,15 @@ interface ContactProps {
   chatid: string;
   chatSearch: string;
   setActiveChat: Function;
+  updateProfile: Function;
 }
 
 const Contact: React.FC<ContactProps> = ({
   authorid,
   chatid,
   setActiveChat,
-  chatSearch
+  chatSearch,
+  updateProfile
 }) => {
   //contact info hook
   const [contactInfo, setContactInfo] = React.useState();
@@ -33,7 +35,10 @@ const Contact: React.FC<ContactProps> = ({
 
   if (!contactInfo[0].name.includes(chatSearch)) return null;
 
-  console.log(contactInfo[0]);
+  const redirectToProfile = () => {
+    localStorage.setItem("view_profile", authorid.toString());
+    updateProfile(authorid);
+  };
 
   const contactImage =
     contactInfo[0].imageurl !== undefined &&
@@ -42,12 +47,14 @@ const Contact: React.FC<ContactProps> = ({
         src={contactInfo[0].imageurl}
         alt=""
         className="img-thumbnail-small m-2"
+        onClick={redirectToProfile}
       />
     ) : (
       <img
         src={require("../../../assets/logo/updog_logo.png")}
         alt=""
         className="img-thumbnail-small m-2"
+        onClick={redirectToProfile}
       />
     );
 

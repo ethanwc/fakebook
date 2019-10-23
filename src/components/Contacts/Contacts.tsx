@@ -4,8 +4,10 @@ import Contact from "./Contact/Contact";
 const Contacts = (props: any) => {
   const generateContact = (members: string[], chatid: string) => {
     const otherid = members.filter(i => i !== localStorage.getItem("_id"));
+
     return (
       <Contact
+        updateProfile={props.updateProfile}
         chatSearch={props.chatSearch}
         authorid={otherid[0]}
         chatid={chatid}

@@ -53,14 +53,13 @@ const ChatController = (props: any) => {
       updatedChat.messages = messages;
       let chatsClone = [...chats];
       chatsClone[updateIndex()] = updatedChat;
-      // console.log(updatedChat);
-      // console.log(chats);
       setChats(chatsClone);
     });
   };
 
   return (
     <ChatUI
+      updateProfile={props.updateProfile}
       messageSearch={messageSearch}
       setMessageSearch={setMessageSearch}
       chatSearch={chatSearch}

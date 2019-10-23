@@ -27,6 +27,7 @@ const PostsUI = (props: any) => {
           <div className="h-100 d-flex flex-column">
             {component}
             <Posts
+              imgurls={props.imgurls}
               updateProfile={props.updateProfile}
               setViewProfileInfo={props.setViewProfileInfo}
               profileInfo={props.profileInfo}

@@ -20,6 +20,7 @@ interface PostProps {
   likedComment: Function;
   setViewProfileInfo: Function;
   updateProfile: Function;
+  imgurls: Map<string, string>;
 }
 
 const Post: React.FC<PostProps> = ({
@@ -36,7 +37,8 @@ const Post: React.FC<PostProps> = ({
   comments,
   authorid,
   setViewProfileInfo,
-  updateProfile
+  updateProfile,
+  imgurls
 }) => {
   return (
     <div className="row flex-grow-1 no-gutter">
@@ -77,6 +79,7 @@ const Post: React.FC<PostProps> = ({
               )
             )}
             <PostNewComment
+              imgurls={imgurls}
               updateProfile={updateProfile}
               submitComment={submitComment}
               _id={_id}

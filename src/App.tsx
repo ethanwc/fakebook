@@ -22,6 +22,8 @@ const App: React.FC = () => {
   const [viewProfileInfo, setViewProfileInfo] = useState();
   const [profileInfo, setProfileInfo] = useState();
 
+  let imgurls = new Map<string, string>();
+
   /**
    * Route the webpage.
    */
@@ -47,6 +49,7 @@ const App: React.FC = () => {
           updateProfile={updateProfile}
         />
         <Posts
+          imgurls={imgurls}
           setViewProfileInfo={setViewProfileInfo}
           setProfileInfo={setProfileInfo}
           profileInfo={profileInfo}
@@ -64,7 +67,11 @@ const App: React.FC = () => {
       />
       <Route exact path="/register" component={Register} />
       <Route exact path="/chat">
-        <Chat profileInfo={profileInfo} setProfileInfo={setProfileInfo} />
+        <Chat
+          profileInfo={profileInfo}
+          setProfileInfo={setProfileInfo}
+          updateProfile={updateProfile}
+        />
       </Route>
       <Route exact path="/profile">
         <Profile

@@ -38,15 +38,6 @@ const ProfileInfo = (props: any) => {
     props.followProfile(followInfo);
   };
 
-  // const updateProfileImage = () => {
-  //   cloudinary.openUploadWidget(
-  //     { cloud_name: "cloud_name", upload_preset: "preset", tags: ["xmas"] },
-  //     function(error: any, result: any) {
-  //       console.log(result);
-  //     }
-  //   );
-  // };
-
   //hepler call for edit profile logic
   const handleEditProfile = () => {
     const updatedProfile = {

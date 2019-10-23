@@ -65,6 +65,7 @@ const Profile = (props: any) => {
 
   return (
     <ProfileUI
+      imgurls={props.imgurls}
       setViewProfileInfo={props.setViewProfileInfo}
       viewProfileInfo={props.viewProfileInfo}
       profileInfo={props.profileInfo}

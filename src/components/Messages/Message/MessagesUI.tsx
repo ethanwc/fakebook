@@ -27,7 +27,12 @@ const MessagesUI = (props: any) => {
     <div className="col-8 chat-box" id="chat-box">
       <div className="h-100 d-flex flex-column">
         <div className="flex-grow-1" style={style}>
-          <Messages messageSearch={props.messageSearch} messages={props.messages} activeChat={props.activeChat} />
+          <Messages
+            messageSearch={props.messageSearch}
+            updateProfile={props.updateProfile}
+            messages={props.messages}
+            activeChat={props.activeChat}
+          />
         </div>
         <div className="row justify-content-center align-content-center">
           <MessageInput

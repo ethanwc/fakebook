@@ -41,6 +41,7 @@ const ChatUI = (props: any) => {
 
       <div className="row flex-grow-1 no-gutter">
         <ContactsUI
+          updateProfile={props.updateProfile}
           chatSearch={props.chatSearch}
           chats={props.chats}
           setActiveChat={props.setActiveChat}
@@ -48,7 +49,7 @@ const ChatUI = (props: any) => {
         {/* todo: rename to ChatsUI  */}
 
         <MessagesUI
-          // todo: array.one() where the chatid is the active chat, then display those messages
+          updateProfile={props.updateProfile}
           messageSearch={props.messageSearch}
           messages={filteredChat.messages}
           sendMessage={props.sendMessage}
