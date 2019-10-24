@@ -7,6 +7,10 @@ const uuidv1 = require("uuid/v1");
 /**
  * Handles everything associated with posts
  */
+
+const logged = localStorage.getItem("loggedin");
+// if (logged === null || logged === "false") history.push("/login");
+
 const uri_get_posts = `${Endpoints.route}/${Endpoints.posts}`;
 const uri_profile_info = `${Endpoints.route}/${
   Endpoints.users

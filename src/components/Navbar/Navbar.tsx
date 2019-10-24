@@ -7,6 +7,8 @@ const Navbar = (props: any) => {
     localStorage.setItem("name", "null");
     localStorage.setItem("_id", "null");
     localStorage.setItem("view_profile", "null");
+    localStorage.setItem("loggedin", "false");
+
   };
   //makes sure you go to your own profile
   const handleRoute = () => {

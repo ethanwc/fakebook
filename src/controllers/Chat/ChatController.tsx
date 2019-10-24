@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ChatUI from "../../components/Chat/ChatUI/ChatUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
+import history from "../../utils/history";
 import Axios from "axios";
 import { delay } from "q";
 
 const ChatController = (props: any) => {
+  const logged = localStorage.getItem("loggedin");
+  if (logged === null || logged === "false") history.push("/login");
   //hooks for chat info
-
   //used to search chats by user names
   const [chatSearch, setChatSearch] = useState("");
   //used to search messages by content

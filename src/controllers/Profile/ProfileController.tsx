@@ -8,6 +8,8 @@ import Axios from "axios";
  * Profile Controller
  */
 const Profile = (props: any) => {
+  const logged = localStorage.getItem("loggedin");
+  if (logged === null || logged === "false") history.push("/login");
   //uri to update profile
   const uri_profile_update = `${Endpoints.route}/${Endpoints.users}/${Endpoints.profile}`;
   //uri to follow a profile
@@ -71,8 +73,6 @@ const Profile = (props: any) => {
       }
     })
       .then(function(response) {
-        console.log(response.data[0]);
-
         props.setActiveChat(response.data[0]);
 
         //load all chats a user is in
