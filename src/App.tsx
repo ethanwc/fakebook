@@ -37,9 +37,7 @@ const App: React.FC = () => {
     const profile = await Axios.get(uri_profile_info, {});
     history.push("/profile");
 
-    //todo : set view profile info to person?
     setViewProfileInfo(profile.data);
-    console.log("profile info updated");
   };
 
   const routing = (

@@ -5,8 +5,8 @@ $mainblue: #9cb3b8;
 $secondary-blue: #6cafb4;
 $black: #000000;
 
-
-body, html {
+body,
+html {
   height: 100%;
 }
 .bg {
@@ -29,6 +29,10 @@ body, html {
     background-color: $white;
     color: $blue;
   }
+}
+
+.new-user {
+  color: $white;
 }
 
 h5,

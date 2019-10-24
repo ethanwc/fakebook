@@ -60,7 +60,6 @@ const Contact: React.FC<ContactProps> = ({
       />
     );
 
-  console.log(messages);
 
   const lastMsg =
     messages !== undefined && messages.length > 0

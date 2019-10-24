@@ -15,13 +15,11 @@ export default function RegisterController() {
 
   //Register logic, request to api
   const handleRegister = (userInfo: any) => {
-    //todo: verify info before registering user... check password match and reqs, also check username length,
     Axios.post(uri, userInfo, {})
       .then(function(response) {
-        console.log("registerd?", response);
         const res = JSON.parse(JSON.stringify(response.data));
         localStorage.setItem("token", res.tokenData.token);
-        if (response.status === 201) history.push("/login");
+        history.push("/login");
       })
       .catch(function(error) {
         console.log("error" + error);

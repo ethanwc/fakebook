@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   height: 100%;
 }
 
@@ -20,6 +21,10 @@ body, html {
 .card-background button {
   background-color: #fffafa;
   color: #1f7292;
+}
+
+.new-user {
+  color: #fffafa;
 }
 
 h5,

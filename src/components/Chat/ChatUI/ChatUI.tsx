@@ -10,10 +10,7 @@ import "../../../assets/styles/Chat/Chat.css";
  * Creates the chat ui from various components, composed of contacts and messages.
  */
 const ChatUI = (props: any) => {
-  console.log(props);
   if (props.chats === undefined) return <p> loading chatui</p>;
-
-  console.log(props.activeChat, props.chats);
 
   let filteredChat =
     props.activeChat === undefined

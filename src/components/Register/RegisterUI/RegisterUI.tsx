@@ -21,14 +21,14 @@ const RegisterUI = (props: any) => {
       name: name,
       username: username,
       email: email,
-      password: password
+      password: password,
+      status: "Online"
     };
 
     if (props.checkPasswords(password, cpassword))
       props.handleRegister(userInfo);
     else console.log("fail");
   };
-  //todo: match all fields, redirect.
 
   //Register
   return (
@@ -127,7 +127,7 @@ const RegisterUI = (props: any) => {
                     Sign Up
                   </button>
                   <div className="d-flex align-items-center justify-content-end">
-                    <a href="/login" className="mt-2">
+                    <a href="/login" className="mt-2 register-already">
                       Already Registered?
                     </a>
                   </div>

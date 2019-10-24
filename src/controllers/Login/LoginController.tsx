@@ -12,7 +12,6 @@ export default function LoginController(props: any) {
 
   //Login logic, request to api
   const handleLogin = (userInfo: any) => {
-    console.log("starting");
     Axios.post(uri, userInfo, {})
       .then(function(response) {
         const res = JSON.parse(JSON.stringify(response.data));
@@ -29,7 +28,6 @@ export default function LoginController(props: any) {
         const fetchData = async () => {
           await Axios.get(uri_profile_info).then(async profile => {
             props.setProfileInfo(profile.data);
-            console.log(profile.data);
 
             history.push("/");
           });

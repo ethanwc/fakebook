@@ -84,7 +84,7 @@ const LoginUI = (props: {
                     Sign in
                   </button>
                   <div className="d-flex align-items-center justify-content-end">
-                    <a href="/register" className="mt-2">
+                    <a href="/register" className="mt-2 new-user">
                       New User?
                     </a>
                   </div>

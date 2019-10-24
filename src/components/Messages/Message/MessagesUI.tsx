@@ -9,37 +9,23 @@ const MessagesUI = (props: any) => {
     scrollbarWidth: "none"
   };
 
-  //todo: scroll to bottom
-  const scrollMessagesRef = useRef(null);
-
-  // const scrollToBottom = () => {
-  //   let chatbox = document.getElementById("chat-box");
-  //   if (chatbox !== null) {
-  //     chatbox.scrollTop = chatbox.scrollHeight;
-  //     console.log(chatbox.scrollHeight);
-  //     chatbox.scrollTo(0, chatbox.scrollHeight);
-  //   }
-  // };
-
-  // useEffect(scrollToBottom);
-
   return (
-      <div className="h-100 d-flex flex-column">
-        <div className="flex-grow-1" id="chat-box" style={style}>
-          <Messages
-            messageSearch={props.messageSearch}
-            updateProfile={props.updateProfile}
-            messages={props.messages}
-            activeChat={props.activeChat}
-          />
-        </div>
-        <div className="row justify-content-center align-content-center">
-          <MessageInput
-            activeChat={props.activeChat}
-            sendMessage={props.sendMessage}
-          />
-        </div>
+    <div className="h-100 d-flex flex-column">
+      <div className="flex-grow-1" id="chat-box" style={style}>
+        <Messages
+          messageSearch={props.messageSearch}
+          updateProfile={props.updateProfile}
+          messages={props.messages}
+          activeChat={props.activeChat}
+        />
       </div>
+      <div className="row justify-content-center align-content-center">
+        <MessageInput
+          activeChat={props.activeChat}
+          sendMessage={props.sendMessage}
+        />
+      </div>
+    </div>
   );
 };
 

@@ -41,7 +41,11 @@ const Status = (props: any) => {
       });
   };
 
-  if (props.profileInfo === undefined) return <p> loading</p>;
+  if (
+    props.profileInfo === undefined ||
+    props.profileInfo[0].status === undefined
+  )
+    return <p> loading</p>;
 
   const currentStatus: CSSProperties = (() => {
     switch (props.profileInfo[0].status) {
