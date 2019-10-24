@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import { Dropdown } from "react-bootstrap";
 import Endpoints from "../../assets/endpoints/endpoints.json";
+import history from "../../utils/history";
 import Axios from "axios";
 
 const Status = (props: any) => {
@@ -19,6 +20,8 @@ const Status = (props: any) => {
   const dropStyle: CSSProperties = {
     backgroundColor: "white"
   };
+
+  if (localStorage.getItem("loggedin") === null) history.push("/login");
 
   //uri to set status
   const uri_profile_status = `${Endpoints.route}/${Endpoints.users}/${Endpoints.status}`;
