@@ -6,7 +6,7 @@ const Posts = (props: any) => {
   if (props.posts === undefined) return <p>Loading</p>;
 
   //only show the posts of the profile being viewed hence we are already in profile view.
-  const filteredPosts =
+  let filteredPosts =
     history.location.pathname === "/profile"
       ? props.posts.filter(
           (i: any) => i.authorid === localStorage.getItem("view_profile")
@@ -22,12 +22,14 @@ const Posts = (props: any) => {
           authorid: string;
           content: string;
           title: string;
+          type: string;
         }) => (
           <Post
             imgurls={props.imgurls}
             updateProfile={props.updateProfile}
             setViewProfileInfo={props.setViewProfileInfo}
             Title={item.title}
+            type={item.type}
             authorid={item.authorid}
             Content={item.content}
             submitComment={props.submitComment}

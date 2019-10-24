@@ -1,19 +1,17 @@
 import React from "react";
 
 interface PostBodyProps {
-  Content: String;
+  Content: string;
+  type: string;
 }
-const PostBody: React.FC<PostBodyProps> = ({ Content }) => {
-  return (
-    <div className="d-flex justify-content-between comment">
+const PostBody: React.FC<PostBodyProps> = ({ Content, type }) => {
+  const post =
+    type === "image" ? (
+      <img src={Content} alt="" className="w-100" />
+    ) : (
       <p className="text-imp m-2 pl-2 pr-2">{Content}</p>
+    );
 
-      {/* <img
-        src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&w=1000&q=80"
-        alt=""
-        className="w-100"
-      /> */}
-    </div>
-  );
+  return <div className="d-flex justify-content-between comment">{post}</div>;
 };
 export default PostBody;

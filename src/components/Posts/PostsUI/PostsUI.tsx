@@ -1,6 +1,5 @@
 import React from "react";
 import Content from "../Content/Content";
-import Navbar from "../../Navbar/Navbar";
 import Posts from "../Posts";
 import "../../../assets/styles/Post/posts.css";
 

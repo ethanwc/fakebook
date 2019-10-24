@@ -1,7 +1,7 @@
 import React from "react";
 
 const MessageBar = (props: any) => {
-  const time = new Date().toTimeString();
+  const time = new Date().toLocaleTimeString();
   const showChatButton = props.hideChat ? (
     <div className="pt-2">
       <div className="d-flex float-right justify-content-center">

@@ -10,6 +10,7 @@ interface PostProps {
   Content: string;
   _id: string;
   authorid: string;
+  type: string;
   comments: [];
   submitComment: Function;
   favoritePost: Function;
@@ -38,7 +39,8 @@ const Post: React.FC<PostProps> = ({
   authorid,
   setViewProfileInfo,
   updateProfile,
-  imgurls
+  imgurls,
+  type
 }) => {
   return (
     <div className="row flex-grow-1 no-gutter">
@@ -56,7 +58,7 @@ const Post: React.FC<PostProps> = ({
               authorid={authorid}
               setViewProfileInfo={setViewProfileInfo}
             />
-            <PostBody Content={Content} />
+            <PostBody Content={Content} type={type} />
             {/* map through comments to display them. */}
             {comments.map(
               (item: {

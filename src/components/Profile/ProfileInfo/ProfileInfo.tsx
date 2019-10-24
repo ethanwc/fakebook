@@ -20,8 +20,6 @@ const ProfileInfo = (props: any) => {
   //setup:
   const info = props.viewProfileInfo[0];
 
-  console.log(props.posts[0]);
-
   const userid = localStorage.getItem("_id");
 
   let likes = 0,
@@ -152,8 +150,6 @@ const ProfileInfo = (props: any) => {
         url: response.data.url,
         id: localStorage.getItem("_id")
       }).then(response => {
-        console.log(props.viewProfileInfo);
-        console.log(response.data);
         props.setViewProfileInfo([response.data]);
       });
     });
@@ -164,8 +160,8 @@ const ProfileInfo = (props: any) => {
       withIcon={true}
       buttonText="Choose images"
       onChange={setProfileImage}
-      imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-      maxFileSize={5242880}
+      imgExtension={[".jpg", ".png"]}
+      maxFileSize={500000}
     />
   ) : info.imageurl === undefined ? (
     <img
