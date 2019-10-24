@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import LoginUI from "../../components/Login/LoginUI/LoginUI";
 import Endpoints from "../../assets/endpoints/endpoints.json";
@@ -8,6 +8,8 @@ import history from "../../utils/history";
  * Handles logic and functional views for logging in, stores session as token.
  */
 export default function LoginController(props: any) {
+  const [loginStatus, setLoginStatus] = useState(false);
+
   const uri = `${Endpoints.route}/${Endpoints.auth}/login`;
 
   //Login logic, request to api
@@ -28,7 +30,6 @@ export default function LoginController(props: any) {
         const fetchData = async () => {
           await Axios.get(uri_profile_info).then(async profile => {
             props.setProfileInfo(profile.data);
-
             history.push("/");
           });
         };
@@ -36,9 +37,9 @@ export default function LoginController(props: any) {
         fetchData();
       })
       .catch(function(error) {
-        console.log("error: " + error);
+        setLoginStatus(true);
       });
   };
 
-  return <LoginUI handleLogin={handleLogin} />;
+  return <LoginUI handleLogin={handleLogin} loginStatus={loginStatus} />;
 }

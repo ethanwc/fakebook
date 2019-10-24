@@ -21,7 +21,11 @@ const Status = (props: any) => {
     backgroundColor: "white"
   };
 
-  if (localStorage.getItem("loggedin") === null) history.push("/login");
+  if (
+    localStorage.getItem("loggedin") === null ||
+    localStorage.getItem("_id") === "null"
+  )
+    history.push("/login");
 
   //uri to set status
   const uri_profile_status = `${Endpoints.route}/${Endpoints.users}/${Endpoints.status}`;

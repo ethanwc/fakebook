@@ -7,30 +7,28 @@ const logoStyle = {
 };
 
 //UI for logging in.
-const LoginUI = (props: {
-  handleLogin: (arg0: {
-    name: string;
-    email: string;
-    password: string;
-  }) => void;
-}) => {
+const LoginUI = (props: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   //Submits form, prevents page refresh
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const userInfo = {
-      name: "steve",
       email: email,
       password: password
     };
     props.handleLogin(userInfo);
   };
 
+  const loginFailed = props.loginStatus ? (
+    <div className="alert alert-danger mt-4" role="alert">
+      <strong>Login Failed, incorrect info! </strong>
+    </div>
+  ) : null;
+
   //Login
   return (
-    <body className="bg">
+    <body className="bg1">
       <div className="container">
         <div className="row no-gutter">
           <div className="col-4 offset-8">
@@ -57,7 +55,6 @@ const LoginUI = (props: {
                       required
                     />
                   </div>
-
                   <div className="form-label-group mt-4">
                     <input
                       type="password"
@@ -69,7 +66,6 @@ const LoginUI = (props: {
                       required
                     />
                   </div>
-
                   <div className="custom-control custom-checkbox">
                     <input
                       type="checkbox"
@@ -83,6 +79,7 @@ const LoginUI = (props: {
                   >
                     Sign in
                   </button>
+                  {loginFailed}
                   <div className="d-flex align-items-center justify-content-end">
                     <a href="/register" className="mt-2 new-user">
                       New User?

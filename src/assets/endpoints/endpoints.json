@@ -1,5 +1,5 @@
 {
-  "route": "https://updog-api.azurewebsites.net/api",
+  "route": "http://localhost:8000/api",
   "posts": "posts",
   "auth": "auth",
   "users": "users",

@@ -13,6 +13,7 @@ const RegisterUI = (props: any) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setcPassword] = useState("");
+  const [passMatch, setPassMatch] = useState(true);
 
   //Submits form, prevents page refresh
   const handleSubmit = (event: { preventDefault: () => void }) => {
@@ -27,8 +28,14 @@ const RegisterUI = (props: any) => {
 
     if (props.checkPasswords(password, cpassword))
       props.handleRegister(userInfo);
-    else console.log("fail");
+    else setPassMatch(false);
   };
+
+  const passDontMatch = !passMatch ? (
+    <div className="alert alert-danger mt-4" role="alert">
+      <strong>Passwords don't match! </strong>
+    </div>
+  ) : null;
 
   //Register
   return (
@@ -113,6 +120,7 @@ const RegisterUI = (props: any) => {
                       required
                     />
                   </div>
+
                   <div className="custom-control custom-checkbox">
                     <input
                       type="checkbox"
@@ -120,12 +128,15 @@ const RegisterUI = (props: any) => {
                       id="customCheck1"
                     />
                   </div>
+
                   <button
                     className="btn btn-md btn-primary btn-block text-uppercase"
                     type="submit"
                   >
                     Sign Up
                   </button>
+                  {passDontMatch}
+
                   <div className="d-flex align-items-center justify-content-end">
                     <a href="/login" className="mt-2 register-already">
                       Already Registered?
