@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../../assets/styles/Login/login.css";
+import { Link } from "react-router-dom";
 
 const logoStyle = {
   width: "80x",
@@ -80,11 +81,12 @@ const LoginUI = (props: any) => {
                     Sign in
                   </button>
                   {loginFailed}
-                  <div className="d-flex align-items-center justify-content-end">
-                    <a href="/register" className="mt-2 new-user">
-                      New User?
-                    </a>
-                  </div>
+                  <Link
+                    to={"/register"}
+                    className="mt-2 new-user justify-content-end"
+                  >
+                    New User?
+                  </Link>
                 </form>
               </div>
             </div>

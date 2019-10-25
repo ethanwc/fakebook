@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../../assets/styles/Register/register.css";
+import { Link } from "react-router-dom";
 
 const logoStyle = {
   width: "80x",
@@ -137,11 +138,12 @@ const RegisterUI = (props: any) => {
                   </button>
                   {passDontMatch}
 
-                  <div className="d-flex align-items-center justify-content-end">
-                    <a href="/login" className="mt-2 register-already">
-                      Already Registered?
-                    </a>
-                  </div>
+                  <Link
+                    to={"/register"}
+                    className="mt-2 register-already justify-content-end"
+                  >
+                    New User?
+                  </Link>
                 </form>
               </div>
             </div>
