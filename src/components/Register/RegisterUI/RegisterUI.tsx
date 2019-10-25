@@ -139,7 +139,7 @@ const RegisterUI = (props: any) => {
                   {passDontMatch}
 
                   <Link
-                    to={"/register"}
+                    to={"/login"}
                     className="mt-2 register-already justify-content-end"
                   >
                     New User?
